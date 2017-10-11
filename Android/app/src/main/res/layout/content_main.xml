@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/content_main"
+    tools:context=".budgetmobile.MainActivity"
+    tools:showIn="@layout/activity_main"
+    android:gravity="top|center_horizontal"
+    android:layout_gravity="top|center_horizontal"
+    android:orientation="vertical"
+    android:layout_marginTop="15dp">
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/edit_text_height"
+        android:id="@+id/username"
+        android:singleLine="true"
+        android:hint="@string/label_username"
+        android:textAllCaps="false"
+        android:textColorHint="@android:color/black"
+        android:textSize="16sp"
+        android:textColor="@android:color/black"
+        android:background="@drawable/edittext_rounded_corners"
+        android:paddingLeft="10dp"
+        android:layout_marginBottom="5dp"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/edit_text_height"
+        android:inputType="textPassword"
+        android:singleLine="true"
+        android:ems="10"
+        android:id="@+id/password"
+        android:layout_below="@+id/username"
+        android:hint="@string/label_password"
+        android:textColorHint="@android:color/black"
+        android:textSize="16sp"
+        android:textColor="@android:color/black"
+        android:background="@drawable/edittext_rounded_corners"
+        android:layout_marginBottom="5dp"
+        android:paddingLeft="10dp"/>
+
+    <FrameLayout style="?android:attr/buttonStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/green_rectangle"
+        android:layout_marginBottom="20dp">
+        <Button android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/label_login"
+            android:textSize="20sp"
+            android:textColor="@android:color/white"
+            android:textAllCaps="false"
+            android:textStyle="bold"
+            android:background="@drawable/green_rectangle"
+            android:drawableLeft="@drawable/ic_input_white_36dp"
+            android:gravity="center"
+            android:layout_gravity="center_horizontal|center_vertical"
+            android:textAlignment="center"
+            android:onClick="goLogin"/>
+    </FrameLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:text="@string/label_lookup_account_directions"
+        android:gravity="center"
+        android:layout_gravity="center_horizontal|center_vertical"
+        android:textAlignment="center" />
+
+    <EditText android:layout_width="match_parent"
+        android:layout_height="@dimen/edit_text_height"
+        android:id="@+id/phone_number"
+        android:hint="@string/label_lookup_account_hint"
+        android:singleLine="true"
+        android:textColorHint="@android:color/black"
+        android:textSize="16sp"
+        android:textColor="@android:color/black"
+        android:background="@drawable/edittext_rounded_corners"
+        android:paddingLeft="10dp"
+        android:inputType="number"
+        android:layout_marginBottom="5dp"/>
+
+    <FrameLayout style="?android:attr/buttonStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/orange_rectangle">
+        <Button android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/label_lookup_account"
+            android:textSize="20sp"
+            android:textColor="@android:color/white"
+            android:textAllCaps="false"
+            android:textStyle="bold"
+            android:background="@drawable/orange_rectangle"
+            android:drawableLeft="@drawable/ic_search_white_36dp"
+            android:gravity="center"
+            android:layout_gravity="center_horizontal|center_vertical"
+            android:textAlignment="center"
+            android:onClick="goLookupAccount"/>
+    </FrameLayout>
+</LinearLayout>

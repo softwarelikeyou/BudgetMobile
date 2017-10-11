@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns="http://www.budgetprepay.com/MVNO/Topup"
+	       xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+	       xmlns:tns="http://www.budgetprepay.com/MVNO/Topup"
+	       targetNamespace="http://www.budgetprepay.com/MVNO/Topup"
+	       elementFormDefault="qualified" 
+	       attributeFormDefault="unqualified">
+ <xs:element name="EnterOrderDetailsRequest" 
+             type="tns:EnterOrderDetailsRequest">
+  <xs:annotation>
+   <xs:documentation>Enter Order Details Request</xs:documentation>
+   <xs:documentation>If Cancel is not received within 120 seconds, request will be committed</xs:documentation>
+  </xs:annotation>
+ </xs:element>
+ 
+ <xs:element name="EnterOrderDetailsResponse" 
+             type="tns:EnterOrderDetailsResponse">
+  <xs:annotation>
+   <xs:documentation>Enter Order Details Response</xs:documentation>
+  </xs:annotation>
+ </xs:element>
+ 
+ <xs:complexType name="EnterOrderDetailsRequest">
+  <xs:sequence>
+   <xs:element name="messageHeader" type="messageHeaderType" minOccurs="1">
+    <xs:annotation>
+     <xs:documentation>Valid MVNO username</xs:documentation>
+    </xs:annotation>
+   </xs:element>
+   <xs:element name="mdn" type="mdnType" minOccurs="1">
+    <xs:annotation>
+     <xs:documentation>MDN</xs:documentation>
+    </xs:annotation>
+   </xs:element>
+   <xs:element name="productId" type="productIdType" minOccurs="1">
+    <xs:annotation>
+     <xs:documentation>ProductId supplied by Budget that relates to our TopUp products. Enumerated list</xs:documentation>
+     <xs:documentation>1 - 100 Voice minutes</xs:documentation>
+     <xs:documentation>2 - 250 Voice minutes</xs:documentation>
+     <xs:documentation>3 - 400 VOice minutes</xs:documentation>
+     <xs:documentation>4 - 1000 Text messages</xs:documentation>
+     <xs:documentation>5 - 2000 Text messages</xs:documentation>
+     <xs:documentation>6 - 4000 Text messages</xs:documentation>
+    </xs:annotation>
+   </xs:element>
+   <xs:element name="referenceId" type="referenceIdType" minOccurs="0">
+    <xs:annotation>
+     <xs:documentation>Order identifier, if not supplied one will be generated</xs:documentation>
+    </xs:annotation>
+   </xs:element>
+  </xs:sequence>
+ </xs:complexType>
+ 
+ <xs:element name="CancelOrderRequest" 
+             type="tns:CancelOrderRequest">
+  <xs:annotation>
+   <xs:documentation>Cancel Order Request</xs:documentation>
+  </xs:annotation>
+ </xs:element>
+ 
+ <xs:element name="CancelOrderResponse" 
+             type="tns:CancelOrderResponse">
+  <xs:annotation>
+   <xs:documentation>Cancel Order Response</xs:documentation>
+  </xs:annotation>
+ </xs:element>
+ 
+ <xs:complexType name="CancelOrderRequest">
+  <xs:sequence>
+   <xs:element name="messageHeader" type="messageHeaderType" minOccurs="1">
+    <xs:annotation>
+     <xs:documentation>Valid MVNO username</xs:documentation>
+    </xs:annotation>
+   </xs:element> 
+   <xs:element name="referenceId" type="referenceIdType" minOccurs="1">
+    <xs:annotation>
+     <xs:documentation>Reference id returned from EnterOrderDetails request</xs:documentation>
+     <xs:documentation>If not supplied, one will be generated</xs:documentation>
+    </xs:annotation>
+   </xs:element>
+   <xs:element name="reason" type="reasonType" minOccurs="0">
+    <xs:annotation>
+     <xs:documentation>Reason for the cancel, Cancel (default), Refund. Enumerated list</xs:documentation>
+    </xs:annotation>
+   </xs:element>
+  </xs:sequence>
+ </xs:complexType>
+ 
+ <xs:complexType name="EnterOrderDetailsResponse">
+  <xs:sequence>
+   <xs:element name="referenceId" type="referenceIdType" minOccurs="1">
+    <xs:annotation>
+     <xs:documentation>On success, a reference id will be returned</xs:documentation>
+    </xs:annotation>
+   </xs:element>
+   <xs:element name="returnMessage" type="returnMessageType" minOccurs="1">
+    <xs:annotation>
+     <xs:documentation>indicates success or failure, with description</xs:documentation>
+    </xs:annotation>
+   </xs:element>
+  </xs:sequence>
+ </xs:complexType>
+ 
+ <xs:complexType name="CancelOrderResponse">
+  <xs:sequence>
+   <xs:element name="returnMessage" type="returnMessageType" minOccurs="1">
+    <xs:annotation>
+     <xs:documentation>indicates success or failure, with description</xs:documentation>
+    </xs:annotation>
+   </xs:element>
+  </xs:sequence>
+ </xs:complexType>
+ 
+ <xs:simpleType name="mdnType">
+  <xs:restriction base="xs:string">
+   <xs:pattern value="\d{10}" />
+  </xs:restriction>
+ </xs:simpleType>
+ 
+ <xs:simpleType name="productIdType">
+  <xs:restriction base="xs:string">
+   <xs:enumeration value="100VOICEMINUTES"/>
+   <xs:enumeration value="250VOICEMINUTES"/>
+   <xs:enumeration value="400VOICEMINUTES"/>
+   <xs:enumeration value="1000TEXT"/>
+   <xs:enumeration value="2000TEXT"/>
+   <xs:enumeration value="4000TEXT"/>
+  </xs:restriction>
+ </xs:simpleType>
+
+ <xs:simpleType name="reasonType">
+  <xs:restriction base="xs:string">
+   <xs:enumeration value="CANCEL"/>
+   <xs:enumeration value="REFUND"/>
+  </xs:restriction>
+ </xs:simpleType>
+ 
+ <xs:simpleType name="referenceIdType">
+  <xs:restriction base="xs:string">
+   <xs:maxLength value="60" />
+  </xs:restriction>
+ </xs:simpleType>
+ 
+ <xs:complexType name="messageHeaderType">
+  <xs:sequence>
+   <xs:element name="username" type="xs:string"/>
+  </xs:sequence>
+ </xs:complexType>
+ 
+ <xs:complexType name="returnMessageType">
+  <xs:sequence>
+   <xs:element name="returnCode" type="xs:string"/>
+   <xs:element name="returnText" type="xs:string"/>
+  </xs:sequence>
+ </xs:complexType>
+ 
+</xs:schema>

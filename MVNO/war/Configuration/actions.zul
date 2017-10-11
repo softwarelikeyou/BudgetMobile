@@ -1,0 +1,14 @@
+<?taglib uri="/WEB-INF/tld/sly.tld" prefix="sly"?>
+<vbox use="com.budgetprepay.viewcontroller.configuration.Actions"
+	class="sly-actions-panel">
+	<a image="${sly:getImageURL('info', 'small')}" 
+		label="${sly:getLabel('Labels.UI.server-information')}" 
+		id="serverInfo" 
+		style="text-decoration: none"
+		sclass="sly-action"/>	
+	<a image="${sly:getImageURL('alarmclock', 'small')}" 
+		label="${sly:getLabel('Labels.UI.scheduler-information')}" 
+		id="schedulerInfo" 
+		style="text-decoration: none"
+		sclass="sly-action"/>			
+</vbox>

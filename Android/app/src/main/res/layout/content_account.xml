@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/content_account"
+    tools:context=".budgetmobile.MainActivity"
+    tools:showIn="@layout/activity_main"
+    android:gravity="top|center_horizontal"
+    android:layout_gravity="top|center_horizontal"
+    android:orientation="vertical"
+    android:layout_marginTop="15dp"
+    android:layout_marginLeft="5dp"
+    android:layout_marginRight="5dp">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/white">
+
+    <TableLayout android:id="@+id/accountTable"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:stretchColumns="*">
+        <TableRow android:id="@+id/discountRow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="3dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="14sp"
+                android:text="Credit Avaiable"
+                android:textColor="@android:color/black"
+                android:gravity="left"
+                android:textStyle="bold"/>
+            <TextView android:id="@+id/discount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="14sp"
+                android:textColor="@android:color/black"
+                android:gravity="left"/>
+        </TableRow>
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="3dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="14sp"
+                android:text="Plan"
+                android:textColor="@android:color/black"
+                android:gravity="left"
+                android:textStyle="bold"/>
+            <TextView android:id="@+id/plan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="14sp"
+                android:textColor="@android:color/black"
+                android:gravity="left"/>
+        </TableRow>
+        <TableRow android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="3dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="14sp"
+                android:text="Expiration Date"
+                android:textColor="@android:color/black"
+                android:gravity="left"
+                android:textStyle="bold"/>
+            <TextView android:id="@+id/expirationDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="14sp"
+                android:textColor="@android:color/black"
+                android:gravity="left" />
+        </TableRow>
+        <TableRow android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="3dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="14sp"
+                android:text="Voice Balance"
+                android:textColor="@android:color/black"
+                android:gravity="left"
+                android:textStyle="bold"/>
+            <TextView android:id="@+id/voiceBalance"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="14sp"
+                android:textColor="@android:color/black"
+                android:gravity="left"/>
+        </TableRow>
+        <TableRow android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="3dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="14sp"
+                android:text="Text Balance"
+                android:textColor="@android:color/black"
+                android:gravity="left"
+                android:textStyle="bold"/>
+            <TextView android:id="@+id/textBalance"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="14sp"
+                android:textColor="@android:color/black"
+                android:gravity="left"/>
+        </TableRow>
+        <TableRow android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="3dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="14sp"
+                android:text="Data Balance"
+                android:textColor="@android:color/black"
+                android:gravity="left"
+                android:textStyle="bold"/>
+            <TextView android:id="@+id/dataBalance"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="14sp"
+                android:textColor="@android:color/black"
+                android:gravity="left"/>
+        </TableRow>
+        <TableRow android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="3dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="14sp"
+                android:text="Phone"
+                android:textColor="@android:color/black"
+                android:gravity="left"
+                android:textStyle="bold"/>
+            <TextView android:id="@+id/phone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="14sp"
+                android:textColor="@android:color/black"
+                android:gravity="left"/>
+        </TableRow>
+        <TableRow android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="3dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="14sp"
+                android:text="Name"
+                android:textColor="@android:color/black"
+                android:gravity="left"
+                android:textStyle="bold"/>
+            <TextView android:id="@+id/name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="14sp"
+                android:textColor="@android:color/black"
+                android:gravity="left"/>
+        </TableRow>
+        <TableRow android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="3dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="14sp"
+                android:text="Service Address"
+                android:textColor="@android:color/black"
+                android:gravity="left"
+                android:textStyle="bold"
+                android:layout_marginRight="5dp"/>
+            <TextView android:id="@+id/serviceAddress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="14sp"
+                android:textColor="@android:color/black"
+                android:gravity="left" />
+        </TableRow>
+        <TableRow android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="3dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="14sp"
+                android:textColor="@android:color/black"
+                android:gravity="left"
+                android:textStyle="bold"
+                android:layout_marginRight="5dp"/>
+            <TextView android:id="@+id/serviceAddressCityStateZip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="14sp"
+                android:textColor="@android:color/black"
+                android:gravity="left" />
+        </TableRow>
+        <TableRow android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="3dp">
+
+            <TextView android:layout_span="2"
+                android:text="To update Service Address, please contact Customer Service"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="11sp"
+                android:textColor="@android:color/black"
+                android:gravity="left"/>
+        </TableRow>
+        <TableRow android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="3dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="14sp"
+                android:text="Billing Address"
+                android:textColor="@android:color/black"
+                android:gravity="left"
+                android:textStyle="bold"
+                android:layout_marginRight="5dp"/>
+            <TextView android:id="@+id/billingAddress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="14sp"
+                android:textColor="@android:color/black"
+                android:gravity="left"/>
+        </TableRow>
+        <TableRow android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="3dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="14sp"
+                android:textColor="@android:color/black"
+                android:gravity="left"
+                android:textStyle="bold"
+                android:layout_marginRight="5dp"/>
+            <TextView android:id="@+id/billingAddressCityStateZip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="14sp"
+                android:textColor="@android:color/black"
+                android:gravity="left"/>
+        </TableRow>
+    </TableLayout>
+
+    </FrameLayout>
+
+</LinearLayout>

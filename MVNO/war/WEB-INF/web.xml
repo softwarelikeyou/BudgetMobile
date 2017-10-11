@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5">
+ <display-name>MVNO</display-name>
+ 
+ <context-param>
+  <param-name>contextConfigLocation</param-name>
+  <param-value>/WEB-INF/applicationContext-security.xml, /WEB-INF/ws-servlet.xml</param-value>
+ </context-param>
+
+ <listener>
+  <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+ </listener>
+ <filter>
+  <filter-name>springSecurityFilterChain</filter-name>
+  <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
+ </filter>
+ <filter>
+  <filter-name>autoRefreshFilter</filter-name>
+  <filter-class>com.budgetprepay.viewcontroller.filter.AutoRefreshFilter</filter-class>
+ </filter>
+ <filter>	
+  <filter-name>accessControlFilter</filter-name>
+  <filter-class>com.budgetprepay.viewcontroller.filter.AccessControlFilter</filter-class>
+ </filter>
+	
+ <filter-mapping>
+  <filter-name>autoRefreshFilter</filter-name>
+  <url-pattern>/*</url-pattern>
+ </filter-mapping>
+ <filter-mapping>
+  <filter-name>springSecurityFilterChain</filter-name>
+  <url-pattern>/*</url-pattern>
+ </filter-mapping>	
+ <filter-mapping>
+  <filter-name>accessControlFilter</filter-name>
+  <url-pattern>/*</url-pattern>
+ </filter-mapping> 
+ 
+ <listener>
+  <description>Auto start and configuration of system wide components</description>
+  <display-name>System Component Configuration</display-name>
+  <listener-class>com.budgetprepay.viewcontroller.ConfigurationListener</listener-class>
+ </listener>
+ 
+ <!-- ZK -->
+ <listener>
+  <description>Used to cleanup when a session is destroyed</description>
+  <display-name>ZK Session Cleaner</display-name>
+  <listener-class>org.zkoss.zk.ui.http.HttpSessionListener</listener-class>
+ </listener>
+ 
+ <servlet>
+  <description>ZK loader for evaluating ZK pages</description>
+  <servlet-name>zkLoader</servlet-name>
+  <servlet-class>org.zkoss.zk.ui.http.DHtmlLayoutServlet</servlet-class>
+  <init-param>
+   <param-name>update-uri</param-name>
+   <param-value>/zkau</param-value>
+  </init-param>
+  <load-on-startup>1</load-on-startup>
+ </servlet>
+ 
+ <servlet-mapping>
+  <servlet-name>zkLoader</servlet-name>
+  <url-pattern>*.zul</url-pattern>
+ </servlet-mapping>
+ 
+ <servlet-mapping>
+  <servlet-name>zkLoader</servlet-name>
+  <url-pattern>*.zhtml</url-pattern>
+ </servlet-mapping>
+   
+ <servlet>
+  <description>The asynchronous update engine for ZK</description>
+  <servlet-name>auEngine</servlet-name>
+  <servlet-class>org.zkoss.zk.au.http.DHtmlUpdateServlet</servlet-class>
+ </servlet>
+ 
+ <servlet-mapping>
+  <servlet-name>auEngine</servlet-name>
+  <url-pattern>/zkau/*</url-pattern>
+ </servlet-mapping>
+ 
+ <servlet>
+  <description>The servlet loads the DSP pages.</description>
+  <servlet-name>dspLoader</servlet-name>
+  <servlet-class>org.zkoss.web.servlet.dsp.InterpreterServlet</servlet-class>
+  <init-param>
+   <param-name>class-resource</param-name>
+   <param-value>true</param-value>
+  </init-param>            
+ </servlet>
+  
+ <servlet-mapping>
+  <servlet-name>dspLoader</servlet-name>
+  <url-pattern>*.dsp</url-pattern>
+ </servlet-mapping>
+ 
+ <servlet>
+  <description>The default servlet for serving static content</description>
+  <servlet-name>default1</servlet-name>
+  <servlet-class>org.apache.catalina.servlets.DefaultServlet</servlet-class>
+  <init-param>
+   <param-name>listings</param-name>
+   <param-value>false</param-value>
+  </init-param>
+  <load-on-startup>1</load-on-startup>
+ </servlet>   
+    
+ <servlet-mapping>
+  <servlet-name>default1</servlet-name>
+  <url-pattern>/</url-pattern>
+ </servlet-mapping>
+   
+ <!-- Web Services -->
+ <servlet>
+  <servlet-name>ws</servlet-name>
+  <servlet-class>org.springframework.ws.transport.http.MessageDispatcherServlet</servlet-class>
+   <init-param>
+    <param-name>transformWsdlLocations</param-name>
+	<param-value>true</param-value>
+   </init-param>        
+  </servlet>
+    
+  <servlet-mapping>
+   <servlet-name>ws</servlet-name>
+   <url-pattern>*.wsdl</url-pattern>
+  </servlet-mapping>  
+  
+  <!-- Callback Listener -->
+  <servlet>
+   <display-name>VerizonHandler</display-name> 
+   <servlet-name>VerizonHandler</servlet-name> 
+   <servlet-class>com.budgetprepay.webservice.callbackhandler.VerizonHandler</servlet-class> 
+  </servlet>
+  <servlet-mapping>
+   <servlet-name>VerizonHandler</servlet-name> 
+   <url-pattern>/VerizonHandler</url-pattern> 
+  </servlet-mapping>
+  
+    <!-- Post Back Test Servlet -->
+  <servlet>
+   <display-name>PostBackTestServlet</display-name> 
+   <servlet-name>PostBackTestServlet</servlet-name> 
+   <servlet-class>com.budgetprepay.webservice.PostBackTestServlet</servlet-class> 
+  </servlet>
+  <servlet-mapping>
+   <servlet-name>PostBackTestServlet</servlet-name> 
+   <url-pattern>/PostBackTestServlet</url-pattern> 
+  </servlet-mapping>
+  
+  <!-- Error Request Response Servlet -->
+  <servlet>
+   <display-name>ErrorRequestResponseServlet</display-name> 
+   <servlet-name>ErrorRequestResponseServlet</servlet-name> 
+   <servlet-class>com.budgetprepay.webservice.ErrorRequestResponseServlet</servlet-class> 
+  </servlet>
+  <servlet-mapping>
+   <servlet-name>ErrorRequestResponseServlet</servlet-name> 
+   <url-pattern>/reqreserr</url-pattern> 
+  </servlet-mapping>
+  
+  <!-- Plintron Async Response Servlet --> 
+  <servlet>
+   <display-name>PlintronHandler</display-name> 
+   <servlet-name>PlintronHandler</servlet-name> 
+   <servlet-class>com.budgetprepay.webservice.callbackhandler.PlintronHandler</servlet-class> 
+  </servlet>
+  <servlet-mapping>
+   <servlet-name>PlintronHandler</servlet-name> 
+   <url-pattern>/PlintronHandler</url-pattern> 
+  </servlet-mapping>  
+  
+  <!-- Java Melody Monitor -->   
+  <filter>                
+   <filter-name>monitoring</filter-name>                 
+   <filter-class>net.bull.javamelody.MonitoringFilter</filter-class>         
+  </filter>         
+  <filter-mapping>                 
+   <filter-name>monitoring</filter-name>                 
+   <url-pattern>/*</url-pattern>         
+  </filter-mapping>         
+  <listener>                 
+   <listener-class>net.bull.javamelody.SessionListener</listener-class>         
+  </listener> 
+     
+ <welcome-file-list>
+  <welcome-file>index.html</welcome-file>
+  <welcome-file>index.htm</welcome-file>
+  <welcome-file>index.jsp</welcome-file>
+  <welcome-file>default.html</welcome-file>
+  <welcome-file>default.htm</welcome-file>
+  <welcome-file>default.jsp</welcome-file>
+  <welcome-file>index.zul</welcome-file>
+  <welcome-file>base.zul</welcome-file>
+ </welcome-file-list>
+</web-app>

@@ -1,0 +1,59 @@
+<BeQuick product="OSS">
+  <session>
+    <clec>
+      <id>213</id>
+      <agentUser>
+        <username>CintexRetailGSM</username>
+        <token>8WXJSWVWZX6T7ZE</token>
+      </agentUser>
+    </clec>
+  </session>
+  <request type="Activate">
+    <activityType>CONVERSION</activityType>
+    <esn></esn>
+    <planId></planId>
+    <physicalAddress>
+      <firstName></firstName>
+      <lastName></lastName>
+      <address1></address1>
+      <address2></address2>
+      <city></city>
+      <state></state>
+      <zip></zip>
+    </physicalAddress>
+    <shippingAddress>
+      <firstName></firstName>
+      <lastName></lastName>
+      <address1></address1>
+      <address2></address2>
+      <city></city>
+      <state></state>
+      <zip></zip>
+    </shippingAddress>
+    <portInfo>
+      <mdn></mdn>
+      <authorizedBy>self</authorizedBy>
+      <billing>
+        <firstName></firstName>
+        <lastName></lastName>
+        <address>
+          <streetNumber></streetNumber>
+          <streetName></streetName>
+          <streetDirection></streetDirection>
+          <line2></line2>
+          <city></city>
+          <state></state>
+          <zip></zip>
+        </address>
+      </billing>
+      <oldProvider>
+          <account></account>
+          <password></password>
+          <esn></esn>
+      </oldProvider>
+    </portInfo>
+    <!-- esn, planId, phys zip, phys state required -->
+    <!-- ALL portInfo fields required -->
+  </request>
+</BeQuick>
+

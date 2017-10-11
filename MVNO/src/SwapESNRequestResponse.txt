@@ -1,0 +1,33 @@
+<BeQuick product="OSS">
+  <session>
+    <clec>
+      <id>213</id>
+      <agentUser>
+        <username>budgetprepay</username>
+        <token>F7MY6JVMDRTUB8E</token>
+      </agentUser>
+    </clec>
+  </session>
+  <request type="SwapESN">
+    <mdn>(318) 5072085</mdn>
+    <newESN>8901260723152106913</newESN>
+    <!-- mdn AND newESN required -->
+  </request>
+</BeQuick>
+
+<BeQuick product="OSS">
+  <response timestamp="20140114221912" status="success" type="SwapESNResponse">
+    <mdn>(318) 5072085</mdn>
+    <msid></msid>
+    <msl></msl>
+    <esn>8901260723152106913</esn>
+  </response>
+  <session>
+    <clec>
+      <overrides></overrides>
+      <id>213</id>
+    </clec>
+    <timestamp>20140114221909</timestamp>
+    <id></id>
+  </session>
+</BeQuick>

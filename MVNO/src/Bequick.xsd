@@ -1,0 +1,671 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ <xs:schema xmlns="http://www.budgetprepay.com/MVNO/Bequick"
+	        xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+	        xmlns:tns="http://www.budgetprepay.com/MVNO/Bequick"
+	        targetNamespace="http://www.budgetprepay.com/MVNO/Bequick"
+	        elementFormDefault="qualified" 
+	        attributeFormDefault="unqualified">
+ <xs:element name="GetCoverageRequest" 
+             type="tns:GetCoverageRequest">
+  <xs:annotation>
+   <xs:documentation>This request will check if there is coverage in the zip provided</xs:documentation>
+   <xs:documentation>zip required</xs:documentation>
+  </xs:annotation>
+ </xs:element>
+ 
+ <xs:element name="GetCoverageResponse" 
+             type="tns:GetCoverageResponse">
+  <xs:annotation>
+   <xs:documentation></xs:documentation>
+  </xs:annotation>
+ </xs:element>
+ 
+ <xs:complexType name="GetCoverageRequest">
+  <xs:sequence>
+   <xs:element name="messageHeader" type="messageHeaderType" minOccurs="1">
+    <xs:annotation>
+     <xs:documentation>Valid MVNO username</xs:documentation>
+    </xs:annotation>
+   </xs:element>
+   <xs:element name="carrier" type="xs:string" minOccurs="0">
+    <xs:annotation>
+     <xs:documentation>Carrier name, default T-Mobile</xs:documentation>
+    </xs:annotation>
+   </xs:element>
+   <xs:element name="zip" type="zipCodeType" minOccurs="1">
+    <xs:annotation>
+     <xs:documentation>Zip Code, 5 digits, required</xs:documentation>
+    </xs:annotation>
+   </xs:element>
+   <xs:element name="referenceId" type="referenceIdType" minOccurs="0">
+    <xs:annotation>
+     <xs:documentation>Order identifier, if not supplied one will be generated</xs:documentation>
+    </xs:annotation>
+   </xs:element>
+  </xs:sequence>
+ </xs:complexType>
+ 
+ <xs:complexType name="GetCoverageResponse">
+  <xs:sequence>
+   <xs:element name="referenceId" type="referenceIdType" minOccurs="1">
+    <xs:annotation>
+     <xs:documentation>On success, a reference id will be returned</xs:documentation>
+    </xs:annotation>
+   </xs:element>
+   <xs:element name="returnMessage" type="returnMessageType" minOccurs="1">
+    <xs:annotation>
+     <xs:documentation>indicates success or failure, with description</xs:documentation>
+    </xs:annotation>
+   </xs:element>
+   <xs:element name="npaNxx" type="npaNxxType" minOccurs="0" />
+   <xs:element name="zip" type="zipCodeType" minOccurs="0" />   
+   <xs:element name="coverageQualityCdma" type="xs:string" minOccurs="0" /> 
+   <xs:element name="coverageQualityIden" type="xs:string" minOccurs="0" /> 
+   <xs:element name="is3g" type="trueFalseType" minOccurs="0" /> 
+   <xs:element name="csa" type="xs:string" minOccurs="0" /> 
+  </xs:sequence>
+ </xs:complexType>
+	
+ <xs:element name="GetServiceInformationRequest" 
+             type="tns:GetServiceInformationRequest">
+  <xs:annotation>
+   <xs:documentation>Need a description of this operation</xs:documentation>
+   <xs:documentation>MDN OR ESN required</xs:documentation>
+  </xs:annotation>
+ </xs:element>
+ 
+ <xs:element name="GetServiceInformationResponse" 
+             type="tns:GetServiceInformationResponse">
+  <xs:annotation>
+   <xs:documentation></xs:documentation>
+  </xs:annotation>
+ </xs:element>
+ 
+ <xs:complexType name="GetServiceInformationRequest">
+  <xs:sequence>
+   <xs:element name="messageHeader" type="messageHeaderType" minOccurs="1">
+    <xs:annotation>
+     <xs:documentation>Valid MVNO username</xs:documentation>
+    </xs:annotation>
+   </xs:element>
+   <xs:element name="referenceId" type="referenceIdType" minOccurs="0">
+    <xs:annotation>
+     <xs:documentation>Order identifier, if not supplied one will be generated</xs:documentation>
+    </xs:annotation>
+   </xs:element>
+   <xs:choice>
+    <xs:element name="mdn" type="mdnType"/>
+    <xs:element name="esn" type="esnType"/>
+   </xs:choice>
+  </xs:sequence>
+ </xs:complexType>
+ 
+ <xs:complexType name="GetServiceInformationResponse">
+  <xs:sequence>
+   <xs:element name="referenceId" type="referenceIdType" minOccurs="1">
+    <xs:annotation>
+     <xs:documentation>On success, a reference id will be returned</xs:documentation>
+    </xs:annotation>
+   </xs:element>
+   <xs:element name="returnMessage" type="returnMessageType" minOccurs="1">
+    <xs:annotation>
+     <xs:documentation>indicates success or failure, with description</xs:documentation>
+    </xs:annotation>
+   </xs:element>
+   <xs:element name="mdn" type="xs:string" minOccurs="0"/>
+   <xs:element name="customerAccount" type="xs:string" minOccurs="0"/>
+   <xs:element name="activationDate" type="xs:string" minOccurs="0"/>
+   <xs:element name="expirationDate" type="xs:string" minOccurs="0"/>
+   <xs:element name="msid" type="xs:string" minOccurs="0"/>
+   <xs:element name="esn" type="xs:string" minOccurs="0"/>
+   <xs:element name="status" type="xs:string" minOccurs="0"/>
+   <xs:element name="activeData" type="xs:string" minOccurs="0"/>
+   <xs:element name="pendingData" type="xs:string" minOccurs="0"/>
+   <xs:element name="totalData" type="xs:string" minOccurs="0"/>
+   <xs:element name="activeTexts" type="xs:string" minOccurs="0"/>
+   <xs:element name="pendingTexts" type="xs:string" minOccurs="0"/>
+   <xs:element name="totalTexts" type="xs:string" minOccurs="0"/>
+   <xs:element name="activeMinutes" type="xs:string" minOccurs="0"/>
+   <xs:element name="pendingMinutes" type="xs:string" minOccurs="0"/>
+   <xs:element name="totalMinutes" type="xs:string" minOccurs="0"/>
+   <xs:element name="planName" type="xs:string" minOccurs="0"/>      
+   <xs:element name="planId" type="xs:string" minOccurs="0"/>    
+   <xs:element name="msl" type="xs:string" minOccurs="0"/>
+  </xs:sequence>
+ </xs:complexType>	
+
+<xs:element name="ActivateRequest" 
+             type="tns:ActivateRequest">
+  <xs:annotation>
+   <xs:documentation>This request will create a new customer record and provide an MDN back when an ESN is provided.</xs:documentation>
+   <xs:documentation>If an ESN is not provide than an order that is pending fulfillment will be sent to the MVNO.</xs:documentation>
+   <xs:documentation>ESN, planId, physical address zip, physical address state are required</xs:documentation>
+  </xs:annotation>
+ </xs:element>
+ 
+ <xs:element name="ActivateResponse" 
+             type="tns:ActivateResponse">
+  <xs:annotation>
+   <xs:documentation></xs:documentation>
+  </xs:annotation>
+ </xs:element>
+ 
+ <xs:complexType name="ActivateRequest">
+  <xs:sequence>
+   <xs:element name="messageHeader" type="messageHeaderType" minOccurs="1">
+    <xs:annotation>
+     <xs:documentation>Valid MVNO username</xs:documentation>
+    </xs:annotation>
+   </xs:element>
+   <xs:element name="referenceId" type="referenceIdType" minOccurs="0">
+    <xs:annotation>
+     <xs:documentation>Order identifier, if not supplied one will be generated</xs:documentation>
+    </xs:annotation>
+   </xs:element>   
+   <xs:element name="esn" type="esnType" minOccurs="1"/>
+   <xs:element name="planId" type="xs:string" minOccurs="1"/>
+   <xs:element name="physicalAddress" type="addressType" minOccurs="1"/>
+   <xs:element name="shippingAddress" type="addressType" minOccurs="0"/>
+  </xs:sequence>
+ </xs:complexType>
+ 
+ <xs:complexType name="ActivateResponse">
+  <xs:sequence>
+   <xs:element name="referenceId" type="referenceIdType" minOccurs="1">
+    <xs:annotation>
+     <xs:documentation>On success, a reference id will be returned</xs:documentation>
+    </xs:annotation>
+   </xs:element>
+   <xs:element name="returnMessage" type="returnMessageType" minOccurs="1">
+    <xs:annotation>
+     <xs:documentation>indicates success or failure, with description</xs:documentation>
+    </xs:annotation>
+   </xs:element>
+   <xs:element name="mdn" type="mdnType" minOccurs="0" />
+   <xs:element name="msid" type="xs:string" minOccurs="0" />   
+   <xs:element name="esn" type="esnType" minOccurs="0" /> 
+   <xs:element name="msl" type="xs:string" minOccurs="0" />
+  </xs:sequence>
+ </xs:complexType>
+ 
+ <xs:element name="SwapMDNRequest" 
+             type="tns:SwapMDNRequest">
+  <xs:annotation>
+   <xs:documentation>This request will provide a new MDN.</xs:documentation>
+  </xs:annotation>
+ </xs:element>
+ 
+ <xs:element name="SwapMDNResponse" 
+             type="tns:SwapMDNResponse">
+  <xs:annotation>
+   <xs:documentation></xs:documentation>
+  </xs:annotation>
+ </xs:element>
+ 
+ <xs:complexType name="SwapMDNRequest">
+  <xs:sequence>
+   <xs:element name="messageHeader" type="messageHeaderType" minOccurs="1">
+    <xs:annotation>
+     <xs:documentation>Valid MVNO username</xs:documentation>
+    </xs:annotation>
+   </xs:element>
+   <xs:element name="referenceId" type="referenceIdType" minOccurs="0">
+    <xs:annotation>
+     <xs:documentation>Order identifier, if not supplied one will be generated</xs:documentation>
+    </xs:annotation>
+   </xs:element>   
+   <xs:element name="mdn" type="mdnType" minOccurs="0">
+    <xs:annotation>
+     <xs:documentation>MDN, if not supplied one will be generated</xs:documentation>
+    </xs:annotation>
+   </xs:element> 
+  </xs:sequence>
+ </xs:complexType>
+ 
+ <xs:complexType name="SwapMDNResponse">
+  <xs:sequence>
+   <xs:element name="referenceId" type="referenceIdType" minOccurs="1">
+    <xs:annotation>
+     <xs:documentation>On success, a reference id will be returned</xs:documentation>
+    </xs:annotation>
+   </xs:element>
+   <xs:element name="returnMessage" type="returnMessageType" minOccurs="1">
+    <xs:annotation>
+     <xs:documentation>indicates success or failure, with description</xs:documentation>
+    </xs:annotation>
+   </xs:element>
+   <xs:element name="newMdn" type="mdnType" minOccurs="0" />
+   <xs:element name="msid" type="xs:string" minOccurs="0" />   
+  </xs:sequence>
+ </xs:complexType>
+  
+ <xs:element name="SwapESNRequest" 
+             type="tns:SwapESNRequest">
+  <xs:annotation>
+   <xs:documentation>This request will move an MDN to a new ESN.</xs:documentation>
+   <xs:documentation>MDN AND newESN required</xs:documentation>
+  </xs:annotation>
+ </xs:element>
+ 
+ <xs:element name="SwapESNResponse" 
+             type="tns:SwapESNResponse">
+  <xs:annotation>
+   <xs:documentation></xs:documentation>
+  </xs:annotation>
+ </xs:element>
+ 
+ <xs:complexType name="SwapESNRequest">
+  <xs:sequence>
+   <xs:element name="messageHeader" type="messageHeaderType" minOccurs="1">
+    <xs:annotation>
+     <xs:documentation>Valid MVNO username</xs:documentation>
+    </xs:annotation>
+   </xs:element>
+   <xs:element name="referenceId" type="referenceIdType" minOccurs="0">
+    <xs:annotation>
+     <xs:documentation>Order identifier, if not supplied one will be generated</xs:documentation>
+    </xs:annotation>
+   </xs:element>   
+   <xs:element name="mdn" type="mdnType" minOccurs="1"/>
+   <xs:element name="newEsn" type="esnType" minOccurs="1"/>
+  </xs:sequence>
+ </xs:complexType>
+ 
+ <xs:complexType name="SwapESNResponse">
+  <xs:sequence>
+   <xs:element name="referenceId" type="referenceIdType" minOccurs="1">
+    <xs:annotation>
+     <xs:documentation>On success, a reference id will be returned</xs:documentation>
+    </xs:annotation>
+   </xs:element>
+   <xs:element name="returnMessage" type="returnMessageType" minOccurs="1">
+    <xs:annotation>
+     <xs:documentation>indicates success or failure, with description</xs:documentation>
+    </xs:annotation>
+   </xs:element>
+   <xs:element name="mdn" type="mdnType" minOccurs="0" />
+   <xs:element name="msid" type="xs:string" minOccurs="0" />   
+   <xs:element name="esn" type="esnType" minOccurs="0" /> 
+   <xs:element name="msl" type="xs:string" minOccurs="0" />
+  </xs:sequence>
+ </xs:complexType>
+ 
+ <xs:element name="SuspendRequest" 
+             type="tns:SuspendRequest">
+  <xs:annotation>
+   <xs:documentation>This request will suspend a customer (no purchases can be made in a Suspend Status).</xs:documentation>
+   <xs:documentation>To Hotline the customer, use the word “hotline” in place of “suspend” below.</xs:documentation>
+   <xs:documentation>MDN required</xs:documentation>
+  </xs:annotation>
+ </xs:element>
+ 
+ <xs:element name="SuspendResponse" 
+             type="tns:SuspendResponse">
+  <xs:annotation>
+   <xs:documentation></xs:documentation>
+  </xs:annotation>
+ </xs:element>
+ 
+ <xs:complexType name="SuspendRequest">
+  <xs:sequence>
+   <xs:element name="messageHeader" type="messageHeaderType" minOccurs="1">
+    <xs:annotation>
+     <xs:documentation>Valid MVNO username</xs:documentation>
+    </xs:annotation>
+   </xs:element>
+   <xs:element name="referenceId" type="referenceIdType" minOccurs="0">
+    <xs:annotation>
+     <xs:documentation>Order identifier, if not supplied one will be generated</xs:documentation>
+    </xs:annotation>
+   </xs:element>   
+   <xs:element name="mdn" type="mdnType" minOccurs="1"/> 
+  </xs:sequence>
+ </xs:complexType>
+ 
+ <xs:complexType name="SuspendResponse">
+  <xs:sequence>
+   <xs:element name="referenceId" type="referenceIdType" minOccurs="1">
+    <xs:annotation>
+     <xs:documentation>On success, a reference id will be returned</xs:documentation>
+    </xs:annotation>
+   </xs:element>
+   <xs:element name="returnMessage" type="returnMessageType" minOccurs="1">
+    <xs:annotation>
+     <xs:documentation>indicates success or failure, with description</xs:documentation>
+    </xs:annotation>
+   </xs:element>
+  </xs:sequence>
+ </xs:complexType>
+    
+ <xs:element name="RestoreRequest" 
+             type="tns:RestoreRequest">
+  <xs:annotation>
+   <xs:documentation>This request will restore a customer to active from a hotlined status.</xs:documentation>
+   <xs:documentation>MDN required</xs:documentation>
+  </xs:annotation>
+ </xs:element>
+ 
+ <xs:element name="RestoreResponse" 
+             type="tns:RestoreResponse">
+  <xs:annotation>
+   <xs:documentation></xs:documentation>
+  </xs:annotation>
+ </xs:element>
+ 
+ <xs:complexType name="RestoreRequest">
+  <xs:sequence>
+   <xs:element name="messageHeader" type="messageHeaderType" minOccurs="1">
+    <xs:annotation>
+     <xs:documentation>Valid MVNO username</xs:documentation>
+    </xs:annotation>
+   </xs:element>
+   <xs:element name="referenceId" type="referenceIdType" minOccurs="0">
+    <xs:annotation>
+     <xs:documentation>Order identifier, if not supplied one will be generated</xs:documentation>
+    </xs:annotation>
+   </xs:element>   
+   <xs:element name="mdn" type="mdnType" minOccurs="1"/> 
+  </xs:sequence>
+ </xs:complexType>
+ 
+ <xs:complexType name="RestoreResponse">
+  <xs:sequence>
+   <xs:element name="referenceId" type="referenceIdType" minOccurs="1">
+    <xs:annotation>
+     <xs:documentation>On success, a reference id will be returned</xs:documentation>
+    </xs:annotation>
+   </xs:element>
+   <xs:element name="returnMessage" type="returnMessageType" minOccurs="1">
+    <xs:annotation>
+     <xs:documentation>indicates success or failure, with description</xs:documentation>
+    </xs:annotation>
+   </xs:element>
+  </xs:sequence>
+ </xs:complexType>
+     
+ <xs:element name="DisconnectRequest" 
+             type="tns:DisconnectRequest">
+  <xs:annotation>
+   <xs:documentation>This request will disconnect a customer.</xs:documentation>
+   <xs:documentation>MDN required</xs:documentation>
+  </xs:annotation>
+ </xs:element>
+ 
+ <xs:element name="DisconnectResponse" 
+             type="tns:DisconnectResponse">
+  <xs:annotation>
+   <xs:documentation></xs:documentation>
+  </xs:annotation>
+ </xs:element>
+ 
+ <xs:complexType name="DisconnectRequest">
+  <xs:sequence>
+   <xs:element name="messageHeader" type="messageHeaderType" minOccurs="1">
+    <xs:annotation>
+     <xs:documentation>Valid MVNO username</xs:documentation>
+    </xs:annotation>
+   </xs:element>
+   <xs:element name="referenceId" type="referenceIdType" minOccurs="0">
+    <xs:annotation>
+     <xs:documentation>Order identifier, if not supplied one will be generated</xs:documentation>
+    </xs:annotation>
+   </xs:element>   
+   <xs:element name="mdn" type="mdnType" minOccurs="1"/> 
+  </xs:sequence>
+ </xs:complexType>
+  
+ <xs:complexType name="DisconnectResponse">
+  <xs:sequence>
+   <xs:element name="referenceId" type="referenceIdType" minOccurs="1">
+    <xs:annotation>
+     <xs:documentation>On success, a reference id will be returned</xs:documentation>
+    </xs:annotation>
+   </xs:element>
+   <xs:element name="returnMessage" type="returnMessageType" minOccurs="1">
+    <xs:annotation>
+     <xs:documentation>indicates success or failure, with description</xs:documentation>
+    </xs:annotation>
+   </xs:element>
+  </xs:sequence>
+ </xs:complexType>
+   
+<xs:element name="PurchaseRequest" 
+             type="tns:PurchaseRequest">
+  <xs:annotation>
+   <xs:documentation>This request should be used to buy a plan.</xs:documentation>
+   <xs:documentation>MND and planID required</xs:documentation>
+  </xs:annotation>
+ </xs:element>
+ 
+ <xs:element name="PurchaseResponse" 
+             type="tns:PurchaseResponse">
+  <xs:annotation>
+   <xs:documentation></xs:documentation>
+  </xs:annotation>
+ </xs:element>
+    
+ <xs:complexType name="PurchaseRequest">
+  <xs:sequence>
+   <xs:element name="messageHeader" type="messageHeaderType" minOccurs="1">
+    <xs:annotation>
+     <xs:documentation>Valid MVNO username</xs:documentation>
+    </xs:annotation>
+   </xs:element>
+   <xs:element name="referenceId" type="referenceIdType" minOccurs="0">
+    <xs:annotation>
+     <xs:documentation>Order identifier, if not supplied one will be generated</xs:documentation>
+    </xs:annotation>
+   </xs:element>   
+   <xs:element name="planId" type="xs:string" minOccurs="1"/> 
+   <xs:element name="mdn" type="mdnType" minOccurs="1"/> 
+  </xs:sequence>
+ </xs:complexType>
+     
+ <xs:complexType name="PurchaseResponse">
+  <xs:sequence>
+   <xs:element name="referenceId" type="referenceIdType" minOccurs="1">
+    <xs:annotation>
+     <xs:documentation>On success, a reference id will be returned</xs:documentation>
+    </xs:annotation>
+   </xs:element>
+   <xs:element name="returnMessage" type="returnMessageType" minOccurs="1">
+    <xs:annotation>
+     <xs:documentation>indicates success or failure, with description</xs:documentation>
+    </xs:annotation>
+   </xs:element>
+  </xs:sequence>
+ </xs:complexType>
+      
+ <xs:element name="PortInRequest" 
+             type="tns:PortInRequest">
+  <xs:annotation>
+   <xs:documentation>This request moves the MDN from one carrier to another.</xs:documentation>
+   <xs:documentation>ESN, planId, physical address zip, physical address state, and ALL portInfo fields required</xs:documentation>
+  </xs:annotation>
+ </xs:element>
+ 
+ <xs:element name="PortInResponse" 
+             type="tns:PortInResponse">
+  <xs:annotation>
+   <xs:documentation></xs:documentation>
+  </xs:annotation>
+ </xs:element>
+     
+ <xs:complexType name="PortInRequest">
+  <xs:sequence>
+   <xs:element name="messageHeader" type="messageHeaderType" minOccurs="1">
+    <xs:annotation>
+     <xs:documentation>Valid MVNO username</xs:documentation>
+    </xs:annotation>
+   </xs:element>
+   <xs:element name="referenceId" type="referenceIdType" minOccurs="0">
+    <xs:annotation>
+     <xs:documentation>Order identifier, if not supplied one will be generated</xs:documentation>
+    </xs:annotation>
+   </xs:element>   
+   <xs:element name="planId" type="xs:string" minOccurs="1"/> 
+   <xs:element name="esn" type="esnType" minOccurs="1"/> 
+   <xs:element name="physicalAddress" type="addressType" minOccurs="1"/> 
+   <xs:element name="shippingAddress" type="addressType" minOccurs="0"/> 
+   <xs:element name="portInfo" type="portInfoType" minOccurs="1"/>    
+  </xs:sequence>
+ </xs:complexType>
+     
+ <xs:complexType name="PortInResponse">
+  <xs:sequence>
+   <xs:element name="referenceId" type="referenceIdType" minOccurs="1">
+    <xs:annotation>
+     <xs:documentation>On success, a reference id will be returned</xs:documentation>
+    </xs:annotation>
+   </xs:element>
+   <xs:element name="returnMessage" type="returnMessageType" minOccurs="1">
+    <xs:annotation>
+     <xs:documentation>indicates success or failure, with description</xs:documentation>
+    </xs:annotation>
+   </xs:element>
+  </xs:sequence>
+ </xs:complexType>
+         
+ <xs:element name="WirelessInitialActivationRequest" 
+             type="tns:WirelessInitialActivationRequest">
+  <xs:annotation>
+   <xs:documentation>MDN required</xs:documentation>
+  </xs:annotation>
+ </xs:element>
+ 
+ <xs:element name="WirelessInitialActivationResponse" 
+             type="tns:WirelessInitialActivationResponse">
+  <xs:annotation>
+   <xs:documentation></xs:documentation>
+  </xs:annotation>
+ </xs:element>
+           
+ <xs:complexType name="WirelessInitialActivationRequest">
+  <xs:sequence>
+   <xs:element name="messageHeader" type="messageHeaderType" minOccurs="1">
+    <xs:annotation>
+     <xs:documentation>Valid MVNO username</xs:documentation>
+    </xs:annotation>
+   </xs:element>
+   <xs:element name="referenceId" type="referenceIdType" minOccurs="0">
+    <xs:annotation>
+     <xs:documentation>Order identifier, if not supplied one will be generated</xs:documentation>
+    </xs:annotation>
+   </xs:element>   
+   <xs:element name="mdn" type="mdnType" minOccurs="1"/> 
+  </xs:sequence>
+ </xs:complexType>
+       
+ <xs:complexType name="WirelessInitialActivationResponse">
+  <xs:sequence>
+   <xs:element name="referenceId" type="referenceIdType" minOccurs="1">
+    <xs:annotation>
+     <xs:documentation>On success, a reference id will be returned</xs:documentation>
+    </xs:annotation>
+   </xs:element>
+   <xs:element name="returnMessage" type="returnMessageType" minOccurs="1">
+    <xs:annotation>
+     <xs:documentation>indicates success or failure, with description</xs:documentation>
+    </xs:annotation>
+   </xs:element>
+  </xs:sequence>
+ </xs:complexType>
+       
+ <xs:complexType name="portInfoType">
+  <xs:sequence>
+   <xs:element name="mdn" type="mdnType" minOccurs="1"/>
+   <xs:element name="authorizedBy" type="xs:string" minOccurs="1"/>
+   <xs:element name="billing" type="billingType" minOccurs="1"/>
+   <xs:element name="oldProvider" type="oldProviderType" minOccurs="1"/>
+  </xs:sequence>
+ </xs:complexType>	
+      
+ <xs:complexType name="billingType">
+  <xs:sequence>
+   <xs:element name="firstName" type="xs:string" minOccurs="1"/>
+   <xs:element name="lastName" type="xs:string" minOccurs="1"/>
+   <xs:element name="address" type="addressType1" minOccurs="1"/>
+  </xs:sequence>
+ </xs:complexType>	
+          
+ <xs:complexType name="oldProviderType">
+  <xs:sequence>
+   <xs:element name="account" type="xs:string" minOccurs="1"/>
+   <xs:element name="password" type="xs:string" minOccurs="1"/>
+   <xs:element name="esn" type="esnType" minOccurs="1"/>
+  </xs:sequence>
+ </xs:complexType>	
+                          
+ <xs:complexType name="addressType">
+  <xs:sequence>
+   <xs:element name="firstName" type="xs:string" minOccurs="0"/>
+   <xs:element name="lastName" type="xs:string" minOccurs="0"/>
+   <xs:element name="address1" type="xs:string" minOccurs="0"/>
+   <xs:element name="address2" type="xs:string" minOccurs="0"/>
+   <xs:element name="city" type="xs:string" minOccurs="0"/>
+   <xs:element name="state" type="xs:string" minOccurs="1"/>
+   <xs:element name="zip" type="zipCodeType" minOccurs="1"/>
+  </xs:sequence>
+ </xs:complexType>	
+  
+ <xs:complexType name="addressType1">
+  <xs:sequence>
+   <xs:element name="streetNumber" type="xs:string" minOccurs="0"/>
+   <xs:element name="streetName" type="xs:string" minOccurs="0"/>
+   <xs:element name="streetDirection" type="xs:string" minOccurs="0"/>
+   <xs:element name="line2" type="xs:string" minOccurs="0"/>
+   <xs:element name="city" type="xs:string" minOccurs="0"/>
+   <xs:element name="state" type="xs:string" minOccurs="1"/>
+   <xs:element name="zip" type="xs:string" minOccurs="1"/>
+  </xs:sequence>
+ </xs:complexType>	
+ 
+ <xs:simpleType name="esnType">
+  <xs:restriction base="xs:string">
+  </xs:restriction>
+ </xs:simpleType>	
+	
+ <xs:simpleType name="mdnType">
+  <xs:restriction base="xs:string">
+  </xs:restriction>
+ </xs:simpleType>
+ 
+ <xs:simpleType name="zipCodeType">
+  <xs:restriction base="xs:string">
+   <xs:pattern value="\d{5}" />
+  </xs:restriction>
+ </xs:simpleType>
+ 
+ <xs:simpleType name="referenceIdType">
+  <xs:restriction base="xs:string">
+   <xs:maxLength value="60" />
+  </xs:restriction>
+ </xs:simpleType>
+ 
+ <xs:simpleType name="npaNxxType">
+  <xs:restriction base="xs:string">
+   <xs:pattern value="\d{6}" />
+  </xs:restriction>
+ </xs:simpleType>
+ 
+ <xs:simpleType name="trueFalseType">
+  <xs:restriction base="xs:string">
+   <xs:enumeration value="true"/>
+   <xs:enumeration value="false"/>
+  </xs:restriction>
+ </xs:simpleType>
+ 
+ <xs:complexType name="messageHeaderType">
+  <xs:sequence>
+   <xs:element name="username" type="xs:string"/>
+  </xs:sequence>
+ </xs:complexType>
+ 
+ <xs:complexType name="returnMessageType">
+  <xs:sequence>
+   <xs:element name="returnCode" type="xs:string"/>
+   <xs:element name="returnText" type="xs:string"/>
+  </xs:sequence>
+ </xs:complexType>
+ 
+</xs:schema>

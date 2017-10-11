@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/content_support"
+    tools:context=".budgetmobile.MainActivity"
+    tools:showIn="@layout/activity_main"
+    android:gravity="top|center_horizontal"
+    android:layout_gravity="top|center_horizontal"
+    android:orientation="vertical"
+    android:layout_marginTop="15dp">
+
+    <FrameLayout style="?android:attr/buttonStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/darker_gray"
+        android:layout_marginBottom="5dp">
+        <Button android:layout_width="wrap_content"
+            android:layout_height="75dp"
+            android:text="@string/label_bm_tollfree"
+            android:textSize="20sp"
+            android:textColor="@android:color/white"
+            android:textAllCaps="false"
+            android:background="@android:color/darker_gray"
+            android:drawableLeft="@drawable/ic_phone_white_48dp"
+            android:gravity="center"
+            android:layout_gravity="center_horizontal|center_vertical"
+            android:textAlignment="center"
+            android:onClick="goCall" />
+    </FrameLayout>
+
+    <FrameLayout style="?android:attr/buttonStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/darker_gray"
+        android:layout_marginBottom="5dp">
+        <Button android:layout_width="wrap_content"
+            android:layout_height="75dp"
+            android:text="@string/label_website"
+            android:textSize="20sp"
+            android:textColor="@android:color/white"
+            android:textAllCaps="false"
+            android:background="@android:color/darker_gray"
+            android:drawableLeft="@drawable/ic_web_white_48dp"
+            android:gravity="center"
+            android:layout_gravity="center_horizontal|center_vertical"
+            android:textAlignment="center"
+            android:onClick="goWebsite" />
+    </FrameLayout>
+
+    <FrameLayout style="?android:attr/buttonStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/darker_gray">
+        <Button android:layout_width="wrap_content"
+            android:layout_height="75dp"
+            android:text="@string/label_chat"
+            android:textSize="20sp"
+            android:textColor="@android:color/white"
+            android:textAllCaps="false"
+            android:background="@android:color/darker_gray"
+            android:drawableLeft="@drawable/ic_chat_white_48dp"
+            android:gravity="center"
+            android:layout_gravity="center_horizontal|center_vertical"
+            android:textAlignment="center"
+            android:onClick="goChat" />
+    </FrameLayout>
+
+</LinearLayout>

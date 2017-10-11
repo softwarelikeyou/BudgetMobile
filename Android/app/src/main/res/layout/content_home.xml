@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/content_home"
+    tools:context=".budgetmobile.MainActivity"
+    tools:showIn="@layout/activity_main"
+    android:gravity="top|center_horizontal"
+    android:layout_gravity="top|center_horizontal"
+    android:orientation="vertical"
+    android:layout_marginTop="15dp">
+
+    <FrameLayout
+        style="?android:attr/buttonStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/darker_gray"
+        android:layout_marginBottom="5dp">
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:drawableRight="@drawable/ic_keyboard_arrow_right_white_48dp"
+            android:text="@string/label_account"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="@android:color/white"
+            android:textAllCaps="false"
+            android:gravity="left|center"
+            android:background="@android:color/darker_gray"
+            android:paddingLeft="20dp"
+            android:paddingRight="10dp"
+            android:onClick="goAccount"/>
+    </FrameLayout>
+
+    <FrameLayout
+        style="?android:attr/buttonStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/darker_gray"
+        android:layout_marginBottom="5dp">
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:drawableRight="@drawable/ic_keyboard_arrow_right_white_48dp"
+            android:text="@string/label_topup"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="@android:color/white"
+            android:textAllCaps="false"
+            android:gravity="left|center"
+            android:background="@android:color/darker_gray"
+            android:paddingLeft="20dp"
+            android:paddingRight="10dp"
+            android:onClick="goTopup"/>
+    </FrameLayout>
+
+    <FrameLayout style="?android:attr/buttonStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/darker_gray"
+        android:layout_marginBottom="5dp">
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:drawableRight="@drawable/ic_keyboard_arrow_right_white_48dp"
+            android:text="@string/label_regulatory"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="@android:color/white"
+            android:textAllCaps="false"
+            android:gravity="left|center"
+            android:background="@android:color/darker_gray"
+            android:paddingLeft="20dp"
+            android:paddingRight="10dp"
+            android:onClick="goRegulatory"/>
+    </FrameLayout>
+
+</LinearLayout>

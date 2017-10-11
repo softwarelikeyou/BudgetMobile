@@ -1,0 +1,36 @@
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".budgetmobile.MainActivity">
+    <item
+        android:id="@+id/action_logoff"
+        android:orderInCategory="100"
+        android:title="@string/label_logoff"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_account"
+        android:orderInCategory="101"
+        android:title="@string/label_account"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_topup"
+        android:orderInCategory="102"
+        android:title="@string/label_topup"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_regulatory"
+        android:orderInCategory="103"
+        android:title="@string/label_regulatory"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_support"
+        android:orderInCategory="104"
+        android:title="@string/label_support"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_settings"
+        android:orderInCategory="105"
+        android:title="@string/label_settings"
+        app:showAsAction="never" />
+</menu>

@@ -1,0 +1,319 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:sws="http://www.springframework.org/schema/web-services"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans 
+                           http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+                           http://www.springframework.org/schema/web-services 
+                           http://www.springframework.org/schema/web-services/web-services-2.0.xsd
+                           http://www.springframework.org/schema/context 
+                           http://www.springframework.org/schema/context/spring-context-3.0.xsd
+                           http://www.springframework.org/schema/tx 
+                           http://www.springframework.org/schema/tx/spring-tx-3.1.xsd">
+
+ <context:component-scan base-package="com.budgetprepay.webservice"/>
+ 
+ <sws:annotation-driven/>
+
+ <sws:dynamic-wsdl id="Verizon"                                                           
+	               portTypeName="Verizon"                                                         
+	               locationUri="http://mvno-api01.budgetprepay.com/MVNO/Verizon.wsdl"                                                       
+	               targetNamespace="http://mvno-api01.budgetprepay.com/MVNO/Verizon">                               
+  <sws:xsd location="classpath:Verizon.xsd"/>                                                  
+ </sws:dynamic-wsdl>
+ 	 
+ <sws:dynamic-wsdl id="Topup"                                                           
+	               portTypeName="Topup"                                                         
+	               locationUri="http://mvno-api01.budgetprepay.com/MVNO/Topup.wsdl"                                                       
+	               targetNamespace="http://mvno-api01.budgetprepay.com/MVNO/Topup">                               
+  <sws:xsd location="classpath:Topup.xsd"/>                                                  
+ </sws:dynamic-wsdl>
+ 
+ <sws:dynamic-wsdl id="Airfaire"                                                           
+	               portTypeName="Airfaire"                                                         
+	               locationUri="http://mvno-api01.budgetprepay.com/MVNO/Airfaire.wsdl"                                                       
+	               targetNamespace="http://mvno-api01.budgetprepay.com/MVNO/Airfaire">                               
+  <sws:xsd location="classpath:Airfaire.xsd"/>                                                  
+ </sws:dynamic-wsdl>
+  
+ <sws:dynamic-wsdl id="Bequick"                                                           
+	               portTypeName="Bequick"                                                         
+	               locationUri="http://mvno-api01.budgetprepay.com/MVNO/Bequick.wsdl"                                                       
+	               targetNamespace="http://mvno-api01.budgetprepay.com/MVNO/Bequick">                               
+  <sws:xsd location="classpath:Bequick.xsd"/>                                                  
+ </sws:dynamic-wsdl>
+ 
+ <sws:dynamic-wsdl id="Plintron"                                                           
+	               portTypeName="Plintron"                                                         
+	               locationUri="http://mvno-api01.budgetprepay.com/MVNO/Plintron.wsdl"                                                       
+	               targetNamespace="http://mvno-api01.budgetprepay.com/MVNO/Plintron">                               
+  <sws:xsd location="classpath:Plintron.xsd"/>                                                  
+ </sws:dynamic-wsdl>
+ 
+ <bean id="marshallingPayloadMethodProcessor" 
+       class="org.springframework.ws.server.endpoint.adapter.method.MarshallingPayloadMethodProcessor">
+  <constructor-arg ref="marshaller"/>
+ </bean>
+
+ <bean id="defaultMethodEndpointAdapter" 
+       class="org.springframework.ws.server.endpoint.adapter.DefaultMethodEndpointAdapter">  
+  <property name="methodArgumentResolvers">   
+   <list>    
+    <ref bean="marshallingPayloadMethodProcessor"/>   
+   </list>   
+  </property>  
+  <property name="methodReturnValueHandlers">   
+   <list>    
+    <ref bean="marshallingPayloadMethodProcessor"/>   
+   </list>  
+  </property> 
+ </bean>
+ 
+ <bean id="marshaller" class="org.springframework.oxm.jaxb.Jaxb2Marshaller">
+  <property name="classesToBeBound">
+   <list>     
+    <value>com.budgetprepay.webservice.pojos.verizon.ActivatePINRequest</value>
+    <value>com.budgetprepay.webservice.pojos.verizon.ActivatePINResponse</value>
+    <value>com.budgetprepay.webservice.pojos.verizon.AddAutoReplenishRequest</value>
+    <value>com.budgetprepay.webservice.pojos.verizon.AddAutoReplenishResponse</value>
+    <value>com.budgetprepay.webservice.pojos.verizon.AddBucketRequest</value>
+    <value>com.budgetprepay.webservice.pojos.verizon.AddBucketResponse</value>
+    <value>com.budgetprepay.webservice.pojos.verizon.AddHotlineRequest</value>
+    <value>com.budgetprepay.webservice.pojos.verizon.AddHotlineResponse</value>
+    <value>com.budgetprepay.webservice.pojos.verizon.AddHotlineSubscriberRequest</value>
+    <value>com.budgetprepay.webservice.pojos.verizon.AddHotlineSubscriberResponse</value>
+    <value>com.budgetprepay.webservice.pojos.verizon.ChangeESNRequest</value>
+    <value>com.budgetprepay.webservice.pojos.verizon.ChangeESNResponse</value>
+    <value>com.budgetprepay.webservice.pojos.verizon.ChangeFeaturesRequest</value>
+    <value>com.budgetprepay.webservice.pojos.verizon.ChangeFeaturesResponse</value>
+    <value>com.budgetprepay.webservice.pojos.verizon.ChangeMobileNumberRequest</value>
+    <value>com.budgetprepay.webservice.pojos.verizon.ChangeMobileNumberResponse</value>
+    <value>com.budgetprepay.webservice.pojos.verizon.ChangeRatePlanRequest</value>
+    <value>com.budgetprepay.webservice.pojos.verizon.ChangeRatePlanResponse</value>
+    <value>com.budgetprepay.webservice.pojos.verizon.ChangeSIMRequest</value>
+    <value>com.budgetprepay.webservice.pojos.verizon.ChangeSIMResponse</value>
+    <value>com.budgetprepay.webservice.pojos.verizon.DeleteAllBucketsRequest</value>
+    <value>com.budgetprepay.webservice.pojos.verizon.DeleteAllBucketsResponse</value>
+    <value>com.budgetprepay.webservice.pojos.verizon.DeleteBucketRequest</value>
+    <value>com.budgetprepay.webservice.pojos.verizon.DeleteBucketResponse</value>
+    <value>com.budgetprepay.webservice.pojos.verizon.DeleteSubscriberRequest</value>
+    <value>com.budgetprepay.webservice.pojos.verizon.DeleteSubscriberResponse</value>
+    <value>com.budgetprepay.webservice.pojos.verizon.DeviceActivationPortInRequest</value>
+    <value>com.budgetprepay.webservice.pojos.verizon.DeviceActivationPortInResponse</value>
+    <value>com.budgetprepay.webservice.pojos.verizon.DeviceActivationRequest</value>
+    <value>com.budgetprepay.webservice.pojos.verizon.DeviceActivationResponse</value>
+    <value>com.budgetprepay.webservice.pojos.verizon.DeviceAsyncResponse</value>
+    <value>com.budgetprepay.webservice.pojos.verizon.DeviceInquiryRequest</value>
+    <value>com.budgetprepay.webservice.pojos.verizon.DeviceInquiryResponse</value>
+    <value>com.budgetprepay.webservice.pojos.verizon.GetAutoReplenishRequest</value>
+    <value>com.budgetprepay.webservice.pojos.verizon.GetAutoReplenishResponse</value>
+    <value>com.budgetprepay.webservice.pojos.verizon.LineAsyncResponse</value>
+    <value>com.budgetprepay.webservice.pojos.verizon.LineInquiryRequest</value>
+    <value>com.budgetprepay.webservice.pojos.verizon.LineInquiryResponse</value>
+    <value>com.budgetprepay.webservice.pojos.verizon.OrderAsyncResponse</value>
+    <value>com.budgetprepay.webservice.pojos.verizon.OrderInquiryRequest</value>
+    <value>com.budgetprepay.webservice.pojos.verizon.OrderInquiryResponse</value>
+    <value>com.budgetprepay.webservice.pojos.verizon.PrlAsyncResponse</value>
+    <value>com.budgetprepay.webservice.pojos.verizon.PortInInquiryRequest</value>
+    <value>com.budgetprepay.webservice.pojos.verizon.PortInInquiryResponse</value>    
+    <value>com.budgetprepay.webservice.pojos.verizon.PrlInquiryRequest</value>
+    <value>com.budgetprepay.webservice.pojos.verizon.PrlInquiryResponse</value>
+    <value>com.budgetprepay.webservice.pojos.verizon.ReconnectMDNRequest</value>
+    <value>com.budgetprepay.webservice.pojos.verizon.ReconnectMDNResponse</value>
+    <value>com.budgetprepay.webservice.pojos.verizon.RemoveHotlineRequest</value>
+    <value>com.budgetprepay.webservice.pojos.verizon.RemoveHotlineResponse</value>
+    <value>com.budgetprepay.webservice.pojos.verizon.ResetFeatureRequest</value>
+    <value>com.budgetprepay.webservice.pojos.verizon.ResetFeatureResponse</value>
+    <value>com.budgetprepay.webservice.pojos.verizon.RestoreSuspendedSubscriberRequest</value>
+    <value>com.budgetprepay.webservice.pojos.verizon.RestoreSuspendedSubscriberResponse</value>
+    <value>com.budgetprepay.webservice.pojos.verizon.RevertCallsRequest</value>
+    <value>com.budgetprepay.webservice.pojos.verizon.RevertCallsResponse</value>    
+    <value>com.budgetprepay.webservice.pojos.verizon.SearchBucketRequest</value>
+    <value>com.budgetprepay.webservice.pojos.verizon.SearchBucketResponse</value>
+    <value>com.budgetprepay.webservice.pojos.verizon.SearchCDRDetailRequest</value>
+    <value>com.budgetprepay.webservice.pojos.verizon.SearchCDRDetailResponse</value>
+    <value>com.budgetprepay.webservice.pojos.verizon.SearchCDRRequest</value>
+    <value>com.budgetprepay.webservice.pojos.verizon.SearchCDRResponse</value>
+    <value>com.budgetprepay.webservice.pojos.verizon.SearchPINBatchRequest</value>
+    <value>com.budgetprepay.webservice.pojos.verizon.SearchPINBatchResponse</value>
+    <value>com.budgetprepay.webservice.pojos.verizon.SearchPINGroupRequest</value>
+    <value>com.budgetprepay.webservice.pojos.verizon.SearchPINGroupResponse</value>
+    <value>com.budgetprepay.webservice.pojos.verizon.SearchPINRequest</value>
+    <value>com.budgetprepay.webservice.pojos.verizon.SearchPINResponse</value>
+    <value>com.budgetprepay.webservice.pojos.verizon.SearchSubscriberInfoRequest</value>
+    <value>com.budgetprepay.webservice.pojos.verizon.SearchSubscriberInfoResponse</value>
+    <value>com.budgetprepay.webservice.pojos.verizon.SuspendSubscriberRequest</value>
+    <value>com.budgetprepay.webservice.pojos.verizon.SuspendSubscriberResponse</value>
+    <value>com.budgetprepay.webservice.pojos.verizon.UpdateAccountBalanceRequest</value>
+    <value>com.budgetprepay.webservice.pojos.verizon.UpdateAccountBalanceResponse</value>
+    <value>com.budgetprepay.webservice.pojos.verizon.UpdateAutoReplenishRequest</value>
+    <value>com.budgetprepay.webservice.pojos.verizon.UpdateAutoReplenishResponse</value>
+    <value>com.budgetprepay.webservice.pojos.verizon.UpdateBucketRequest</value>
+    <value>com.budgetprepay.webservice.pojos.verizon.UpdateBucketResponse</value>
+    <value>com.budgetprepay.webservice.pojos.verizon.UpdateCreditRequest</value>
+    <value>com.budgetprepay.webservice.pojos.verizon.UpdateCreditResponse</value>
+    <value>com.budgetprepay.webservice.pojos.verizon.UpdatePINBatchStatusRequest</value>
+    <value>com.budgetprepay.webservice.pojos.verizon.UpdatePINBatchStatusResponse</value>
+    <value>com.budgetprepay.webservice.pojos.verizon.UpdatePINGroupInfoRequest</value>
+    <value>com.budgetprepay.webservice.pojos.verizon.UpdatePINGroupInfoResponse</value>
+    <value>com.budgetprepay.webservice.pojos.verizon.UpdateSubscriberFieldRequest</value>
+    <value>com.budgetprepay.webservice.pojos.verizon.UpdateSubscriberFieldResponse</value>
+    <value>com.budgetprepay.webservice.pojos.verizon.ValidateDeviceRequest</value>
+    <value>com.budgetprepay.webservice.pojos.verizon.ValidateDeviceResponse</value>
+    <value>com.budgetprepay.webservice.pojos.verizon.ValidateMDNPortabilityRequest</value>
+    <value>com.budgetprepay.webservice.pojos.verizon.ValidateMDNPortabilityResponse</value>
+    <value>com.budgetprepay.webservice.pojos.verizon.VoidBatchRequest</value>
+    <value>com.budgetprepay.webservice.pojos.verizon.VoidBatchResponse</value>
+    <value>com.budgetprepay.webservice.pojos.verizon.VoidGroupRequest</value>
+    <value>com.budgetprepay.webservice.pojos.verizon.VoidGroupResponse</value>
+    <value>com.budgetprepay.webservice.pojos.verizon.VoidPINRangeRequest</value>
+    <value>com.budgetprepay.webservice.pojos.verizon.VoidPINRangeResponse</value>
+    <value>com.budgetprepay.webservice.pojos.verizon.VoidPINRequest</value>
+    <value>com.budgetprepay.webservice.pojos.verizon.VoidPINResponse</value> 
+    
+    <value>com.budgetprepay.webservice.pojos.airfaire.CancelOrderRequest</value> 
+    <value>com.budgetprepay.webservice.pojos.airfaire.CancelOrderResponse</value> 
+    <value>com.budgetprepay.webservice.pojos.airfaire.EnterOrderDetailsRequest</value> 
+    <value>com.budgetprepay.webservice.pojos.airfaire.EnterOrderDetailsResponse</value> 
+        
+    <value>com.budgetprepay.webservice.pojos.topup.CancelOrderRequest</value> 
+    <value>com.budgetprepay.webservice.pojos.topup.CancelOrderResponse</value> 
+    <value>com.budgetprepay.webservice.pojos.topup.EnterOrderDetailsRequest</value> 
+    <value>com.budgetprepay.webservice.pojos.topup.EnterOrderDetailsResponse</value> 
+    
+    <value>com.budgetprepay.webservice.pojos.bequick.GetCoverageRequest</value> 
+    <value>com.budgetprepay.webservice.pojos.bequick.GetCoverageResponse</value> 
+    <value>com.budgetprepay.webservice.pojos.bequick.GetServiceInformationRequest</value> 
+    <value>com.budgetprepay.webservice.pojos.bequick.GetServiceInformationResponse</value> 
+    <value>com.budgetprepay.webservice.pojos.bequick.ActivateRequest</value> 
+    <value>com.budgetprepay.webservice.pojos.bequick.ActivateResponse</value>     
+    <value>com.budgetprepay.webservice.pojos.bequick.SwapMDNRequest</value> 
+    <value>com.budgetprepay.webservice.pojos.bequick.SwapMDNResponse</value>  
+    <value>com.budgetprepay.webservice.pojos.bequick.SwapESNRequest</value> 
+    <value>com.budgetprepay.webservice.pojos.bequick.SwapESNResponse</value>  
+    <value>com.budgetprepay.webservice.pojos.bequick.SuspendRequest</value> 
+    <value>com.budgetprepay.webservice.pojos.bequick.SuspendResponse</value>   
+    <value>com.budgetprepay.webservice.pojos.bequick.RestoreRequest</value> 
+    <value>com.budgetprepay.webservice.pojos.bequick.RestoreResponse</value>  
+    <value>com.budgetprepay.webservice.pojos.bequick.DisconnectRequest</value> 
+    <value>com.budgetprepay.webservice.pojos.bequick.DisconnectResponse</value> 
+    <value>com.budgetprepay.webservice.pojos.bequick.PurchaseRequest</value> 
+    <value>com.budgetprepay.webservice.pojos.bequick.PurchaseResponse</value>           
+    <value>com.budgetprepay.webservice.pojos.bequick.PortInRequest</value> 
+    <value>com.budgetprepay.webservice.pojos.bequick.PortInResponse</value>
+    <value>com.budgetprepay.webservice.pojos.bequick.WirelessInitialActivationRequest</value> 
+    <value>com.budgetprepay.webservice.pojos.bequick.WirelessInitialActivationResponse</value>  
+    
+    <value>com.budgetprepay.webservice.pojos.plintron.SendMessageRequest</value> 
+    <value>com.budgetprepay.webservice.pojos.plintron.SendMessageResponse</value> 
+    <value>com.budgetprepay.webservice.pojos.plintron.SendMessageBulkRequest</value> 
+    <value>com.budgetprepay.webservice.pojos.plintron.SendMessageBulkResponse</value>   
+    <value>com.budgetprepay.webservice.pojos.plintron.CancelMessageBulkRequest</value> 
+    <value>com.budgetprepay.webservice.pojos.plintron.CancelMessageBulkResponse</value>  
+    <value>com.budgetprepay.webservice.pojos.plintron.StatusMessageBulkRequest</value> 
+    <value>com.budgetprepay.webservice.pojos.plintron.StatusMessageBulkResponse</value>        
+    <value>com.budgetprepay.webservice.pojos.plintron.ReportMessageBulkRequest</value> 
+    <value>com.budgetprepay.webservice.pojos.plintron.ReportMessageBulkResponse</value>        
+    <value>com.budgetprepay.webservice.pojos.plintron.PortInValidateRequest</value> 
+    <value>com.budgetprepay.webservice.pojos.plintron.PortInValidateResponse</value>    
+    <value>com.budgetprepay.webservice.pojos.plintron.PortInCreateRequest</value> 
+    <value>com.budgetprepay.webservice.pojos.plintron.PortInCreateResponse</value>   
+    <value>com.budgetprepay.webservice.pojos.plintron.PortInUpdateRequest</value> 
+    <value>com.budgetprepay.webservice.pojos.plintron.PortInUpdateResponse</value>       
+    <value>com.budgetprepay.webservice.pojos.plintron.PortInStatusRequest</value> 
+    <value>com.budgetprepay.webservice.pojos.plintron.PortInStatusResponse</value>
+    <value>com.budgetprepay.webservice.pojos.plintron.ChangeVMPinRequest</value> 
+    <value>com.budgetprepay.webservice.pojos.plintron.ChangeVMPinResponse</value>       
+    <value>com.budgetprepay.webservice.pojos.plintron.ServiceActivateRequest</value> 
+    <value>com.budgetprepay.webservice.pojos.plintron.ServiceActivateResponse</value>                
+    <value>com.budgetprepay.webservice.pojos.plintron.ServiceDeactivateRequest</value> 
+    <value>com.budgetprepay.webservice.pojos.plintron.ServiceDeactivateResponse</value>  
+    <value>com.budgetprepay.webservice.pojos.plintron.GetAccountDetailsRequest</value> 
+    <value>com.budgetprepay.webservice.pojos.plintron.GetAccountDetailsResponse</value> 
+    <value>com.budgetprepay.webservice.pojos.plintron.GetSubscriptionStatusRequest</value> 
+    <value>com.budgetprepay.webservice.pojos.plintron.GetSubscriptionStatusResponse</value>   
+    <value>com.budgetprepay.webservice.pojos.plintron.GetBundleSubscriptionRequest</value>   
+    <value>com.budgetprepay.webservice.pojos.plintron.GetBundleSubscriptionResponse</value>   
+    <value>com.budgetprepay.webservice.pojos.plintron.RemoveSubscriberRequest</value> 
+    <value>com.budgetprepay.webservice.pojos.plintron.RemoveSubscriberResponse</value> 
+    <value>com.budgetprepay.webservice.pojos.plintron.AllocateMDNRequest</value> 
+    <value>com.budgetprepay.webservice.pojos.plintron.AllocateMDNResponse</value> 
+    <value>com.budgetprepay.webservice.pojos.plintron.GetSubscriberInfoRequest</value> 
+    <value>com.budgetprepay.webservice.pojos.plintron.GetSubscriberInfoResponse</value>
+    <value>com.budgetprepay.webservice.pojos.plintron.ModifySubscriberStatusRequest</value>
+    <value>com.budgetprepay.webservice.pojos.plintron.ModifySubscriberStatusResponse</value>
+    <value>com.budgetprepay.webservice.pojos.plintron.ChangePlanRequest</value>
+    <value>com.budgetprepay.webservice.pojos.plintron.ChangePlanResponse</value>
+    <value>com.budgetprepay.webservice.pojos.plintron.QuerySubscriberUsageRequest</value>
+    <value>com.budgetprepay.webservice.pojos.plintron.QuerySubscriberUsageResponse</value>  
+    <value>com.budgetprepay.webservice.pojos.plintron.ReactivateSubscriberRequest</value>
+    <value>com.budgetprepay.webservice.pojos.plintron.ReactivateSubscriberResponse</value>   
+    <value>com.budgetprepay.webservice.pojos.plintron.ReplaceMSISDNRequest</value>
+    <value>com.budgetprepay.webservice.pojos.plintron.ReplaceMSISDNResponse</value>   
+    <value>com.budgetprepay.webservice.pojos.plintron.ChangeMSISDNRequest</value>
+    <value>com.budgetprepay.webservice.pojos.plintron.ChangeMSISDNResponse</value>      
+    <value>com.budgetprepay.webservice.pojos.plintron.BlockUnblockSIMRequest</value>
+    <value>com.budgetprepay.webservice.pojos.plintron.BlockUnblockSIMResponse</value>  
+    <value>com.budgetprepay.webservice.pojos.plintron.ModifyingSubscriberLanguageTypeRequest</value>
+    <value>com.budgetprepay.webservice.pojos.plintron.ModifyingSubscriberLanguageTypeResponse</value>     
+    <value>com.budgetprepay.webservice.pojos.plintron.SwapMSISDNRequest</value>
+    <value>com.budgetprepay.webservice.pojos.plintron.SwapMSISDNResponse</value>  
+    <value>com.budgetprepay.webservice.pojos.plintron.ChangeIMSIRequest</value>
+    <value>com.budgetprepay.webservice.pojos.plintron.ChangeIMSIResponse</value>    
+    <value>com.budgetprepay.webservice.pojos.plintron.AddSOCRequest</value>
+    <value>com.budgetprepay.webservice.pojos.plintron.AddSOCResponse</value>  
+    <value>com.budgetprepay.webservice.pojos.plintron.RemoveSOCRequest</value>
+    <value>com.budgetprepay.webservice.pojos.plintron.RemoveSOCResponse</value>    
+    <value>com.budgetprepay.webservice.pojos.plintron.ModifySubscriberBucketRequest</value>
+    <value>com.budgetprepay.webservice.pojos.plintron.ModifySubscriberBucketResponse</value>      
+    <value>com.budgetprepay.webservice.pojos.plintron.SwapIMSIRequest</value>
+    <value>com.budgetprepay.webservice.pojos.plintron.SwapIMSIResponse</value>                              
+   </list>
+  </property>        
+ </bean>
+
+ <bean class="org.springframework.ws.server.endpoint.mapping.PayloadRootAnnotationMethodEndpointMapping"/>
+ 
+ <bean id="springSecurityHandler"
+       class="org.springframework.ws.soap.security.wss4j.callback.SpringSecurityPasswordValidationCallbackHandler">
+  <property name="userDetailsService" ref="userDetailsService"/>
+ </bean>
+ 
+  <bean id="myWssConfig"
+        class="com.budgetprepay.webservice.MyWssConfig">
+  </bean>
+ 
+ <sws:interceptors>  
+ 
+  <!--
+  <bean class="org.springframework.ws.soap.security.wss4j.Wss4jSecurityInterceptor">
+   <property name="validationActions" value="UsernameToken"/>
+   <property name="validationCallbackHandlers">
+	<array>
+	 <ref bean="springSecurityHandler"/>
+    </array>
+   </property>
+   <property name="wssConfig">
+    <ref bean="myWssConfig"/>
+   </property>
+  </bean>
+  -->
+  
+  <bean class="com.budgetprepay.webservice.MyEndpointInterceptor"/>
+ 
+  <bean class="org.springframework.ws.server.endpoint.interceptor.PayloadLoggingInterceptor"/>
+  
+  <bean class="org.springframework.ws.soap.server.endpoint.interceptor.SoapEnvelopeLoggingInterceptor"/>
+  
+  <bean id="validatingInterceptor"
+        class="com.budgetprepay.webservice.MyPayloadValidatingInterceptor">
+    <property name="schema" value="classpath:Verizon.xsd"/>
+    <property name="validateRequest" value="false"/>
+    <property name="validateResponse" value="false"/>
+  </bean>
+ </sws:interceptors>
+	
+</beans>

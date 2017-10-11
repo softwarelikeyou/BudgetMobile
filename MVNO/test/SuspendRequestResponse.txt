@@ -1,0 +1,28 @@
+<BeQuick product="OSS">
+  <session>
+    <clec>
+      <id>213</id>
+      <agentUser>
+        <username>budgetprepay</username>
+        <token>F7MY6JVMDRTUB8E</token>
+      </agentUser>
+    </clec>
+  </session>
+  <request type="Suspend">
+    <mdn>(318) 5072085</mdn>
+    <!-- mdn required -->
+  </request>
+</BeQuick>
+
+<BeQuick product="OSS">
+  <response timestamp="20140114222630" status="success" type="WirelessSuspendResponse" />
+  <session>
+    <clec>
+      <overrides></overrides>
+      <id>213</id>
+    </clec>
+    <timestamp>20140114222628</timestamp>
+    <id></id>
+  </session>
+</BeQuick>
+

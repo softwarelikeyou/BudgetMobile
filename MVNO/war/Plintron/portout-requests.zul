@@ -1,0 +1,13 @@
+  <borderlayout id="pageCenterLayout">
+    <north size="50%" 
+	       splittable="true">
+     <include height="100%" src="/Plintron/portout-list-window.zul"/>
+    </north>
+    <center id="detailsPanel"
+            flex="true">
+	 <imagelabel value="${sly:getMessage('Messages.UI.select-a-request-to-view-details')}"
+				 image="/MVNO/${sly:getImageURL('file', 'small')}"
+				 tooltiptext="${sly:getMessage('Messages.UI.select-a-request-to-view-details')}"
+				 style="margin: 5px"/>
+	</center>
+   </borderlayout>

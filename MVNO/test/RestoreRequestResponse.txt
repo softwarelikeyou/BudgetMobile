@@ -1,0 +1,27 @@
+<BeQuick product="OSS">
+  <session>
+    <clec>
+      <id>213</id>
+      <agentUser>
+        <username>budgetprepay</username>
+        <token>F7MY6JVMDRTUB8E</token>
+      </agentUser>
+    </clec>
+  </session>
+  <request type="Restore">
+    <mdn>(318) 5072085</mdn>
+    <!-- mdn required -->
+  </request>
+</BeQuick>
+
+<BeQuick product="OSS">
+  <response timestamp="20140114222922" status="success" type="WirelessRestoreResponse" />
+  <session>
+    <clec>
+      <overrides></overrides>
+      <id>213</id>
+    </clec>
+    <timestamp>20140114222920</timestamp>
+    <id></id>
+  </session>
+</BeQuick>

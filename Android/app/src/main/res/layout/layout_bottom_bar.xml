@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".budgetmobile.MainActivity"
+    android:layout_width="wrap_content"
+    android:layout_height="?attr/actionBarSize"
+    android:orientation="horizontal"
+    android:layout_alignParentBottom="true"
+    android:gravity="bottom"
+    android:layout_gravity="bottom"
+    android:stretchColumns="0,2"
+    android:id="@+id/bottomBar">
+    <TableRow>
+        <FrameLayout style="?android:attr/buttonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/purple_rectangle">
+            <Button android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Home    "
+                android:textSize="20sp"
+                android:textColor="@android:color/white"
+                android:textAllCaps="false"
+                android:textStyle="bold"
+                android:background="@drawable/purple_rectangle"
+                android:drawableLeft="@drawable/ic_home_white_36dp"
+                android:gravity="center"
+                android:layout_gravity="center_horizontal|center_vertical"
+                android:textAlignment="center"
+                android:onClick="goHome"/>
+        </FrameLayout>
+        <TextView android:text=" " />
+        <FrameLayout style="?android:attr/buttonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/purple_rectangle">
+            <Button android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/label_support"
+                android:textSize="20sp"
+                android:textColor="@android:color/white"
+                android:textAllCaps="false"
+                android:textStyle="bold"
+                android:background="@drawable/purple_rectangle"
+                android:drawableLeft="@drawable/ic_perm_phone_msg_white_36dp"
+                android:gravity="center"
+                android:layout_gravity="center_horizontal|center_vertical"
+                android:textAlignment="center"
+                android:onClick="goSupport" />
+        </FrameLayout>
+    </TableRow>
+</TableLayout>

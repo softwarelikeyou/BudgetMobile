@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?meta name = "viewport" content = "width = device-width, height = device-height" ?>
+<?taglib uri="/WEB-INF/tld/sly.tld" prefix="sly"?>
+<?page title="${sly:productHeaderString()}"?>
+<?component name="sidebar" macroURI="/sidebar.zul" inline="true"?>
+<zk xmlns:xsi="http://www.w3.org/1999/xhtml">
+ <borderlayout id="dashboardLayout"
+		       apply="com.budgetprepay.viewcontroller.dashboard.Controller"
+		       use="com.budgetprepay.viewcontroller.dashboard.DashboardLayout">
+  <north border="none" 
+         height="28px">
+   <include src="/top-bar.zul" />
+  </north>
+  <west title="${sly:getLabel('Labels.UI.dashboard')}" 
+        size="12%"
+		  splittable="true" collapsible="true">
+   <borderlayout>
+	 <center>
+	  <include src="/Dashboard/actions.zul" 
+	           id="actions"/>
+	 </center>
+	 <south>
+	  <sidebar />
+	 </south>
+	</borderlayout>
+  </west>
+  <center id="dashboardCenter">
+   <borderlayout>
+    <north border="none" height="25px">	
+     <toolbar width="100%" orient="horizontal" align="end">
+	  <toolbarbutton  id="layout1Button" tooltiptext="${sly:getLabel('Labels.UI.column-layout-1')}" image="${sly:getImageURL('layout-1', 'small')}"/>
+	  <toolbarbutton  id="layout2Button" tooltiptext="${sly:getLabel('Labels.UI.column-layout-2')}" image="${sly:getImageURL('layout-2', 'small')}"/>
+	  <toolbarbutton  id="layout3Button" tooltiptext="${sly:getLabel('Labels.UI.column-layout-3')}" image="${sly:getImageURL('layout-3', 'small')}"/>
+	 </toolbar>
+	</north>
+	<center border="none" autoscroll="true"> 
+	 <portallayout id="portalLayout"/>
+	</center>
+   </borderlayout>   
+  </center>
+ </borderlayout>
+</zk>

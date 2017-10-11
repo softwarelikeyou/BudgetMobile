@@ -1,0 +1,1257 @@
+<xs:schema xmlns="http://www.budgetprepay.com/MVNO/Plintron"
+	        xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+	        xmlns:tns="http://www.budgetprepay.com/MVNO/Plintron"
+	        targetNamespace="http://www.budgetprepay.com/MVNO/Plintron"
+	        elementFormDefault="qualified" 
+	        attributeFormDefault="unqualified">
+	        
+ <xs:element name="SendMessageRequest" 
+             type="tns:SendMessageRequest">
+ </xs:element>
+ 
+ <xs:element name="SendMessageResponse" 
+             type="tns:SendMessageResponse">
+ </xs:element>
+ 	   
+ <xs:element name="SendMessageBulkRequest" 
+             type="tns:SendMessageBulkRequest">
+ </xs:element>
+ 
+ <xs:element name="SendMessageBulkResponse" 
+             type="tns:SendMessageBulkResponse">
+ </xs:element>
+  	 
+ <xs:element name="CancelMessageBulkRequest" 
+             type="tns:CancelMessageBulkRequest">
+ </xs:element>
+ 
+ <xs:element name="CancelMessageBulkResponse" 
+             type="tns:CancelMessageBulkResponse">
+ </xs:element>
+   	    
+ <xs:element name="StatusMessageBulkRequest" 
+             type="tns:StatusMessageBulkRequest">
+ </xs:element>
+ 
+ <xs:element name="StatusMessageBulkResponse" 
+             type="tns:StatusMessageBulkResponse">
+ </xs:element>
+    	    
+ <xs:element name="ReportMessageBulkRequest" 
+             type="tns:ReportMessageBulkRequest">
+ </xs:element>
+ 
+ <xs:element name="ReportMessageBulkResponse" 
+             type="tns:ReportMessageBulkResponse">
+ </xs:element>
+    	        
+ <xs:element name="PortInValidateRequest" 
+             type="tns:PortInValidateRequest">
+ </xs:element>
+ 
+ <xs:element name="PortInValidateResponse" 
+             type="tns:PortInValidateResponse">
+ </xs:element>
+  
+ <xs:element name="PortInCreateRequest" 
+             type="tns:PortInCreateRequest">
+ </xs:element>
+ 
+ <xs:element name="PortInCreateResponse" 
+             type="tns:PortInCreateResponse">
+ </xs:element>
+
+ <xs:element name="PortInUpdateRequest" 
+             type="tns:PortInUpdateRequest">
+ </xs:element>
+ 
+ <xs:element name="PortInUpdateResponse" 
+             type="tns:PortInUpdateResponse">
+ </xs:element>
+ 
+ <xs:element name="PortInStatusRequest" 
+             type="tns:PortInStatusRequest">
+ </xs:element>
+ 
+ <xs:element name="PortInStatusResponse" 
+             type="tns:PortInStatusResponse">
+ </xs:element>
+   
+ <xs:element name="PortInCancelRequest" 
+             type="tns:PortInCancelRequest">
+ </xs:element>
+ 
+ <xs:element name="PortInCancelResponse" 
+             type="tns:PortInCancelResponse">
+ </xs:element>
+    
+ <xs:element name="ChangeVMPinRequest" 
+             type="tns:ChangeVMPinRequest">
+ </xs:element>
+ 
+ <xs:element name="ChangeVMPinResponse" 
+             type="tns:ChangeVMPinResponse">
+ </xs:element>
+     
+ <xs:element name="ServiceActivateRequest" 
+             type="tns:ServiceActivateRequest">
+ </xs:element>
+ 
+ <xs:element name="ServiceActivateResponse" 
+             type="tns:ServiceActivateResponse">
+ </xs:element>
+        
+ <xs:element name="ServiceDeactivateRequest" 
+             type="tns:ServiceDeactivateRequest">
+ </xs:element>
+ 
+ <xs:element name="ServiceDeactivateResponse" 
+             type="tns:ServiceDeactivateResponse">
+ </xs:element>
+   
+ <xs:element name="GetAccountDetailsRequest" 
+             type="tns:GetAccountDetailsRequest">
+ </xs:element>
+ 
+ <xs:element name="GetAccountDetailsResponse" 
+             type="tns:GetAccountDetailsResponse">
+ </xs:element>       
+  
+ <xs:element name="GetSubscriptionStatusRequest" 
+             type="tns:GetSubscriptionStatusRequest">
+ </xs:element>
+ 
+ <xs:element name="GetSubscriptionStatusResponse" 
+             type="tns:GetSubscriptionStatusResponse">
+ </xs:element> 
+    
+ <xs:element name="GetBundleSubscriptionRequest" 
+             type="tns:GetBundleSubscriptionRequest">
+ </xs:element>
+ 
+ <xs:element name="GetBundleSubscriptionResponse" 
+             type="tns:GetBundleSubscriptionResponse">
+ </xs:element> 
+         
+ <xs:element name="RemoveSubscriberRequest" 
+             type="tns:RemoveSubscriberRequest">
+ </xs:element>
+ 
+ <xs:element name="RemoveSubscriberResponse" 
+             type="tns:RemoveSubscriberResponse">
+ </xs:element> 
+   
+ <xs:element name="AllocateMDNRequest" 
+             type="tns:AllocateMDNRequest">
+ </xs:element>
+ 
+ <xs:element name="AllocateMDNResponse" 
+             type="tns:AllocateMDNResponse">
+ </xs:element> 
+     
+ <xs:element name="GetSubscriberInfoRequest" 
+             type="tns:GetSubscriberInfoRequest">
+ </xs:element>
+ 
+ <xs:element name="GetSubscriberInfoResponse" 
+             type="tns:GetSubscriberInfoResponse">
+ </xs:element> 
+           
+ <xs:element name="ModifySubscriberStatusRequest" 
+             type="tns:ModifySubscriberStatusRequest">
+ </xs:element>
+ 
+ <xs:element name="ModifySubscriberStatusResponse" 
+             type="tns:ModifySubscriberStatusResponse">
+ </xs:element> 
+    
+ <xs:element name="ChangePlanRequest" 
+             type="tns:ChangePlanRequest">
+ </xs:element>
+ 
+ <xs:element name="ChangePlanResponse" 
+             type="tns:ChangePlanResponse">
+ </xs:element> 
+                 
+ <xs:element name="QuerySubscriberUsageRequest" 
+             type="tns:QuerySubscriberUsageRequest">
+ </xs:element>
+ 
+ <xs:element name="QuerySubscriberUsageResponse" 
+             type="tns:QuerySubscriberUsageResponse">
+ </xs:element> 
+    
+ <xs:element name="ReactivateSubscriberRequest" 
+             type="tns:ReactivateSubscriberRequest">
+ </xs:element>
+ 
+ <xs:element name="ReactivateSubscriberResponse" 
+             type="tns:ReactivateSubscriberResponse">
+ </xs:element> 
+    
+ <xs:element name="ReplaceMSISDNRequest" 
+             type="tns:ReplaceMSISDNRequest">
+ </xs:element>
+ 
+ <xs:element name="ReplaceMSISDNResponse" 
+             type="tns:ReplaceMSISDNResponse">
+ </xs:element> 
+                  
+ <xs:element name="ChangeMSISDNRequest" 
+             type="tns:ChangeMSISDNRequest">
+ </xs:element>
+ 
+ <xs:element name="ChangeMSISDNResponse" 
+             type="tns:ChangeMSISDNResponse">
+ </xs:element> 
+     
+ <xs:element name="BlockUnblockSIMRequest" 
+             type="tns:BlockUnblockSIMRequest">
+ </xs:element>
+ 
+ <xs:element name="BlockUnblockSIMResponse" 
+             type="tns:BlockUnblockSIMResponse">
+ </xs:element> 
+   
+ <xs:element name="ModifyingSubscriberLanguageTypeRequest" 
+             type="tns:ModifyingSubscriberLanguageTypeRequest">
+ </xs:element>
+ 
+ <xs:element name="ModifyingSubscriberLanguageTypeResponse" 
+             type="tns:ModifyingSubscriberLanguageTypeResponse">
+ </xs:element> 
+     
+ <xs:element name="SwapMSISDNRequest" 
+             type="tns:SwapMSISDNRequest">
+ </xs:element>
+ 
+ <xs:element name="SwapMSISDNResponse" 
+             type="tns:SwapMSISDNResponse">
+ </xs:element> 
+                     
+ <xs:element name="ChangeIMSIRequest" 
+             type="tns:ChangeIMSIRequest">
+ </xs:element>
+ 
+ <xs:element name="ChangeIMSIResponse" 
+             type="tns:ChangeIMSIResponse">
+ </xs:element> 
+ 
+ <xs:element name="AddSOCRequest" 
+             type="tns:AddSOCRequest">
+ </xs:element>
+ 
+ <xs:element name="AddSOCResponse" 
+             type="tns:AddSOCResponse">
+ </xs:element>  
+ 
+ <xs:element name="RemoveSOCRequest" 
+             type="tns:RemoveSOCRequest">
+ </xs:element>
+ 
+ <xs:element name="RemoveSOCResponse" 
+             type="tns:RemoveSOCResponse">
+ </xs:element>   
+           
+ <xs:element name="ModifySubscriberBucketRequest" 
+             type="tns:ModifySubscriberBucketRequest">
+ </xs:element>
+ 
+ <xs:element name="ModifySubscriberBucketResponse" 
+             type="tns:ModifySubscriberBucketResponse">
+ </xs:element> 
+              
+ <xs:element name="SwapIMSIRequest" 
+             type="tns:SwapIMSIRequest">
+ </xs:element>
+ 
+ <xs:element name="SwapIMSIResponse" 
+             type="tns:SwapIMSIResponse">
+ </xs:element> 
+                           	         	        
+ <xs:complexType name="SendMessageRequest">
+  <xs:sequence>
+   <xs:element name="messageHeader" type="messageHeaderType" minOccurs="1">
+    <xs:annotation>
+     <xs:documentation>Valid MVNO username</xs:documentation>
+    </xs:annotation>
+   </xs:element>  
+   <xs:element name="MDN" type="xs:string" minOccurs="1">
+    <xs:annotation>
+     <xs:documentation>Destination MSISDN</xs:documentation>
+    </xs:annotation>
+   </xs:element>
+   <xs:element name="dataCoding" type="xs:string" minOccurs="0" default="1">
+    <xs:annotation>
+     <xs:documentation>For 0,1 – Conversion from ASCII to GSM character set will be done</xs:documentation>
+    </xs:annotation>
+   </xs:element>
+   <xs:element name="validityPeriod" type="xs:string" minOccurs="0">
+    <xs:annotation>
+     <xs:documentation>As per SMPP v3.4 specification “YYMMDDhhmmsstnnp”</xs:documentation>
+    </xs:annotation>
+   </xs:element>
+   <xs:element name="scheduledDelivery" type="xs:string" minOccurs="0">
+    <xs:annotation>
+     <xs:documentation>As per SMPP v3.4 specification</xs:documentation>
+    </xs:annotation>
+   </xs:element> 
+   <xs:element name="serviceType" type="xs:string" minOccurs="0" default="RN"></xs:element>     
+   <xs:element name="senderTON" type="xs:string" minOccurs="0"></xs:element> 
+   <xs:element name="sender" type="xs:string" minOccurs="0" default="7025">
+    <xs:annotation>
+     <xs:documentation>Should be 7025</xs:documentation>
+    </xs:annotation>   
+   </xs:element>    
+   <xs:element name="message" type="xs:string" minOccurs="1"></xs:element>            
+  </xs:sequence>
+ </xs:complexType>
+  	        
+ <xs:complexType name="SendMessageResponse">
+  <xs:sequence>
+   <xs:element name="code" type="xs:string" minOccurs="1">
+    <xs:annotation>
+     <xs:documentation>0- Success, request is accepted by ESME. 1- Failure</xs:documentation>
+    </xs:annotation>
+   </xs:element>
+   <xs:element name="error" type="xs:string" minOccurs="0"></xs:element>     
+   <xs:element name="transactionId" type="xs:string" minOccurs="1"></xs:element>  
+  </xs:sequence>
+ </xs:complexType>
+ 
+ <xs:complexType name="SendMessageBulkRequest">
+  <xs:sequence>
+   <xs:element name="messageHeader" type="messageHeaderType" minOccurs="1"/>
+   <xs:element name="message" type="xs:string" minOccurs="1"/>  
+   <xs:element name="carrier" type="xs:string" minOccurs="1">
+    <xs:annotation>
+     <xs:documentation>TMOBILE, VERIZON, SPRINT</xs:documentation>
+    </xs:annotation>
+   </xs:element>  
+   <xs:element name="mdn" type="xs:string" maxOccurs="unbounded"/>           
+  </xs:sequence>
+ </xs:complexType>
+  	        
+ <xs:complexType name="SendMessageBulkResponse">
+  <xs:sequence>
+   <xs:element name="errorCode" type="xs:string" minOccurs="1">
+    <xs:annotation>
+     <xs:documentation>0- Success, request is accepted by ESME. 1- Failure</xs:documentation>
+    </xs:annotation>
+   </xs:element>
+   <xs:element name="errorDescription" type="xs:string" minOccurs="0"></xs:element>     
+   <xs:element name="transactionId" type="xs:string" minOccurs="1"></xs:element>  
+  </xs:sequence>
+ </xs:complexType> 
+      
+ <xs:complexType name="CancelMessageBulkRequest">
+  <xs:sequence>
+   <xs:element name="messageHeader" type="messageHeaderType" minOccurs="1"/>   
+   <xs:element name="transactionId" type="xs:string" minOccurs="1"></xs:element>       
+  </xs:sequence>
+ </xs:complexType>
+       
+ <xs:complexType name="CancelMessageBulkResponse">
+  <xs:sequence>
+   <xs:element name="result" type="xs:string" minOccurs="0"></xs:element>     
+  </xs:sequence>
+ </xs:complexType> 
+    
+ <xs:complexType name="StatusMessageBulkRequest">
+  <xs:sequence>
+   <xs:element name="messageHeader" type="messageHeaderType" minOccurs="1"/>  
+   <xs:element name="transactionId" type="xs:string" minOccurs="1"></xs:element>        
+  </xs:sequence>
+ </xs:complexType>
+       
+ <xs:complexType name="StatusMessageBulkResponse">
+  <xs:sequence>
+   <xs:element name="result" type="xs:string" minOccurs="0"></xs:element>     
+  </xs:sequence>
+ </xs:complexType> 
+      
+ <xs:complexType name="ReportMessageBulkRequest">
+  <xs:sequence>
+   <xs:element name="messageHeader" type="messageHeaderType" minOccurs="1"/>   
+   <xs:element name="transactionId" type="xs:string" minOccurs="1"></xs:element>       
+  </xs:sequence>
+ </xs:complexType>
+       
+ <xs:complexType name="ReportMessageBulkResponse">
+  <xs:sequence>
+   <xs:element name="message" type="smsMessageType" minOccurs="0" maxOccurs="unbounded"/>     
+  </xs:sequence>
+ </xs:complexType> 
+         
+ <xs:complexType name="PortInValidateRequest">
+  <xs:sequence>
+   <xs:element name="messageHeader" type="messageHeaderType" minOccurs="1">
+    <xs:annotation>
+     <xs:documentation>Valid MVNO username</xs:documentation>
+    </xs:annotation>
+   </xs:element>  
+   <xs:element name="MDN" type="xs:string" minOccurs="1">
+    <xs:annotation>
+     <xs:documentation>Phone number to validate</xs:documentation>
+    </xs:annotation>
+   </xs:element>
+  </xs:sequence>
+ </xs:complexType>
+  	        
+ <xs:complexType name="PortInValidateResponse">
+  <xs:sequence>
+   <xs:element name="transactionId" type="xs:string" minOccurs="0"/>  
+   <xs:element name="errorCode" type="xs:string" minOccurs="0"/>
+   <xs:element name="errorDescription" type="xs:string" minOccurs="0"></xs:element>   
+   <xs:element name="result" type="xs:string" minOccurs="0"/>  
+   <xs:element name="resultCode" type="xs:string" minOccurs="0"/>
+   <xs:element name="resultDescription" type="xs:string" minOccurs="0"></xs:element> 
+   <xs:element name="resultStatus" type="xs:string" minOccurs="0"></xs:element>        
+  </xs:sequence>
+ </xs:complexType>
+    	        
+ <xs:complexType name="PortInCreateRequest">
+  <xs:sequence>
+   <xs:element name="messageHeader" type="messageHeaderType" minOccurs="1">
+    <xs:annotation>
+     <xs:documentation>Valid MVNO username</xs:documentation>
+    </xs:annotation>
+   </xs:element>  
+   <xs:element name="MDN" type="xs:string" minOccurs="1"/>
+   <xs:element name="name" type="xs:string" minOccurs="1"/>
+   <xs:element name="address1" type="xs:string" minOccurs="1"/>
+   <xs:element name="city" type="xs:string" minOccurs="1"/>
+   <xs:element name="state" type="xs:string" minOccurs="1"/>
+   <xs:element name="zip" type="xs:string" minOccurs="1"/>
+   <xs:element name="sim" type="xs:string" minOccurs="1"/>
+   <xs:element name="accountNumber" type="xs:string" minOccurs="1"/>
+   <xs:element name="accountPin" type="xs:string" minOccurs="0"/>
+  </xs:sequence>
+ </xs:complexType>
+      	    
+ <xs:complexType name="PortInCreateResponse">
+  <xs:sequence>
+   <xs:element name="transactionId" type="xs:string" minOccurs="0"/>  
+   <xs:element name="errorCode" type="xs:string" minOccurs="0"/>
+   <xs:element name="errorDescription" type="xs:string" minOccurs="0"></xs:element>   
+   <xs:element name="result" type="xs:string" minOccurs="0"/> 
+   <xs:element name="resultCode" type="xs:string" minOccurs="0"/> 
+   <xs:element name="resultDescription" type="xs:string" minOccurs="0"></xs:element> 
+   <xs:element name="resultStatus" type="xs:string" minOccurs="0"></xs:element>        
+  </xs:sequence>
+ </xs:complexType>
+       	    
+ <xs:complexType name="PortInUpdateRequest">
+  <xs:sequence>
+   <xs:element name="messageHeader" type="messageHeaderType" minOccurs="1">
+    <xs:annotation>
+     <xs:documentation>Valid MVNO username</xs:documentation>
+    </xs:annotation>
+   </xs:element>  
+   <xs:element name="MDN" type="xs:string" minOccurs="1"/>
+   <xs:element name="name" type="xs:string" minOccurs="1"/>
+   <xs:element name="address1" type="xs:string" minOccurs="1"/>
+   <xs:element name="city" type="xs:string" minOccurs="1"/>
+   <xs:element name="state" type="xs:string" minOccurs="1"/>
+   <xs:element name="zip" type="xs:string" minOccurs="1"/>
+   <xs:element name="sim" type="xs:string" minOccurs="1"/>
+   <xs:element name="accountNumber" type="xs:string" minOccurs="1"/>
+   <xs:element name="accountPin" type="xs:string" minOccurs="0"/>
+  </xs:sequence>
+ </xs:complexType>
+  	        
+ <xs:complexType name="PortInUpdateResponse">
+  <xs:sequence>
+   <xs:element name="transactionId" type="xs:string" minOccurs="0"/>  
+   <xs:element name="errorCode" type="xs:string" minOccurs="0"/>
+   <xs:element name="errorDescription" type="xs:string" minOccurs="0"></xs:element>   
+   <xs:element name="result" type="xs:string" minOccurs="0"/> 
+   <xs:element name="resultCode" type="xs:string" minOccurs="0"/> 
+   <xs:element name="resultDescription" type="xs:string" minOccurs="0"></xs:element> 
+   <xs:element name="resultStatus" type="xs:string" minOccurs="0"></xs:element>        
+  </xs:sequence>
+ </xs:complexType>
+       	    
+ <xs:complexType name="PortInStatusRequest">
+  <xs:sequence>
+   <xs:element name="messageHeader" type="messageHeaderType" minOccurs="1">
+    <xs:annotation>
+     <xs:documentation>Valid MVNO username</xs:documentation>
+    </xs:annotation>
+   </xs:element>  
+   <xs:element name="MDN" type="xs:string" minOccurs="1">
+    <xs:annotation>
+     <xs:documentation>Phone number to validate</xs:documentation>
+    </xs:annotation>
+   </xs:element>
+  </xs:sequence>
+ </xs:complexType>
+  	        
+ <xs:complexType name="PortInStatusResponse">
+  <xs:sequence>
+   <xs:element name="transactionId" type="xs:string" minOccurs="0"/>  
+   <xs:element name="errorCode" type="xs:string" minOccurs="0"/>
+   <xs:element name="errorDescription" type="xs:string" minOccurs="0"></xs:element>   
+   <xs:element name="result" type="xs:string" minOccurs="0"/>  
+   <xs:element name="resultCode" type="xs:string" minOccurs="0"/>
+   <xs:element name="resultDescription" type="xs:string" minOccurs="0"></xs:element> 
+   <xs:element name="resultStatus" type="xs:string" minOccurs="0"></xs:element>         
+  </xs:sequence>
+ </xs:complexType>
+       	    
+ <xs:complexType name="PortInCancelRequest">
+  <xs:sequence>
+   <xs:element name="messageHeader" type="messageHeaderType" minOccurs="1">
+    <xs:annotation>
+     <xs:documentation>Valid MVNO username</xs:documentation>
+    </xs:annotation>
+   </xs:element>  
+   <xs:element name="MDN" type="xs:string" minOccurs="1">
+    <xs:annotation>
+     <xs:documentation>Phone number to validate</xs:documentation>
+    </xs:annotation>
+   </xs:element>
+   <xs:element name="sim" type="xs:string" minOccurs="1"/>
+  </xs:sequence>
+ </xs:complexType>
+  	        
+ <xs:complexType name="PortInCancelResponse">
+  <xs:sequence>
+   <xs:element name="transactionId" type="xs:string" minOccurs="0"/>  
+   <xs:element name="errorCode" type="xs:string" minOccurs="0"/>
+   <xs:element name="errorDescription" type="xs:string" minOccurs="0"></xs:element>   
+   <xs:element name="result" type="xs:string" minOccurs="0"/>  
+   <xs:element name="resultCode" type="xs:string" minOccurs="0"/>
+   <xs:element name="resultDescription" type="xs:string" minOccurs="0"></xs:element> 
+   <xs:element name="resultStatus" type="xs:string" minOccurs="0"></xs:element>         
+  </xs:sequence>
+ </xs:complexType>
+          	        
+ <xs:complexType name="ChangeVMPinRequest">
+  <xs:sequence>
+   <xs:element name="messageHeader" type="messageHeaderType" minOccurs="1">
+    <xs:annotation>
+     <xs:documentation>Valid MVNO username</xs:documentation>
+    </xs:annotation>
+   </xs:element>  
+   <xs:element name="MDN" type="xs:string" minOccurs="1"/>
+   <xs:element name="oldPin" type="xs:string" minOccurs="1"/>
+   <xs:element name="newPin" type="xs:string" minOccurs="1"/>
+  </xs:sequence>
+ </xs:complexType>
+  	        
+ <xs:complexType name="ChangeVMPinResponse">
+  <xs:sequence>
+   <xs:element name="transactionId" type="xs:string" minOccurs="0"/>  
+   <xs:element name="errorCode" type="xs:string" minOccurs="0"/>
+   <xs:element name="errorDescription" type="xs:string" minOccurs="0"></xs:element>   
+   <xs:element name="result" type="xs:string" minOccurs="0"/>  
+   <xs:element name="resultCode" type="xs:string" minOccurs="0"/>
+   <xs:element name="resultDescription" type="xs:string" minOccurs="0"></xs:element> 
+   <xs:element name="resultStatus" type="xs:string" minOccurs="0"></xs:element>        
+  </xs:sequence>
+ </xs:complexType>          	        
+          	
+ <xs:complexType name="ServiceActivateRequest">
+  <xs:sequence>
+   <xs:element name="messageHeader" type="messageHeaderType" minOccurs="1">
+    <xs:annotation>
+     <xs:documentation>Valid MVNO username</xs:documentation>
+    </xs:annotation>
+   </xs:element>  
+   <xs:element name="MDN" type="xs:string" minOccurs="1"/>
+   <xs:element name="clientType" type="xs:string" minOccurs="1">
+    <xs:annotation>
+     <xs:documentation>
+      9 – IVR
+      10 – USSD
+      11 – VMS
+      12 – SMS Topup
+      13 – POS Topup
+      14 – Mobile Home Account
+      15 – MBOS
+      17 – E-shop
+      18 – Missed Call Alert
+      51-70 – E-Topup (Refundable)
+      71-90 – Monthly Auto Topup
+     </xs:documentation>
+    </xs:annotation>
+   </xs:element>
+   <xs:element name="serviceId" type="xs:string" minOccurs="1">
+    <xs:annotation>
+     <xs:documentation>
+      1 – MO Call
+      2 – MT Call
+      3 – MO Roaming Call
+      4 – MT Roaming Call
+      5 – MO SMS
+      6 – MT SMS
+      7 – MO Roaming SMS
+      8 – MT Roaming SMS
+      9 – IVR
+      10 – USSD
+      11 – VMS
+      12 – SMS Topup
+      13 – Mobile Home Account (MHA)
+      20 – MO Video Call
+      21 – MT Video Call
+      22 – MO Roaming Video Call
+      23 – MT Roaming Video Call
+      24 – CRBT
+      27 – CBS
+     </xs:documentation>
+    </xs:annotation>
+   </xs:element>
+  </xs:sequence>
+ </xs:complexType>
+  	        
+ <xs:complexType name="ServiceActivateResponse">
+  <xs:sequence>  
+   <xs:element name="transactionId" type="xs:string" minOccurs="0"/>  
+   <xs:element name="returnCode" type="xs:string" minOccurs="0"/>
+   <xs:element name="errorDescription" type="xs:string" minOccurs="0"></xs:element>   
+   <xs:element name="networkId" type="xs:string" minOccurs="0"/>
+   <xs:element name="serviceCharge" type="xs:string" minOccurs="0"></xs:element> 
+   <xs:element name="accountBalance" type="xs:string" minOccurs="0"></xs:element>        
+  </xs:sequence>
+ </xs:complexType>  
+           	
+ <xs:complexType name="ServiceDeactivateRequest">
+  <xs:sequence>
+   <xs:element name="messageHeader" type="messageHeaderType" minOccurs="1">
+    <xs:annotation>
+     <xs:documentation>Valid MVNO username</xs:documentation>
+    </xs:annotation>
+   </xs:element>  
+   <xs:element name="MDN" type="xs:string" minOccurs="1"/>
+   <xs:element name="clientType" type="xs:string" minOccurs="1">
+    <xs:annotation>
+     <xs:documentation>
+      9 – IVR
+      10 – USSD
+      11 – VMS
+      12 – SMS Topup
+      13 – POS Topup
+      14 – Mobile Home Account
+      15 – MBOS
+      17 – E-shop
+      18 – Missed Call Alert
+      51-70 – E-Topup (Refundable)
+      71-90 – Monthly Auto Topup
+     </xs:documentation>
+    </xs:annotation>
+   </xs:element>
+   <xs:element name="serviceId" type="xs:string" minOccurs="1">
+    <xs:annotation>
+     <xs:documentation>
+      1 – MO Call
+      2 – MT Call
+      3 – MO Roaming Call
+      4 – MT Roaming Call
+      5 – MO SMS
+      6 – MT SMS
+      7 – MO Roaming SMS
+      8 – MT Roaming SMS
+      9 – IVR
+      10 – USSD
+      11 – VMS
+      12 – SMS Topup
+      13 – Mobile Home Account (MHA)
+      20 – MO Video Call
+      21 – MT Video Call
+      22 – MO Roaming Video Call
+      23 – MT Roaming Video Call
+      24 – CRBT
+      27 – CBS
+     </xs:documentation>
+    </xs:annotation>
+   </xs:element>
+  </xs:sequence>
+ </xs:complexType>
+  	        
+ <xs:complexType name="ServiceDeactivateResponse">
+  <xs:sequence>  
+   <xs:element name="transactionId" type="xs:string" minOccurs="0"/>  
+   <xs:element name="returnCode" type="xs:string" minOccurs="0"/>
+   <xs:element name="errorDescription" type="xs:string" minOccurs="0"></xs:element>   
+   <xs:element name="networkId" type="xs:string" minOccurs="0"/>
+   <xs:element name="serviceCharge" type="xs:string" minOccurs="0"></xs:element> 
+   <xs:element name="accountBalance" type="xs:string" minOccurs="0"></xs:element>        
+  </xs:sequence>
+ </xs:complexType>
+   
+ <xs:complexType name="GetAccountDetailsRequest">
+  <xs:sequence>
+   <xs:element name="messageHeader" type="messageHeaderType" minOccurs="1">
+    <xs:annotation>
+     <xs:documentation>Valid MVNO username</xs:documentation>
+    </xs:annotation>
+   </xs:element>  
+   <xs:element name="MDN" type="xs:string" minOccurs="1"/>
+  </xs:sequence>
+ </xs:complexType>
+  	        
+ <xs:complexType name="GetAccountDetailsResponse">
+  <xs:sequence>  
+   <xs:element name="transactionId" type="xs:string" minOccurs="0"/>  
+   <xs:element name="returnCode" type="xs:string" minOccurs="0"/>
+   <xs:element name="errorDescription" type="xs:string" minOccurs="0"></xs:element>   
+   <xs:element name="networkId" type="xs:string" minOccurs="0"/>
+   <xs:element name="MHAPin" type="xs:string" minOccurs="0"></xs:element> 
+   <xs:element name="accountStatus" type="xs:string" minOccurs="0"></xs:element>  
+   <xs:element name="validityDate" type="xs:string" minOccurs="0"></xs:element>  
+   <xs:element name="currentBalance" type="xs:string" minOccurs="0"></xs:element> 
+   <xs:element name="language" type="xs:string" minOccurs="0"></xs:element> 
+   <xs:element name="vmsPin" type="xs:string" minOccurs="0"></xs:element> 
+   <xs:element name="transPin" type="xs:string" minOccurs="0"></xs:element> 
+   <xs:element name="planId" type="xs:string" minOccurs="0"></xs:element> 
+   <xs:element name="subStatus" type="xs:string" minOccurs="0"></xs:element> 
+   <xs:element name="SIMStatus" type="xs:string" minOccurs="0"></xs:element> 
+   <xs:element name="lifeCycleState" type="xs:string" minOccurs="0"></xs:element> 
+   <xs:element name="subType" type="xs:string" minOccurs="0"></xs:element> 
+   <xs:element name="mainBalance" type="xs:string" minOccurs="0"></xs:element> 
+   <xs:element name="cbs" type="xs:string" minOccurs="0"></xs:element> 
+   <xs:element name="promoBalance" type="xs:string" minOccurs="0"></xs:element> 
+   <xs:element name="promoValidityDate" type="xs:string" minOccurs="0"></xs:element> 
+   <xs:element name="topUpInd" type="xs:string" minOccurs="0"></xs:element> 
+   <xs:element name="MNPInd" type="xs:string" minOccurs="0"></xs:element>           
+  </xs:sequence>
+ </xs:complexType>            	 
+            
+ <xs:complexType name="GetSubscriptionStatusRequest">
+  <xs:sequence>
+   <xs:element name="messageHeader" type="messageHeaderType" minOccurs="1">
+    <xs:annotation>
+     <xs:documentation>Valid MVNO username</xs:documentation>
+    </xs:annotation>
+   </xs:element>  
+   <xs:element name="MDN" type="xs:string" minOccurs="1"/>
+  </xs:sequence>
+ </xs:complexType>
+  	        
+ <xs:complexType name="GetSubscriptionStatusResponse">
+  <xs:sequence>  
+   <xs:element name="transactionId" type="xs:string" minOccurs="0"/>  
+   <xs:element name="returnCode" type="xs:string" minOccurs="0"/>
+   <xs:element name="errorDescription" type="xs:string" minOccurs="0"></xs:element>   
+   <xs:element name="networkId" type="xs:string" minOccurs="0"/>
+   <xs:element name="MDN" type="xs:string" minOccurs="1"/>
+   <xs:element name="serviceInfo" type="serviceInfoType" minOccurs= "0"/>
+  </xs:sequence>
+ </xs:complexType>   
+            
+ <xs:complexType name="GetBundleSubscriptionRequest">
+  <xs:sequence>
+   <xs:element name="messageHeader" type="messageHeaderType" minOccurs="1">
+    <xs:annotation>
+     <xs:documentation>Valid MVNO username</xs:documentation>
+    </xs:annotation>
+   </xs:element>  
+   <xs:element name="MDN" type="xs:string" minOccurs="1"/>
+   <xs:element name="serviceCode" type="xs:string" minOccurs="1">
+    <xs:annotation>
+     <xs:documentation>Valid values: LLFREE250 LLFREE350 LLCAFREE CAUnlimited</xs:documentation>
+    </xs:annotation>
+   </xs:element>
+  </xs:sequence>
+ </xs:complexType>
+              	        
+ <xs:complexType name="GetBundleSubscriptionResponse">
+  <xs:sequence>  
+   <xs:element name="transactionId" type="xs:string" minOccurs="0"/>  
+   <xs:element name="returnCode" type="xs:string" minOccurs="0"/>
+   <xs:element name="errorDescription" type="xs:string" minOccurs="0"></xs:element>   
+   <xs:element name="MDN" type="xs:string" minOccurs="1"/>
+   <xs:element name="bundleAmount" type="xs:string" minOccurs="1"/>
+   <xs:element name="bundlePromotionApplied" type="xs:string" minOccurs="1"/>
+  </xs:sequence>
+ </xs:complexType>               	        
+         
+ <xs:complexType name="RemoveSubscriberRequest">
+  <xs:sequence>
+   <xs:element name="messageHeader" type="messageHeaderType" minOccurs="1">
+    <xs:annotation>
+     <xs:documentation>Valid MVNO username</xs:documentation>
+    </xs:annotation>
+   </xs:element>  
+   <xs:element name="MDN" type="xs:string" minOccurs="1"/>
+   <xs:element name="imsi" type="xs:string" minOccurs="1"/>
+   <xs:element name="reason" type="xs:string" minOccurs="1"/>
+  </xs:sequence>
+ </xs:complexType>
+             	                     	        
+ <xs:complexType name="RemoveSubscriberResponse">
+  <xs:sequence>  
+   <xs:element name="transactionId" type="xs:string" minOccurs="0"/>  
+   <xs:element name="returnCode" type="xs:string" minOccurs="0"/>
+   <xs:element name="errorDescription" type="xs:string" minOccurs="0"></xs:element> 
+   <xs:element name="result" type="xs:string" minOccurs="0"/>  
+   <xs:element name="description" type="xs:string" minOccurs="0"/>  
+   <xs:element name="messageCode" type="xs:string" minOccurs="0"/>    
+   <xs:element name="MDN" type="xs:string" minOccurs="1"/>
+  </xs:sequence>
+ </xs:complexType>  
+            
+ <xs:complexType name="AllocateMDNRequest">
+  <xs:sequence>
+   <xs:element name="messageHeader" type="messageHeaderType" minOccurs="1">
+    <xs:annotation>
+     <xs:documentation>Valid MVNO username</xs:documentation>
+    </xs:annotation>
+   </xs:element>  
+   <xs:element name="MDN" type="xs:string" minOccurs="1"/>
+   <xs:choice>
+    <xs:element name="imsi" type="xs:string"/>
+    <xs:element name="icc" type="xs:string"/>
+   </xs:choice>   
+   <xs:element name="zipCode" type="xs:string" minOccurs="1"/>
+   <xs:element name="plan" type="xs:string" minOccurs="0"/>
+   <xs:element name="package" type="xs:string" minOccurs="0"/>
+  </xs:sequence>
+ </xs:complexType>
+             	                     	        
+ <xs:complexType name="AllocateMDNResponse">
+  <xs:sequence>  
+   <xs:element name="transactionId" type="xs:string" minOccurs="0"/>  
+   <xs:element name="returnCode" type="xs:string" minOccurs="0"/>
+   <xs:element name="errorDescription" type="xs:string" minOccurs="0"></xs:element>   
+   <xs:element name="MDN" type="xs:string" minOccurs="1"/>
+  </xs:sequence>
+ </xs:complexType>  
+               
+ <xs:complexType name="GetSubscriberInfoRequest">
+  <xs:sequence>
+   <xs:element name="messageHeader" type="messageHeaderType" minOccurs="1">
+    <xs:annotation>
+     <xs:documentation>Valid MVNO username</xs:documentation>
+    </xs:annotation>
+   </xs:element>  
+   <xs:element name="imsi" type="xs:string" minOccurs="1"/>
+   <xs:element name="queryType" type="xs:string" minOccurs="1">
+    <xs:annotation>
+     <xs:documentation>0 – Subscriber Inquiry, 1 – Query HLR
+     </xs:documentation>
+    </xs:annotation>
+   </xs:element>
+  </xs:sequence>
+ </xs:complexType>
+             	                     	        
+ <xs:complexType name="GetSubscriberInfoResponse">
+  <xs:sequence>  
+   <xs:element name="transactionId" type="xs:string"/> 
+   <xs:element name="errorCode" type="xs:string"/>
+   <xs:element name="errorDescription" type="xs:string"/> 
+   <xs:element name="result" type="xs:string"/>
+   <xs:element name="description" type="xs:string"/>
+   <xs:element name="status" type="xs:string"/>
+   <xs:element name="msisdn" type="xs:string"/>
+   <xs:element name="sim" type="xs:string"/>
+   <xs:element name="imei" type="xs:string"/>
+   <xs:element name="imsi" type="xs:string"/>
+   <xs:element name="serviceStartDate" type="xs:string"/>
+   <xs:element name="packageName" type="xs:string"/>
+   <xs:element name="packageEffectiveDate" type="xs:string"/>
+   <xs:element name="planName" type="xs:string"/>
+   <xs:element name="planEffectiveDate" type="xs:string"/>
+   <xs:element name="soc" type="socType" maxOccurs="unbounded"/>
+  </xs:sequence>
+ </xs:complexType>
+
+ <xs:complexType name="ModifySubscriberStatusRequest">
+  <xs:sequence>
+   <xs:element name="messageHeader" type="messageHeaderType" minOccurs="1">
+    <xs:annotation>
+     <xs:documentation>Valid MVNO username</xs:documentation>
+    </xs:annotation>
+   </xs:element>  
+   <xs:element name="MDN" type="xs:string" minOccurs="1"/>
+   <xs:element name="imsi" type="xs:string" minOccurs="1"/>
+   <xs:element name="status" type="xs:string" minOccurs="1"/>
+  </xs:sequence>
+ </xs:complexType>
+             	                     	        
+ <xs:complexType name="ModifySubscriberStatusResponse">
+  <xs:sequence>  
+   <xs:element name="transactionId" type="xs:string" minOccurs="0"/>  
+   <xs:element name="returnCode" type="xs:string" minOccurs="0"/>
+   <xs:element name="errorDescription" type="xs:string" minOccurs="0"></xs:element>   
+   <xs:element name="MDN" type="xs:string" minOccurs="1"/>
+  </xs:sequence>
+ </xs:complexType>  
+ 
+ <xs:complexType name="ChangePlanRequest">
+  <xs:sequence>
+   <xs:element name="messageHeader" type="messageHeaderType" minOccurs="1">
+    <xs:annotation>
+     <xs:documentation>Valid MVNO username</xs:documentation>
+    </xs:annotation>
+   </xs:element>  
+   <xs:element name="MDN" type="xs:string" minOccurs="1"/>
+   <xs:element name="imsi" type="xs:string" minOccurs="1"/>
+   <xs:element name="iccid" type="xs:string" minOccurs="0"/>
+   <xs:element name="plan" type="xs:string" minOccurs="0"/>
+   <xs:element name="packageName" type="xs:string" minOccurs="0"/>
+   <xs:element name="feature" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+  </xs:sequence>
+ </xs:complexType>
+             	                     	        
+ <xs:complexType name="ChangePlanResponse">
+  <xs:sequence>  
+   <xs:element name="transactionId" type="xs:string" minOccurs="0"/>  
+   <xs:element name="returnCode" type="xs:string" minOccurs="0"/>
+   <xs:element name="errorDescription" type="xs:string" minOccurs="0"/>   
+   <xs:element name="MDN" type="xs:string" minOccurs="1"/>
+  </xs:sequence>
+ </xs:complexType>  
+ 
+  <xs:complexType name="QuerySubscriberUsageRequest">
+  <xs:sequence>
+   <xs:element name="messageHeader" type="messageHeaderType" minOccurs="1">
+    <xs:annotation>
+     <xs:documentation>Valid MVNO username</xs:documentation>
+    </xs:annotation>
+   </xs:element>  
+   <xs:element name="MDN" type="xs:string" minOccurs="1"/>
+   <xs:element name="imsi" type="xs:string" minOccurs="1"/>
+  </xs:sequence>
+ </xs:complexType>
+             	                     	        
+ <xs:complexType name="QuerySubscriberUsageResponse">
+  <xs:sequence>  
+   <xs:element name="transactionId" type="xs:string" minOccurs="0"/>  
+   <xs:element name="errorCode" type="xs:string" minOccurs="0"/>
+   <xs:element name="errorDesc" type="xs:string" minOccurs="0"/>   
+   <xs:element name="result" type="xs:string" minOccurs="0"/>
+   <xs:element name="description" type="xs:string" minOccurs="0"/>
+   <xs:element name="status" type="xs:string" minOccurs="0"/>
+   <xs:element name="msisdn" type="xs:string" minOccurs="0"/>
+   <xs:element name="sim" type="xs:string" minOccurs="0"/>
+   <xs:element name="imei" type="xs:string" minOccurs="0"/>
+   <xs:element name="usage" type="usageType" minOccurs="0" maxOccurs="unbounded"/>
+  </xs:sequence>
+ </xs:complexType> 
+ 
+  <xs:complexType name="ReactivateSubscriberRequest">
+  <xs:sequence>
+   <xs:element name="messageHeader" type="messageHeaderType" minOccurs="1">
+    <xs:annotation>
+     <xs:documentation>Valid MVNO username</xs:documentation>
+    </xs:annotation>
+   </xs:element>  
+   <xs:element name="MDN" type="xs:string" minOccurs="1"/>
+   <xs:element name="imsi" type="xs:string" minOccurs="1"/>
+   <xs:element name="iccid" type="xs:string" minOccurs="0"/>
+  </xs:sequence>
+ </xs:complexType>
+             	                     	        
+ <xs:complexType name="ReactivateSubscriberResponse">
+  <xs:sequence>  
+   <xs:element name="transactionId" type="xs:string" minOccurs="0"/>  
+   <xs:element name="errorCode" type="xs:string" minOccurs="0"/>
+   <xs:element name="errorDesc" type="xs:string" minOccurs="0"/>   
+   <xs:element name="result" type="xs:string" minOccurs="0"/>  
+   <xs:element name="description" type="xs:string" minOccurs="0"/>  
+   <xs:element name="messageCode" type="xs:string" minOccurs="0"/>  
+   <xs:element name="action" type="xs:string" minOccurs="0"/>
+   <xs:element name="msisdn" type="xs:string" minOccurs="0"/>
+  </xs:sequence>
+ </xs:complexType> 
+  
+  <xs:complexType name="ReplaceMSISDNRequest">
+  <xs:sequence>
+   <xs:element name="messageHeader" type="messageHeaderType" minOccurs="1">
+    <xs:annotation>
+     <xs:documentation>Valid MVNO username</xs:documentation>
+    </xs:annotation>
+   </xs:element>  
+   <xs:element name="MDN" type="xs:string" minOccurs="1"/>
+   <xs:element name="imsi" type="xs:string" minOccurs="1"/>
+   <xs:element name="iccid" type="xs:string" minOccurs="1"/>
+   <xs:element name="zipCode" type="xs:string" minOccurs="1"/>
+  </xs:sequence>
+ </xs:complexType>
+             	                     	        
+ <xs:complexType name="ReplaceMSISDNResponse">
+  <xs:sequence>  
+   <xs:element name="transactionId" type="xs:string" minOccurs="0"/>  
+   <xs:element name="errorCode" type="xs:string" minOccurs="0"/>
+   <xs:element name="errorDesc" type="xs:string" minOccurs="0"/>   
+   <xs:element name="action" type="xs:string" minOccurs="0"/>
+   <xs:element name="msisdn" type="xs:string" minOccurs="0"/>
+  </xs:sequence>
+ </xs:complexType> 
+   
+  <xs:complexType name="ChangeMSISDNRequest">
+  <xs:sequence>
+   <xs:element name="messageHeader" type="messageHeaderType" minOccurs="1">
+    <xs:annotation>
+     <xs:documentation>Valid MVNO username</xs:documentation>
+    </xs:annotation>
+   </xs:element>  
+   <xs:element name="MDN" type="xs:string" minOccurs="0"/>
+   <xs:element name="newMDN" type="xs:string" minOccurs="1"/>
+   <xs:element name="iccid" type="xs:string" minOccurs="0"/>
+   <xs:element name="imsi" type="xs:string" minOccurs="1"/>
+   <xs:element name="portInFlag" type="xs:string" minOccurs="1"/>   
+  </xs:sequence>
+ </xs:complexType>
+             	                     	        
+ <xs:complexType name="ChangeMSISDNResponse">
+  <xs:sequence>  
+   <xs:element name="transactionId" type="xs:string" minOccurs="0"/>  
+   <xs:element name="errorCode" type="xs:string" minOccurs="0"/>
+   <xs:element name="errorDesc" type="xs:string" minOccurs="0"/>   
+   <xs:element name="msisdn" type="xs:string" minOccurs="0"/>
+  </xs:sequence>
+ </xs:complexType> 
+    
+<xs:complexType name="BlockUnblockSIMRequest">
+  <xs:sequence>
+   <xs:element name="messageHeader" type="messageHeaderType" minOccurs="1">
+    <xs:annotation>
+     <xs:documentation>Valid MVNO username</xs:documentation>
+    </xs:annotation>
+   </xs:element>  
+   <xs:element name="MDN" type="xs:string" minOccurs="1"/>
+   <xs:element name="setFlag" type="xs:string" minOccurs="1"/>
+   <xs:element name="operationCode" type="xs:string" minOccurs="1"/>
+  </xs:sequence>
+ </xs:complexType>
+  	        
+ <xs:complexType name="BlockUnblockSIMResponse">
+  <xs:sequence>
+   <xs:element name="transactionId" type="xs:string" minOccurs="0"/>  
+   <xs:element name="errorCode" type="xs:string" minOccurs="0"/>
+   <xs:element name="errorDescription" type="xs:string" minOccurs="0"></xs:element>   
+   <xs:element name="result" type="xs:string" minOccurs="0"/>  
+   <xs:element name="resultCode" type="xs:string" minOccurs="0"/>
+   <xs:element name="resultDescription" type="xs:string" minOccurs="0"></xs:element> 
+   <xs:element name="resultStatus" type="xs:string" minOccurs="0"></xs:element>        
+  </xs:sequence>
+ </xs:complexType> 
+     
+<xs:complexType name="ModifyingSubscriberLanguageTypeRequest">
+  <xs:sequence>
+   <xs:element name="messageHeader" type="messageHeaderType" minOccurs="1">
+    <xs:annotation>
+     <xs:documentation>Valid MVNO username</xs:documentation>
+    </xs:annotation>
+   </xs:element>  
+   <xs:element name="MDN" type="xs:string" minOccurs="1"/>
+   <xs:element name="languageType" type="xs:string" minOccurs="1"/>
+  </xs:sequence>
+ </xs:complexType>
+  	        
+ <xs:complexType name="ModifyingSubscriberLanguageTypeResponse">
+  <xs:sequence>
+   <xs:element name="transactionId" type="xs:string" minOccurs="0"/>  
+   <xs:element name="errorDescription" type="xs:string" minOccurs="0"></xs:element>   
+   <xs:element name="resultCode" type="xs:string" minOccurs="0"/>
+   <xs:element name="oldLanguageType" type="xs:string" minOccurs="0"></xs:element> 
+   <xs:element name="languageType" type="xs:string" minOccurs="0"></xs:element>        
+  </xs:sequence>
+ </xs:complexType> 
+      
+ <xs:complexType name="SwapMSISDNRequest">
+  <xs:sequence>
+   <xs:element name="messageHeader" type="messageHeaderType" minOccurs="1">
+    <xs:annotation>
+     <xs:documentation>Valid MVNO username</xs:documentation>
+    </xs:annotation>
+   </xs:element>  
+   <xs:element name="MDN" type="xs:string" minOccurs="1"/>
+   <xs:element name="imsi" type="xs:string" minOccurs="1"/>
+   <xs:element name="iccid" type="xs:string" minOccurs="1"/>
+   <xs:element name="dna" type="xs:string" minOccurs="1"/>
+  </xs:sequence>
+ </xs:complexType>
+  	        
+ <xs:complexType name="SwapMSISDNResponse">
+  <xs:sequence>
+   <xs:element name="transactionId" type="xs:string" minOccurs="0"/>  
+   <xs:element name="errorDescription" type="xs:string" minOccurs="0"></xs:element>   
+   <xs:element name="resultCode" type="xs:string" minOccurs="0"/>
+   <xs:element name="multiImsi" type="xs:string" minOccurs="0"></xs:element> 
+   <xs:element name="oldMsisdn" type="xs:string" minOccurs="0"></xs:element>           
+  </xs:sequence>
+ </xs:complexType> 
+       
+ <xs:complexType name="ChangeIMSIRequest">
+  <xs:sequence>
+   <xs:element name="messageHeader" type="messageHeaderType" minOccurs="1">
+    <xs:annotation>
+     <xs:documentation>Valid MVNO username</xs:documentation>
+    </xs:annotation>
+   </xs:element>  
+   <xs:element name="MDN" type="xs:string" minOccurs="0"/>
+   <xs:element name="newIMSI" type="xs:string" minOccurs="1"/>
+   <xs:element name="oldIMSI" type="xs:string" minOccurs="0"/>  
+  </xs:sequence>
+ </xs:complexType>
+             	                     	        
+ <xs:complexType name="ChangeIMSIResponse">
+  <xs:sequence>  
+   <xs:element name="transactionId" type="xs:string" minOccurs="0"/>  
+   <xs:element name="errorCode" type="xs:string" minOccurs="0"/>
+   <xs:element name="errorDesc" type="xs:string" minOccurs="0"/>   
+   <xs:element name="tmoResponse" type="xs:string" minOccurs="0"/>
+  </xs:sequence>
+ </xs:complexType> 
+        
+ <xs:complexType name="SwapIMSIRequest">
+  <xs:sequence>
+   <xs:element name="messageHeader" type="messageHeaderType" minOccurs="1">
+    <xs:annotation>
+     <xs:documentation>Valid MVNO username</xs:documentation>
+    </xs:annotation>
+   </xs:element>  
+   <xs:element name="MDN" type="xs:string" minOccurs="1"/>
+   <xs:element name="imsi" type="xs:string" minOccurs="1"/>
+   <xs:element name="iccid" type="xs:string" minOccurs="1"/>
+  </xs:sequence>
+ </xs:complexType>
+  	        
+ <xs:complexType name="SwapIMSIResponse">
+  <xs:sequence>
+   <xs:element name="transactionId" type="xs:string" minOccurs="0"/>  
+   <xs:element name="errorDescription" type="xs:string" minOccurs="0"></xs:element>   
+   <xs:element name="resultCode" type="xs:string" minOccurs="0"/>
+   <xs:element name="multiImsi" type="xs:string" minOccurs="0"></xs:element> 
+   <xs:element name="oldImsi" type="xs:string" minOccurs="0"></xs:element>
+   <xs:element name="priImsi" type="xs:string" minOccurs="0"></xs:element> 
+   <xs:element name="secImsi" type="xs:string" minOccurs="0"></xs:element>            
+  </xs:sequence>
+ </xs:complexType> 
+         
+ <xs:complexType name="AddSOCRequest">
+  <xs:sequence>
+   <xs:element name="messageHeader" type="messageHeaderType" minOccurs="1">
+    <xs:annotation>
+     <xs:documentation>Valid MVNO username</xs:documentation>
+    </xs:annotation>
+   </xs:element>  
+   <xs:element name="MDN" type="xs:string" minOccurs="1"/>
+   <xs:element name="imsi" type="xs:string" minOccurs="1"/>
+   <xs:element name="soc" type="socType" minOccurs="0" maxOccurs="unbounded"/>
+  </xs:sequence>
+ </xs:complexType>
+             	                     	        
+ <xs:complexType name="AddSOCResponse">
+  <xs:sequence>  
+   <xs:element name="transactionId" type="xs:string" minOccurs="0"/>  
+   <xs:element name="returnCode" type="xs:string" minOccurs="0"/>
+   <xs:element name="returnDescription" type="xs:string" minOccurs="0"/>   
+  </xs:sequence>
+ </xs:complexType> 
+ 
+ <xs:complexType name="RemoveSOCRequest">
+  <xs:sequence>
+   <xs:element name="messageHeader" type="messageHeaderType" minOccurs="1">
+    <xs:annotation>
+     <xs:documentation>Valid MVNO username</xs:documentation>
+    </xs:annotation>
+   </xs:element>  
+   <xs:element name="MDN" type="xs:string" minOccurs="1"/>
+   <xs:element name="imsi" type="xs:string" minOccurs="1"/>
+   <xs:element name="soc" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+  </xs:sequence>
+ </xs:complexType>
+             	                     	        
+ <xs:complexType name="RemoveSOCResponse">
+  <xs:sequence>  
+   <xs:element name="transactionId" type="xs:string" minOccurs="0"/>  
+   <xs:element name="returnCode" type="xs:string" minOccurs="0"/>
+   <xs:element name="returnDescription" type="xs:string" minOccurs="0"/>   
+  </xs:sequence>
+ </xs:complexType>   
+         
+ <xs:complexType name="ModifySubscriberBucketRequest">
+  <xs:sequence>
+   <xs:element name="messageHeader" type="messageHeaderType" minOccurs="1">
+    <xs:annotation>
+     <xs:documentation>Valid MVNO username</xs:documentation>
+    </xs:annotation>
+   </xs:element>  
+   <xs:element name="MDN" type="xs:string" minOccurs="1"/>
+   <xs:element name="imsi" type="xs:string" minOccurs="1"/>
+   <xs:element name="iccid" type="xs:string" minOccurs="0"/>
+   <xs:element name="soc" type="socType" minOccurs="0" maxOccurs="unbounded"/>
+  </xs:sequence>
+ </xs:complexType>
+             	                     	        
+ <xs:complexType name="ModifySubscriberBucketResponse">
+  <xs:sequence>  
+   <xs:element name="transactionId" type="xs:string" minOccurs="0"/>  
+   <xs:element name="returnCode" type="xs:string" minOccurs="0"/>
+   <xs:element name="returnDescription" type="xs:string" minOccurs="0"/>   
+  </xs:sequence>
+ </xs:complexType> 
+          
+ <xs:complexType name="usageType">
+  <xs:sequence>
+   <xs:element name="soc" type="xs:string"/>
+   <xs:element name="type" type="xs:string"/>
+   <xs:element name="limit" type="xs:string"/>
+   <xs:element name="used" type="xs:string"/>
+   <xs:element name="status" type="xs:string"/>
+   <xs:element name="expiryDateTime" type="xs:string"/>
+  </xs:sequence>
+ </xs:complexType> 
+  
+ <xs:complexType name="socType">
+  <xs:sequence>
+   <xs:element name="name" type="xs:string" minOccurs="0"/>
+   <xs:element name="effectiveDate" type="xs:string" minOccurs="0"/>
+   <xs:element name="billCycleDay" type="xs:string" minOccurs="0"/>
+   <xs:element name="resetUsage" type="xs:string" minOccurs="0"/>
+   <xs:element name="expiryDateTime" type="xs:string" minOccurs="0"/> 
+  </xs:sequence>
+ </xs:complexType>             	        
+ 
+ <xs:complexType name="messageHeaderType">
+  <xs:sequence>
+   <xs:element name="username" type="xs:string"/>
+  </xs:sequence>
+ </xs:complexType>
+ 
+ <xs:complexType name="serviceInfoType">
+  <xs:sequence>
+   <xs:element name="MOCall" type="xs:string" minOccurs="0"/>
+   <xs:element name="MTCall" type="xs:string" minOccurs="0"/>
+   <xs:element name="MORoamingCall" type="xs:string" minOccurs="0"/>
+   <xs:element name="MTRoamingCall" type="xs:string" minOccurs="0"/>
+   <xs:element name="MOSMS" type="xs:string" minOccurs="0"/>
+   <xs:element name="MTSMS" type="xs:string" minOccurs="0"/>
+   <xs:element name="MORoamingSMS" type="xs:string" minOccurs="0"/>
+   <xs:element name="MTRoamingSMS" type="xs:string" minOccurs="0"/>
+   <xs:element name="IVR" type="xs:string" minOccurs="0"/>
+   <xs:element name="USSD" type="xs:string" minOccurs="0"/>
+   <xs:element name="VMS" type="xs:string" minOccurs="0"/>
+   <xs:element name="SMSTopup" type="xs:string" minOccurs="0"/>
+   <xs:element name="MobileHomeAccount" type="xs:string" minOccurs="0"/>
+   <xs:element name="MOVideoCall" type="xs:string" minOccurs="0"/>
+   <xs:element name="MTVideoCall" type="xs:string" minOccurs="0"/>
+   <xs:element name="MORoamingVideoCall" type="xs:string" minOccurs="0"/>
+   <xs:element name="MTRoamingVideoCall" type="xs:string" minOccurs="0"/>
+   <xs:element name="MCA" type="xs:string" minOccurs="0"/>
+   <xs:element name="CRBT" type="xs:string" minOccurs="0"/>
+   <xs:element name="MOData" type="xs:string" minOccurs="0"/>
+   <xs:element name="MORoamData" type="xs:string" minOccurs="0"/> 
+   <xs:element name="CBS" type="xs:string" minOccurs="0"/>
+  </xs:sequence>
+ </xs:complexType>
+    	 
+ <xs:complexType name="smsMessageType">
+  <xs:sequence>
+   <xs:element name="id" type="xs:string"/>
+   <xs:element name="user" type="xs:string"/>
+   <xs:element name="referenceNumber" type="xs:string"/>
+   <xs:element name="mdn" type="xs:string"/>
+   <xs:element name="started" type="xs:string"/>
+   <xs:element name="ended" type="xs:string"/>
+   <xs:element name="request" type="xs:string"/>
+   <xs:element name="response" type="xs:string"/>
+  </xs:sequence>
+ </xs:complexType>
+    	        
+</xs:schema>	        

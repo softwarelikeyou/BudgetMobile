@@ -1,0 +1,35 @@
+<?taglib uri="/WEB-INF/tld/sly.tld" prefix="sly"?>
+<vbox id="actionsPanel" 
+      class="sly-actions-panel"
+      use="com.budgetprepay.viewcontroller.verizon.Actions">	
+ <a image="${sly:getImageURL('mobilephone3', 'small')}" 
+	 label="${sly:getLabel('Labels.UI.validate-device')}"
+	 id="validateDevice" 
+	 style="text-decoration: none"
+	 sclass="sly-action"/>	
+ <a image="${sly:getImageURL('gear_ok', 'small')}" 
+	 label="${sly:getLabel('Labels.UI.validate-portin')}"
+	 id="validatePortin" 
+	 style="text-decoration: none"
+	 sclass="sly-action"/>	
+ <a image="${sly:getImageURL('information', 'small')}" 
+	 label="${sly:getLabel('Labels.UI.order-inquiry')}"
+	 id="orderInquiry" 
+	 style="text-decoration: none"
+	 sclass="sly-action"/>	
+ <a image="${sly:getImageURL('information', 'small')}" 
+	 label="${sly:getLabel('Labels.UI.line-inquiry')}"
+	 id="lineInquiry" 
+	 style="text-decoration: none"
+	 sclass="sly-action"/>	
+ <a image="${sly:getImageURL('information', 'small')}" 
+	 label="${sly:getLabel('Labels.UI.device-inquiry')}"
+	 id="deviceInquiry" 
+	 style="text-decoration: none"
+	 sclass="sly-action"/>	
+ <a image="${sly:getImageURL('information', 'small')}" 
+	 label="${sly:getLabel('Labels.UI.search-bucket')}"
+	 id="searchBucket" 
+	 style="text-decoration: none"
+	 sclass="sly-action"/>	 	 	 	 	 		
+</vbox>

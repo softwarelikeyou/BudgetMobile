@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/content_topup_checkout"
+    tools:context=".budgetmobile.MainActivity"
+    tools:showIn="@layout/activity_main"
+    android:gravity="top|center_horizontal"
+    android:layout_gravity="top|center_horizontal"
+    android:orientation="vertical"
+    android:layout_marginTop="15dp">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/white"
+        android:layout_marginBottom="5dp">
+
+        <TableLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:stretchColumns="*"
+            android:id="@+id/costTableLayout">
+            <TableRow>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="left|center_vertical"
+                    android:textSize="12sp"
+                    android:textColor="@android:color/black"
+                    android:id="@+id/productDescription"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="right|center_vertical"
+                    android:textSize="14sp"
+                    android:textColor="@android:color/black"
+                    android:id="@+id/productPrice"/>
+            </TableRow>
+
+            <TableRow>
+                <TextView android:text="Total"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    android:gravity="left"
+                    android:textColor="@android:color/black"/>
+                <TextView android:id="@+id/totalPrice"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:gravity="right"
+                    android:textColor="@android:color/black"/>
+            </TableRow>
+
+        </TableLayout>
+    </FrameLayout>
+
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@android:color/white"
+        android:layout_marginBottom="5dp">
+
+        <TableLayout android:id="@+id/carditCardLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:stretchColumns="*">
+
+            <TableRow android:id="@+id/tablerow_promo_code">
+                <EditText style="@style/CCCheckoutStyle"
+                    android:layout_span="3"
+                    android:id="@+id/promo_code"
+                    android:hint="@string/label_promo_code"
+                    android:singleLine="true"
+                    android:textColorHint="@android:color/black"
+                    android:textColor="@android:color/black"
+                    android:paddingLeft="10dp"
+                    android:gravity="start|center_vertical"
+                    android:background="@drawable/edittext_rounded_corners"
+                    android:drawableLeft="@drawable/ic_loyalty_black_36dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginRight="3dp"
+                    android:imeOptions="actionNext" />
+            </TableRow>
+
+            <TableRow>
+                <EditText style="@style/CCCheckoutStyle"
+                    android:layout_span="3"
+                    android:id="@+id/credit_card"
+                    android:hint="@string/label_credit_card_number"
+                    android:inputType="number"
+                    android:singleLine="true"
+                    android:textColorHint="@android:color/black"
+                    android:textColor="@android:color/black"
+                    android:paddingLeft="10dp"
+                    android:gravity="start|center_vertical"
+                    android:background="@drawable/edittext_rounded_corners"
+                    android:drawableLeft="@drawable/ic_credit_card_black_36dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginRight="3dp"
+                    android:imeOptions="actionNext" />
+            </TableRow>
+
+            <TableRow android:layout_marginBottom="5dp">
+
+                <EditText style="@style/CCCheckoutStyle"
+                    android:id="@+id/cc_exp"
+                    android:hint="Expiration YYYYMM"
+                    android:inputType="number"
+                    android:singleLine="true"
+                    android:textColorHint="@android:color/black"
+                    android:textColor="@android:color/black"
+                    android:paddingLeft="10dp"
+                    android:layout_marginRight="3dp"
+                    android:gravity="left|center_vertical"
+                    android:background="@drawable/edittext_rounded_corners"
+                    android:imeOptions="actionNext" />
+
+                <EditText style="@style/CCCheckoutStyle"
+                    android:id="@+id/cc_ccc"
+                    android:hint="Verification #"
+                    android:inputType="number"
+                    android:singleLine="true"
+                    android:textColorHint="@android:color/black"
+                    android:textColor="@android:color/black"
+                    android:paddingLeft="10dp"
+                    android:gravity="left|center_vertical"
+                    android:background="@drawable/edittext_rounded_corners"
+                    android:layout_span="2"
+                    android:imeOptions="actionNext"
+                    android:layout_marginRight="3dp"/>
+            </TableRow>
+
+            <TableRow android:layout_marginBottom="5dp">
+                <EditText style="@style/CCCheckoutStyle"
+                    android:layout_span="3"
+                    android:id="@+id/card_holder_name"
+                    android:hint="@string/label_card_holder_name"
+                    android:singleLine="true"
+                    android:textColorHint="@android:color/black"
+                    android:textColor="@android:color/black"
+                    android:paddingLeft="10dp"
+                    android:gravity="left|center_vertical"
+                    android:background="@drawable/edittext_rounded_corners"
+                    android:imeOptions="actionNext"
+                    android:layout_marginRight="3dp"/>
+            </TableRow>
+
+            <TableRow android:layout_marginBottom="5dp">
+                <EditText style="@style/CCCheckoutStyle"
+                    android:layout_span="3"
+                    android:id="@+id/card_holder_address1"
+                    android:hint="Address"
+                    android:singleLine="true"
+                    android:textColorHint="@android:color/black"
+                    android:textColor="@android:color/black"
+                    android:paddingLeft="10dp"
+                    android:gravity="left|center_vertical"
+                    android:background="@drawable/edittext_rounded_corners"
+                    android:imeOptions="actionNext"
+                    android:layout_marginRight="3dp"/>
+            </TableRow>
+
+            <TableRow>
+                <EditText style="@style/CCCheckoutStyle"
+                    android:id="@+id/cc_city"
+                    android:hint="City"
+                    android:singleLine="true"
+                    android:textColorHint="@android:color/black"
+                    android:textColor="@android:color/black"
+                    android:paddingLeft="10dp"
+                    android:layout_marginRight="3dp"
+                    android:gravity="left|center_vertical"
+                    android:background="@drawable/edittext_rounded_corners"
+                    android:imeOptions="actionNext"/>
+
+                <EditText style="@style/CCCheckoutStyle"
+                    android:id="@+id/cc_state"
+                    android:hint="State"
+                    android:singleLine="true"
+                    android:textColorHint="@android:color/black"
+                    android:textColor="@android:color/black"
+                    android:paddingLeft="10dp"
+                    android:layout_marginRight="3dp"
+                    android:gravity="left|center_vertical"
+                    android:background="@drawable/edittext_rounded_corners"
+                    android:imeOptions="actionNext"/>
+
+                <EditText style="@style/CCCheckoutStyle"
+                    android:id="@+id/cc_zip"
+                    android:hint="Zip"
+                    android:inputType="number"
+                    android:singleLine="true"
+                    android:textColorHint="@android:color/black"
+                    android:textColor="@android:color/black"
+                    android:paddingLeft="3dp"
+                    android:layout_marginBottom="5dp"
+                    android:gravity="left|center_vertical"
+                    android:background="@drawable/edittext_rounded_corners"
+                    android:imeOptions="actionNext"
+                    android:layout_marginRight="3dp"/>
+            </TableRow>
+
+            <TableRow>
+                <Button
+                    android:layout_width="fill_parent"
+                    android:layout_span="3"
+                    android:layout_height="45dp"
+                    android:layout_above="@+id/footer"
+                    android:text="Pay Now"
+                    android:textAllCaps="false"
+                    android:textSize="16sp"
+                    android:textColor="#fbf8ff"
+                    android:background="@drawable/orange_rectangle"
+                    android:onClick="goPayNow"
+                    android:gravity="center_horizontal|center_vertical"
+                    android:layout_marginBottom="0dp"
+                    android:layout_marginRight="3dp"/>
+
+            </TableRow>
+
+        </TableLayout>
+    </FrameLayout>
+</LinearLayout>

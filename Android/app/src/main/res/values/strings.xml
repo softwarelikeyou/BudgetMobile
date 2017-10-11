@@ -1,0 +1,108 @@
+<resources>
+    <string name="app_name">Budget Mobile</string>
+    <string name="label_logoff">Logoff</string>
+    <string name="label_login">Login</string>
+    <string name="label_username">Username</string>
+    <string name="label_password">Password</string>
+    <string name="label_account">Account</string>
+    <string name="label_home">Home</string>
+    <string name="label_topup">TopUp</string>
+    <string name="label_support">Support</string>
+    <string name="label_settings">Settings</string>
+    <string name="label_main">Main</string>
+    <string name="label_regulatory">Regulatory</string>
+
+    <string name="label_no_internet_connection">"You do not have an Internet connection"</string>
+    <string name="label_settings_not_supported">"Settings not supported on this phone"</string>
+    <string name="label_no_changes_at_this_time">"No changes are allowed at this time"</string>
+    <string name="label_please_login">Please Login</string>
+    <string name="label_calling_permission_denied">Calling Permission Denied</string>
+    <string name="label_password_not_entered">You did not enter a username</string>
+
+    <string name="label_lookup_account">Lookup Account</string>
+    <string name="label_lookup_account_directions">Lookup username/password, enter</string>
+    <string name="label_lookup_account_hint">Budget Mobile Phone #</string>
+
+    <string name="label_build_config"><u>Build</u></string>
+    <string name="label_json"><u>JSON</u></string>
+    <string name="label_device_attributes"><u>Attributes</u></string>
+    <string name="format_screen">%1$sx%2$spx, %3$sdpi</string>
+
+    <string name="label_budget_mobile_support"><b>Budget Mobile Support</b></string>
+    <string name="label_bm_tollfree">8887774007</string>
+    <string name="label_website">Web Site</string>
+    <string name="label_bm_website">http://www.budgetmobile.com</string>
+    <string name="label_chat">Chat</string>
+
+    <string name="label_regulartory">Regulatory</string>
+    <string name="label_regulartory_agreement">You need to renew your Lifeline Services Agreement annually.</string>
+    <string name="label_life_line_expires">Life Line Expires</string>
+    <string name="label_renew_now">Renew Now</string>
+    <string name="label_terms_and_conditions">Terms and Conditions</string>
+    <string name="label_usage_statement">
+        You MUST use your phone at least once\n
+        every 60 Days to keep your service active.\n
+        Phone usage can be placing one call\n
+        60 days from the day you sign up. Failure\n
+        to use your headset will result in your\n
+        de-enrollment of the lifeline program.
+    </string>
+    <string name="label_last_used">Last Used</string>
+
+    <string name="label_userid">User Id</string>
+    <string name="label_email">Email</string>
+    <string name="label_lookup_account_email_directions">To send the username and password to the above email, click Send below"</string>
+    <string name="label_send">Send</string>
+
+    <string name="label_expires_underline"><u>Expires</u></string>
+    <string name="label_voice">Voice</string>
+    <string name="label_text">Text</string>
+    <string name="label_data">Data</string>
+    <string name="label_balance_underline"><u>Balance</u></string>
+
+    <string name="label_credit_card_number">Credit Card Number</string>
+    <string name="label_order_id">Order Id</string>
+    <string name="label_cc_exp">Exp YYYYMM</string>
+    <string name="label_cc_verify_number">Verification #</string>
+    <string name="label_card_holder_name">Card Holder Name</string>
+    <string name="label_reference_id">Reference Id</string>
+    <string name="label_buy">Buy</string>
+
+    <string name="label_approval_status">Status</string>
+    <string name="label_authorization_code">Auth Code</string>
+    <string name="label_avs_resp_code">Code</string>
+    <string name="label_card_brand">Card</string>
+    <string name="label_cc_account_num">Account #</string>
+    <string name="label_customer_ref_num">Reference #</string>
+    <string name="label_cvv_resp_code">Code</string>
+    <string name="label_error_code">Code</string>
+    <string name="label_error_text">Error</string>
+    <string name="label_proc_status">Status</string>
+    <string name="label_proc_status_message">Status</string>
+    <string name="label_request_amount">Amount</string>
+    <string name="label_resp_code">Response Code</string>
+    <string name="label_resp_code_message">Response Message</string>
+    <string name="label_resp_date_time">Date/Time</string>
+    <string name="label_tx_fef_num">Reference #</string>
+
+    <string name="format_address1_address2">%1$s %2$s </string>
+    <string name="format_first_last_names">%1$s %2$s </string>
+    <string name="format_city_state_zip">%1$s, %2$s %3$s</string>
+    <string name="format_prodduct_description"><i>%1$s</i></string>
+
+    <string name="label_live_chat">Live Chat</string>
+    <string name="label_introduce_yourself">Introduce yourself</string>
+    <string name="label_name">Name</string>
+    <string name="label_phone_number">Phone Number</string>
+    <string name="label_message">Message</string>
+    <string name="label_start_chatting">Start Chatting</string>
+
+    <string name="format_use_credits">Use Credits (%1$s available)</string>
+    <string name="label_credit_applied">Credit Applied</string>
+    <string name="format_credits_total">-%1$s</string>
+
+    <string name="label_save">Save</string>
+    <string name="label_promo_code">Optional Promo Code</string>
+    <string name="label_promo_code_save_result">Promo Code</string>
+
+</resources>

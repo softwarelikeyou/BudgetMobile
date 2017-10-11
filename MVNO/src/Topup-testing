@@ -1,0 +1,35 @@
+Greg,
+ 
+The Top Up Reseller API is located:  www.budgetprepay.com/webservices/TopUpReseller/TopUpReseller.asmx
+ 
+There are three functions:
+EnterOrderDetails fully functional.  Below are some test MDNs that can be used for testing.
+CommitOrder it is hardcoded to return a success.
+CancelOrder fully functional.  It will require the referenceID returned from EnterOrderDetails
+ 
+Test MDNs –
+Active/Online
+5702092381
+2678008330
+2673008031
+2157042624
+7755278768
+5013086773
+2253495937
+7027086786
+ 
+Inactive/Disconnected
+8596524402
+3183809755
+2252460454
+2156205826
+5013084855
+3185164205
+7028132212
+ 
+ 
+Please let me know if you need additional test scenarios or experience any trouble with the API.
+ 
+Thanks,
+ 
+Ashley

@@ -1,0 +1,1554 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema targetNamespace="http://www.verizonwireless.com/oas" xmlns="http://www.verizonwireless.com/oas" xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
+	attributeFormDefault="unqualified">
+	<xs:annotation>
+		<xs:documentation>
+		</xs:documentation>
+	</xs:annotation>
+	<!-- ***BASE STRING TYPES*** -->
+	<xs:complexType name="oasStringType">
+		<xs:simpleContent>
+			<xs:extension base="xs:string">
+				<xs:attribute name="old" type="xs:string"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<!-- *** 1 *** -->
+	<xs:complexType name="oasSingleCharacterType">
+		<xs:simpleContent>
+			<xs:restriction base="oasStringType">
+				<xs:maxLength value="1"/>
+			</xs:restriction>
+		</xs:simpleContent>
+	</xs:complexType>
+	<!-- *** 10 *** -->
+	<xs:complexType name="oasString10Type">
+		<xs:simpleContent>
+			<xs:restriction base="oasStringType">
+				<xs:maxLength value="10"/>
+			</xs:restriction>
+		</xs:simpleContent>
+	</xs:complexType>
+	<!-- *** 60 *** -->
+	<xs:complexType name="oasString60Type">
+		<xs:simpleContent>
+			<xs:restriction base="oasStringType">
+				<xs:maxLength value="60"/>
+			</xs:restriction>
+		</xs:simpleContent>
+	</xs:complexType>
+	<!-- *** 100 *** -->
+	<xs:complexType name="oasString100Type">
+		<xs:simpleContent>
+			<xs:restriction base="oasStringType">
+				<xs:maxLength value="100"/>
+			</xs:restriction>
+		</xs:simpleContent>
+	</xs:complexType>
+	<!-- *** 120 *** -->
+	<xs:complexType name="oasString120Type">
+		<xs:simpleContent>
+			<xs:restriction base="oasStringType">
+				<xs:maxLength value="120"/>
+			</xs:restriction>
+		</xs:simpleContent>
+	</xs:complexType>
+	<!-- *** 140 *** -->
+	<xs:complexType name="oasString160Type">
+		<xs:simpleContent>
+			<xs:restriction base="oasStringType">
+				<xs:maxLength value="160"/>
+			</xs:restriction>
+		</xs:simpleContent>
+	</xs:complexType>
+	<!-- *** 500 *** -->
+	<xs:complexType name="oasString500Type">
+		<xs:simpleContent>
+			<xs:restriction base="oasStringType">
+				<xs:maxLength value="500"/>
+			</xs:restriction>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="oasDecimalType">
+		<xs:simpleContent>
+			<xs:extension base="xs:decimal">
+				<xs:attribute name="old" type="xs:decimal"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<!-- ***PERSONAL INFO TYPES (STRINGS)*** -->
+	<xs:complexType name="personNameType">
+		<xs:simpleContent>
+			<xs:restriction base="oasStringType">
+				<xs:maxLength value="25"/>
+			</xs:restriction>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="streetNameType">
+		<xs:simpleContent>
+			<xs:restriction base="oasStringType">
+				<xs:maxLength value="70"/>
+			</xs:restriction>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="cityType">
+		<xs:simpleContent>
+			<xs:restriction base="oasStringType">
+				<xs:maxLength value="35"/>
+			</xs:restriction>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="stateType">
+		<xs:simpleContent>
+			<xs:restriction base="oasStringType">
+				<xs:pattern value="[A-Z]{2}"/>
+			</xs:restriction>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="countryType">
+		<xs:simpleContent>
+			<xs:restriction base="oasStringType">
+				<xs:maxLength value="3"/>
+			</xs:restriction>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="zipCodeType">
+		<xs:simpleContent>
+			<xs:restriction base="oasStringType">
+				<xs:pattern value="[1-9][0-9][0-9][0-9][0-9]|[0-9][1-9][0-9][0-9][0-9]|[0-9][0-9][1-9][0-9][0-9]|[0-9][0-9][0-9][1-9][0-9]|[0-9][0-9][0-9][0-9][1-9]"/>
+			</xs:restriction>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="phoneType">
+		<xs:simpleContent>
+			<xs:restriction base="oasStringType">
+				<xs:pattern value="\d{10}"/>
+			</xs:restriction>
+		</xs:simpleContent>
+	</xs:complexType>
+    <!-- ***ACCOUNT INFO TYPES (STRING)*** -->
+	<xs:complexType name="referenceNumberType">
+		<xs:simpleContent>
+			<xs:restriction base="oasStringType">
+				<xs:maxLength value="100"/>
+				<xs:minLength value="5"/>
+			</xs:restriction>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="subReferenceNumberType">
+		<xs:simpleContent>
+			<xs:restriction base="oasStringType">
+				<xs:maxLength value="110"/>
+			</xs:restriction>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="ospAccountNoType">
+		<xs:simpleContent>
+			<xs:restriction base="oasStringType">
+				<xs:pattern value="[A-Z0-9]{0,20}"/>
+			</xs:restriction>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="ssnType">
+		<xs:simpleContent>
+			<xs:restriction base="oasStringType">
+                <!--  <xs:pattern value="[0-9]{3}\-[0-9]{2}\-[0-9]{4}|\d{9}"/>  -->
+			</xs:restriction>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="taxIdType">
+		<xs:simpleContent>
+			<xs:restriction base="oasStringType">
+                <!--  <xs:pattern value="[0-9]{2}\-[0-9]{7}|\d{9}"/>  -->
+			</xs:restriction>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="pinType">
+		<xs:simpleContent>
+			<xs:restriction base="oasStringType">
+				<xs:maxLength value="15"/>
+			</xs:restriction>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="yesNoType">
+		<xs:simpleContent>
+			<xs:restriction base="oasStringType">
+				<xs:pattern value="[YN]"/>
+			</xs:restriction>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="addDeleteType">
+		<xs:simpleContent>
+			<xs:restriction base="oasStringType">
+				<xs:pattern value="[AD]{1}"/>
+			</xs:restriction>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="includedWithPlanType">
+		<xs:simpleContent>
+			<xs:restriction base="oasStringType">
+				<xs:pattern value="[YNB]{1}"/>
+			</xs:restriction>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:simpleType name="mdnSimpleType">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="\d{10}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="mdnType">
+		<xs:simpleContent>
+			<xs:extension base="mdnSimpleType">
+				<xs:attribute name="type" type="xs:string"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:simpleType name="minType">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="\d{10}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="npaNxxSimpleType">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="\d{6}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="npaNxxType">
+		<xs:simpleContent>
+			<xs:extension base="npaNxxSimpleType">
+				<xs:attribute name="type" type="xs:string"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:simpleType name="esnType">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[0-9]{11}|[A-Fa-f0-9]{8}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="meidType">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[9][0-9]{13}|[3][5-6][0-9]{12}|[A-Fa-f][A-Fa-f0-9]{13}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="esnMeidType">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[9][0-9]{13}|[3][5-6][0-9]{12}|[A-Fa-f][A-Fa-f0-9]{13}|[0-9]{11}|[A-Fa-f0-9]{8}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="globalSIMCardType">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[0-9]{19}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="deviceIdType">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[9][0-9]{13}|[3][5-6][0-9]{12}|[A-Fa-f][A-Fa-f0-9]{13}|[0-9]{11}|[A-Fa-f0-9]{8}|[0-9A-F]{16}|[0-9A-F]{15}|[0-9A-F]{14}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="imeiType">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="\d{14,16}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="SIMCardType">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[0-9]{20}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="reasonCodeType">
+		<xs:simpleContent>
+			<xs:extension base="oasStringType">
+				<xs:attribute name="description" type="xs:string"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="competitorCodeType">
+		<xs:simpleContent>
+			<xs:extension base="oasStringType">
+				<xs:attribute name="description" type="xs:string"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="oasDateType">
+		<xs:simpleContent>
+			<xs:restriction base="oasStringType">
+				<xs:pattern value="\d{2}\d{2}\d{4}|\d{2}/\d{2}/\d{4}|\d{2}/\d{2}/\d{4} \d{2}:\d{2}:\d{2}"/>
+			</xs:restriction>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:simpleType name="desiredDueDateType">
+		<xs:annotation>
+			<xs:documentation>Format is standard XML dateTime without the time zone offset: YYYY-MM-DDTHH:MI:SS</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:dateTime">
+			<xs:pattern value="[0-9]{4}\-[0-9]{2}\-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="minWithOldMinType">
+		<xs:simpleContent>
+			<xs:extension base="minType">
+				<xs:attribute name="old" type="minType" use="required"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="mdnWithOldMdnType">
+		<xs:simpleContent>
+			<xs:extension base="mdnType">
+				<xs:attribute name="old" type="mdnSimpleType" use="required"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="esnWithOldEsnType">
+		<xs:simpleContent>
+			<xs:extension base="esnType">
+				<xs:attribute name="old" type="esnType" use="required"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="esnWithOldEsnMeidType">
+		<xs:simpleContent>
+			<xs:extension base="esnType">
+				<xs:attribute name="old" type="esnMeidType" use="required"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="meidWithOldEsnMeidType">
+		<xs:simpleContent>
+			<xs:extension base="meidType">
+				<xs:attribute name="old" type="esnMeidType" use="required"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="deviceIdWithOldDeviceIdType">
+		<xs:simpleContent>
+			<xs:extension base="deviceIdType">
+				<xs:attribute name="old" type="deviceIdType"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="SIMCardWithOldSIMCardType">
+		<xs:simpleContent>
+			<xs:extension base="SIMCardType">
+				<xs:attribute name="old" type="SIMCardType"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="systemDataType">
+		<xs:sequence>
+			<xs:element name="marketCode" type="oasStringType" minOccurs="0"/>
+			<xs:element name="regionCode" type="oasStringType" minOccurs="0"/>
+			<xs:element name="areaName" type="oasStringType" minOccurs="0"/>
+			<xs:element name="fulfillment" type="oasStringType" minOccurs="0"/>
+			<xs:element name="databaseID" type="oasStringType" minOccurs="0"/>
+			<xs:element name="bta" type="oasStringType" minOccurs="0"/>
+			<xs:element name="msa" type="oasStringType" minOccurs="0"/>
+			<xs:element name="serviceZipCode" type="zipCodeType"/>
+			<xs:element name="serviceCity" type="oasStringType" minOccurs="0"/>
+			<xs:element name="serviceState" type="stateType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ssnOrTaxIdType">
+		<xs:sequence>
+			<xs:choice>
+				<xs:element name="ssn" type="ssnType"/>
+				<xs:element name="taxId" type="taxIdType"/>
+			</xs:choice>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="lnpAddressType">
+		<xs:sequence>
+			<xs:element name="addressLine1" type="streetNameType"/>
+			<xs:element name="addressLine2" type="streetNameType" minOccurs="0"/>
+			<xs:element name="city" type="cityType"/>
+			<xs:element name="state" type="stateType"/>
+			<xs:element name="zip" type="zipCodeType"/>
+			<xs:element name="country" type="countryType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="lnpPersonNameType">
+		<xs:sequence>
+			<xs:element name="first" type="personNameType"/>
+			<xs:element name="middleInitial" type="oasSingleCharacterType" minOccurs="0"/>
+			<xs:element name="last" type="personNameType"/>
+			<xs:element name="suffix" type="oasString10Type" minOccurs="0"/>
+			<xs:element name="prefix" type="oasString10Type" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="lnpNameType">
+		<xs:sequence>
+			<xs:choice>
+				<xs:element name="name" type="lnpPersonNameType"/>
+				<xs:element name="business" type="oasString60Type"/>
+			</xs:choice>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="authorizationStatusType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Y"/>
+			<xs:enumeration value="N"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="directionalIndicatorType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="E"/>
+			<xs:enumeration value="W"/>
+			<xs:enumeration value="S"/>
+			<xs:enumeration value="N"/>
+			<xs:enumeration value="NE"/>
+			<xs:enumeration value="NW"/>
+			<xs:enumeration value="SE"/>
+			<xs:enumeration value="SW"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="hotCutType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Y"/>
+			<xs:enumeration value="N"/>
+		</xs:restriction>
+	</xs:simpleType>
+<!-- RESELLER HBQ Qualification Info - release 13.2.0 -->
+	<xs:simpleType name="qualificationType">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[1-3]{1}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="lnpType">
+		<xs:sequence>
+			<xs:element name="lnpName" type="lnpNameType"/>
+			<xs:element name="address" type="lnpAddressType"/>
+			<xs:element name="authorizedSigner" type="oasString60Type" minOccurs="0"/>
+			<xs:element name="authorizationStatus" type="authorizationStatusType"/>
+			<xs:element name="directionalIndicator" type="directionalIndicatorType" minOccurs="0"/>
+			<xs:element name="phoneUserName" type="oasStringType" minOccurs="0"/>
+			<xs:element name="desiredDueDate" type="desiredDueDateType" minOccurs="0"/>
+			<xs:choice>
+				<xs:sequence>
+					<xs:element name="ssnOrTaxId" type="ssnOrTaxIdType"/>
+					<xs:element name="ospAccountNo" type="ospAccountNoType" minOccurs="0"/>
+				</xs:sequence>
+				<xs:sequence>
+					<xs:element name="ospAccountNo" type="ospAccountNoType"/>
+				</xs:sequence>
+			</xs:choice>
+			<xs:element name="hotCut" type="hotCutType" minOccurs="0"/>
+			<xs:element name="pin" type="pinType" minOccurs="0"/>
+			<xs:element name="remark" type="oasString160Type" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+<!-- RESELLER LNP Enhancement - release 15.4.0 -->
+	<xs:complexType name="mdnDetailType">
+		<xs:sequence>
+			<xs:element name="mdn" type="mdnType"/>
+			<xs:element name="reasonCode" type="oasStringType"/>
+			<xs:element name="reasonDetail" type="oasStringType"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="lnpUpdateType">
+			<xs:sequence>
+				<xs:element name="lnpName" type="lnpNameType"/>
+				<xs:element name="address" type="lnpAddressType"/>
+				<xs:element name="directionalIndicator" type="directionalIndicatorType" minOccurs="0"/>
+				<xs:choice>
+					<xs:sequence>
+						<xs:element name="ssnOrTaxId" type="ssnOrTaxIdType"/>
+						<xs:element name="ospAccountNo" type="ospAccountNoType" minOccurs="0"/>
+					</xs:sequence>
+					<xs:sequence>
+						<xs:element name="ospAccountNo" type="ospAccountNoType"/>
+					</xs:sequence>
+				</xs:choice>
+				<xs:element name="pin" type="pinType" minOccurs="0"/>
+			</xs:sequence>
+	</xs:complexType>	
+	<xs:complexType name="featureType">
+		<xs:sequence>
+			<xs:element name="featureCode" type="oasStringType"/>
+			<xs:element name="subscribe" type="addDeleteType"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="featureRPType">
+		<xs:sequence>
+			<xs:element name="featureCode" type="oasStringType"/>
+			<xs:element name="includedWithPlan" type="includedWithPlanType" minOccurs="0"/>
+			<xs:element name="subscribe" type="addDeleteType"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="planType">
+		<xs:sequence>
+			<xs:element name="planCode" type="oasStringType"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ratePlanType">
+		<xs:sequence>
+			<xs:element name="plan" type="planType"/>
+			<xs:element name="feature" type="featureRPType" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="equipmentType">
+		<xs:sequence>
+			<xs:element name="make" type="oasStringType"/>
+			<xs:element name="model" type="oasStringType"/>
+			<xs:element name="mode" type="oasStringType"/>
+		</xs:sequence>
+	</xs:complexType>
+	<!-- ***MESSAGE HEADER*** -->
+	<xs:complexType name="messageHeaderType">
+		<xs:sequence>
+			<xs:element name="versionNumber" type="xs:string" minOccurs="0"/>
+			<xs:element name="vendorId" type="xs:string"/>
+			<xs:element name="channelId" type="xs:string" minOccurs="0"/>
+			<xs:element name="channelType" type="xs:string" minOccurs="0"/>
+			<xs:element name="requestType" type="xs:string"/>
+			<xs:element name="orderType" type="xs:string"/>
+			<xs:element name="referenceNumber" type="referenceNumberType"/>
+			<xs:element name="returnURL" type="xs:string" minOccurs="0"/>
+			<xs:element name="asyncErrorURL" type="xs:string" minOccurs="0"/>
+			<xs:element name="futureDateTime" type="oasDateType" minOccurs="0"/>
+			<xs:element name="resend" type="xs:int" minOccurs="0"/>
+			<xs:element name="userID" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="securityType">
+		<xs:sequence>
+			<xs:element name="userId" type="xs:string"/>
+			<xs:element name="password" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+	<!-- ***TRANSACTION TYPES*** -->
+	<xs:complexType name="resellerSubOrderBaseType">
+		<xs:sequence>
+			<xs:element name="subReferenceNumber" type="subReferenceNumberType" minOccurs="0"/>
+			<xs:choice>
+				<xs:element name="systemData" type="systemDataType" minOccurs="0"/>
+				<xs:element name="serviceZipCode" type="zipCodeType" minOccurs="0"/>
+			</xs:choice>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="nextAvailableMDNType">
+		<xs:annotation>
+			<xs:documentation xml:lang="en">
+				Used by resellerAddSubscriberType.
+				If an MDN is not supplied then the nextAvailableMDN must be supplied.
+				If the npaNxx is not in the XML then the new MDN will be obtained
+				using the oldMdn and the supplied zipCode.
+				If the npaNxx and
+				zipCode are not supplied then the new MDN will be
+				obtained using the supplied state city and state.
+				If the MDN is not supplied and none of these fields are supplied, then
+				an exception will be
+				returned to the reseller.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="npaNxx" type="npaNxxType" minOccurs="0"/>
+			<xs:element name="zipCode" type="zipCodeType" minOccurs="0"/>
+			<xs:element name="city" type="cityType" minOccurs="0"/>
+			<xs:element name="state" type="stateType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="nextAvailablewithOldMDNType">
+		<xs:annotation>
+			<xs:documentation xml:lang="en">
+				Used by resellerChangeNumberType.
+				If an MDN is not supplied then the nextAvailableOldMDN must be
+				supplied.
+				In nextAvailableMDN is supplied then the oldMdn must be supplied.
+				The new MDN will be obtained using the oldMdn and the supplied npaNxx.
+				If the npaNxx is not in the XML then the new MDN will be obtained
+				using the oldMdn and the supplied zipCode.
+				If the npaNxx and
+				zipCode are not supplied then the new MDN will be
+				obtained using the oldMdn and the supplied state city and state.
+				If the MDN is not supplied and none of these fields are supplied, then
+				an exception
+				will be returned to the reseller.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="oldMdn" type="mdnType"/>
+			<xs:element name="npaNxx" type="npaNxxType" minOccurs="0"/>
+			<xs:element name="zipCode" type="zipCodeType" minOccurs="0"/>
+			<xs:element name="city" type="cityType" minOccurs="0"/>
+			<xs:element name="state" type="stateType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+    <!-- RESELLER HBQ Qualification Info - release 13.2.0 -->
+	<xs:complexType name="addressInfoType">
+		<xs:sequence>
+			<xs:element name="addressLine" type="oasString120Type"/>
+			<xs:element name="city" type="oasString100Type"/>
+			<xs:element name="state" type="stateType"/>
+			<xs:element name="zip" type="zipCodeType"/>
+			<xs:element name="azimuth" type="directionalIndicatorType"/>
+			<xs:element name="qualification" type="qualificationType"/>
+			<xs:element name="qualificationDesc" type="oasString500Type"/>
+		</xs:sequence>
+	</xs:complexType>
+    <!-- RESELLER HBQ Qualification Info - release 13.2.0 -->
+	<xs:complexType name="inputAddressType">
+		<xs:sequence>
+			<xs:element name="addressLine" type="oasString120Type"/>
+			<xs:element name="city" type="oasString100Type"/>
+			<xs:element name="state" type="stateType"/>
+			<xs:element name="zip" type="zipCodeType"/>
+		</xs:sequence>
+	</xs:complexType>
+    <!-- RESELLER HBQ Qualification Info - release 13.2.0 -->
+	<xs:complexType name="addressInfoListType">
+		<xs:sequence>
+			<xs:element name="addressInfoList" type="addressInfoType" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="nextAvailableReserveMDNType">
+		<xs:annotation>
+			<xs:documentation xml:lang="en">
+				Used by resellerReserveMdn.
+				If an MDN is not supplied then the nextAvailableMDN must be supplied.
+				If the npaNxx is not in the XML then the new MDN will be obtained
+				using the oldMdn and the supplied zipCode.
+				If the npaNxx and zipCode are not supplied then the new MDN will be
+				obtained using the supplied state city and state.
+				If the MDN is not supplied and none of these fields are supplied, then
+				an exception will be returned to the reseller.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:choice>
+				<xs:element name="npaNxx" type="npaNxxType"/>
+				<xs:element name="zipCode" type="zipCodeType"/>
+			</xs:choice>
+		</xs:sequence>
+	</xs:complexType>
+	<!-- RESELLER ADD SUBSCRIBER -->
+	<xs:complexType name="resellerAddSubscriberType">
+		<xs:annotation>
+			<xs:documentation xml:lang="en">
+				Note: If an MDN is not supplied then nextAvailableMDN must be supplied.
+				In this case we will obtain the MDN from the Enterprise Number
+				Inventory pool
+				using the supplied fields in the nextAvailableMDNType.
+				MPNPoolName added in release 2040:
+				If the MPNPoolName tag is given in the xml, the feature element
+				for MPN static IP or MPN dynamic IP (MPNSIP or MPNDIP) should
+				be included in the features section.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="resellerSubOrderBaseType">
+				<xs:sequence>
+					<xs:element name="min" type="minType" minOccurs="0"/>
+					<xs:choice>
+						<xs:element name="mdn" type="mdnType"/>
+						<xs:element name="nextAvailableMDN" type="nextAvailableMDNType"/>
+					</xs:choice>
+					<xs:choice minOccurs="1" maxOccurs="1">
+						<xs:element name="esn" type="esnType"/>
+						<xs:element name="meid" type="meidType"/>
+						<xs:sequence>
+							<xs:element name="deviceId" type="imeiType"/>
+							<xs:element name="iccid" type="SIMCardType"/>
+						</xs:sequence>
+					</xs:choice>
+					<xs:choice minOccurs="0" maxOccurs="1">
+						<xs:element name="autoMPN" type="xs:string" minOccurs="0"/>
+						<xs:sequence>
+							<xs:element name="mobileIPAddress" type="oasStringType" minOccurs="0"/>
+							<xs:element name="MPNPoolName" type="oasStringType" minOccurs="0"/>
+							<xs:element name="SubOrgID" type="oasStringType" minOccurs="0"/>
+						</xs:sequence>
+					</xs:choice>
+					<xs:element name="FUSFExemptFlag" type="yesNoType" minOccurs="0"/>
+					<xs:element name="globalSIMCard" type="globalSIMCardType" minOccurs="0"/>
+					<xs:element name="portInFlag" type="yesNoType" minOccurs="0"/>
+					<xs:element name="feature" type="featureType" minOccurs="0" maxOccurs="unbounded"/>
+					<xs:element name="plan" type="planType"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<!-- RESELLER ADD SUBSCRIBER BY ESN -->
+	<xs:complexType name="resellerAddSubscriberByESNType">
+		<xs:annotation>
+			<xs:documentation xml:lang="en">
+				MPNPoolName added in release 2045:
+				If the MPNPoolName tag is given in the xml, the feature element
+				for MPN static IP or MPN dynamic IP (MPNSIP or MPNDIP) should
+				be included in the features section.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="resellerSubOrderBaseType">
+				<xs:sequence>
+					<xs:choice>
+						<xs:element name="esn" type="esnType"/>
+						<xs:element name="meid" type="meidType"/>
+					</xs:choice>
+					<xs:element name="mobileIPAddress" type="oasStringType" minOccurs="0"/>
+					<xs:element name="MPNPoolName" type="oasStringType" minOccurs="0"/>
+					<xs:element name="SubOrgID" type="oasStringType" minOccurs="0"/>
+					<xs:element name="FUSFExemptFlag" type="yesNoType" minOccurs="0"/>
+					<xs:element name="globalSIMCard" type="globalSIMCardType" minOccurs="0"/>
+					<xs:element name="portInFlag" type="yesNoType" minOccurs="0"/>
+					<xs:element name="feature" type="featureType" minOccurs="0" maxOccurs="unbounded"/>
+					<xs:element name="plan" type="planType"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<!-- RESELLER ADD SUBSCRIBER PORT IN -->
+	<xs:complexType name="resellerAddSubscriberPortInType">
+		<xs:annotation>
+			<xs:documentation xml:lang="en">
+				If the MPNPoolName tag is given in the xml, the feature element
+				for MPN static IP or MPN dynamic IP (MPNSIP or MPNDIP) should
+				be included in the features section.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="resellerSubOrderBaseType">
+				<xs:sequence>
+					<xs:element name="min" type="minType" minOccurs="0"/>
+					<xs:element name="mdn" type="mdnType"/>
+					<xs:choice minOccurs="1" maxOccurs="1">
+						<xs:element name="esn" type="esnType"/>
+						<xs:element name="meid" type="meidType"/>
+						<xs:sequence>
+							<xs:element name="deviceId" type="imeiType"/>
+							<xs:element name="iccid" type="SIMCardType"/>
+						</xs:sequence>
+					</xs:choice>
+					<xs:choice minOccurs="0" maxOccurs="1">
+						<xs:element name="autoMPN" type="xs:string" minOccurs="0"/>
+						<xs:sequence>
+							<xs:element name="mobileIPAddress" type="oasStringType" minOccurs="0"/>
+							<xs:element name="MPNPoolName" type="oasStringType" minOccurs="0"/>
+							<xs:element name="SubOrgID" type="oasStringType" minOccurs="0"/>
+						</xs:sequence>
+					</xs:choice>
+					<xs:element name="FUSFExemptFlag" type="yesNoType" minOccurs="0"/>
+					<xs:element name="globalSIMCard" type="globalSIMCardType" minOccurs="0"/>
+					<xs:element name="lnp" type="lnpType"/>
+					<xs:element name="portInFlag" type="yesNoType" minOccurs="0"/>
+					<xs:element name="feature" type="featureType" minOccurs="0" maxOccurs="unbounded"/>
+					<xs:element name="plan" type="planType"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<!-- RESELLER VALIDATE MDN PORTABILITY -->
+	<xs:complexType name="resellerValidateMDNPortabilityType">
+		<xs:complexContent>
+			<xs:extension base="resellerSubOrderBaseType">
+				<xs:sequence>
+					<xs:element name="mdn" type="mdnType"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<!-- RESELLER DELETE SUBSCRIBER -->
+	<xs:complexType name="resellerDeleteSubscriberType">
+		<xs:complexContent>
+			<xs:extension base="resellerSubOrderBaseType">
+				<xs:sequence>
+					<xs:element name="min" type="minType" minOccurs="0"/>
+					<xs:element name="mdn" type="mdnType"/>
+					<xs:element name="esn" type="esnType" minOccurs="0"/>
+					<xs:element name="meid" type="meidType" minOccurs="0"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<!-- RESELLER SUSPEND SUBSCRIBER -->
+	<xs:complexType name="resellerSuspendSubscriberType">
+		<xs:complexContent>
+			<xs:extension base="resellerSubOrderBaseType">
+				<xs:sequence>
+					<xs:element name="min" type="minType" minOccurs="0"/>
+					<xs:element name="mdn" type="mdnType"/>
+					<xs:element name="esn" type="esnType" minOccurs="0"/>
+					<xs:element name="meid" type="meidType" minOccurs="0"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<!-- RESELLER HOTLINE SUBSCRIBER -->
+	<xs:complexType name="resellerHotlineSubscriberType">
+		<xs:complexContent>
+			<xs:extension base="resellerSubOrderBaseType">
+				<xs:sequence>
+					<xs:element name="min" type="minType" minOccurs="0"/>
+					<xs:element name="mdn" type="mdnType"/>
+					<xs:element name="esn" type="esnType" minOccurs="0"/>
+					<xs:element name="meid" type="meidType" minOccurs="0"/>
+					<xs:element name="feature" type="featureType" minOccurs="0" maxOccurs="unbounded"/>
+					<xs:element name="reasonCode" type="reasonCodeType" minOccurs="0"/>
+					<xs:element name="hotlineType" type="oasStringType"/>
+					<xs:choice>
+						<xs:element name="hotline" type="phoneType"/>
+						<xs:element name="hotlineNumber" type="phoneType"/>
+					</xs:choice>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<!-- RESELLER DELETE SUBSCRIBER -->
+	<xs:complexType name="resellerRestoreSubscriberType">
+		<xs:complexContent>
+			<xs:extension base="resellerSubOrderBaseType">
+				<xs:sequence>
+					<xs:element name="min" type="minType" minOccurs="0"/>
+					<xs:element name="mdn" type="mdnType"/>
+					<xs:element name="esn" type="esnType" minOccurs="0"/>
+					<xs:element name="meid" type="meidType" minOccurs="0"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<!-- RESELLER REMOVE HOTLINE SUBSCRIBER -->
+	<xs:complexType name="resellerRemoveHotlineType">
+		<xs:complexContent>
+			<xs:extension base="resellerSubOrderBaseType">
+				<xs:sequence>
+					<xs:element name="min" type="minType" minOccurs="0"/>
+					<xs:element name="mdn" type="mdnType"/>
+					<xs:element name="esn" type="esnType" minOccurs="0"/>
+					<xs:element name="meid" type="meidType" minOccurs="0"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<!-- RESELLER CHANGE RATE PLAN -->
+	<xs:complexType name="resellerChangeRatePlanType">
+		<xs:annotation>
+			<xs:documentation xml:lang="en">
+				MPNPoolName added in release 2040:
+				If the MPNPoolName tag is given in the xml, the feature element
+				for MPN static IP or MPN dynamic IP (MPNSIP or MPNDIP) should
+				be included in the features section.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="resellerSubOrderBaseType">
+				<xs:sequence>
+					<xs:element name="min" type="minType" minOccurs="0"/>
+					<xs:element name="mdn" type="mdnType"/>
+					<xs:element name="esn" type="esnType" minOccurs="0"/>
+					<xs:element name="meid" type="meidType" minOccurs="0"/>
+					<xs:choice minOccurs="0" maxOccurs="1">
+						<xs:sequence>
+							<xs:element name="newDeviceId" type="imeiType"/>
+							<xs:element name="newIccid" type="SIMCardType"/>
+						</xs:sequence>
+						<xs:choice>
+							<xs:element name="newEsn" type="esnType"/>
+							<xs:element name="newMeid" type="meidType"/>
+						</xs:choice>
+					</xs:choice>
+					<xs:choice minOccurs="0" maxOccurs="1">
+						<xs:element name="autoMPN" type="xs:string" minOccurs="0"/>
+						<xs:sequence>
+							<xs:element name="mobileIPAddress" type="oasStringType" minOccurs="0"/>
+							<xs:element name="MPNPoolName" type="oasStringType" minOccurs="0"/>
+							<xs:element name="SubOrgID" type="oasStringType" minOccurs="0"/>
+						</xs:sequence>
+					</xs:choice>
+					<xs:element name="FUSFExemptFlag" type="yesNoType" minOccurs="0"/>
+					<xs:element name="globalSIMCard" type="globalSIMCardType" minOccurs="0"/>
+					<xs:element name="serviceTypeChange" type="yesNoType" minOccurs="0"/>
+					<xs:element name="newRatePlan" type="ratePlanType"/>
+					<xs:element name="oldRatePlan" type="ratePlanType"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<!-- RESELLER CHANGE NUMBER -->
+	<xs:complexType name="resellerChangeNumberType">
+		<xs:annotation>
+			<xs:documentation xml:lang="en">
+				Note: If an MDN is not supplied then nextAvailableMDN must be supplied.
+				In this case we will obtain the MDN from the Enterprise Number
+				Inventory pool
+				using the supplied fields in the nextAvailablewithOldMDNType.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="resellerSubOrderBaseType">
+				<xs:sequence>
+					<xs:element name="min" type="minWithOldMinType" minOccurs="0"/>
+					<xs:choice>
+						<xs:element name="mdn" type="mdnWithOldMdnType"/>
+						<xs:element name="nextAvailableMDN" type="nextAvailablewithOldMDNType"/>
+					</xs:choice>
+					<xs:element name="FUSFExemptFlag" type="yesNoType" minOccurs="0"/>
+					<xs:element name="esn" type="esnType" minOccurs="0"/>
+					<xs:element name="meid" type="meidType" minOccurs="0"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<!-- RESELLER CHANGE ESN -->
+	<xs:complexType name="resellerChangeESNType">
+		<xs:complexContent>
+			<xs:extension base="resellerSubOrderBaseType">
+				<xs:sequence>
+					<xs:element name="min" type="minType" minOccurs="0"/>
+					<xs:element name="mdn" type="mdnType"/>
+					<xs:choice>
+						<xs:element name="esn" type="esnWithOldEsnMeidType"/>
+						<xs:element name="meid" type="meidWithOldEsnMeidType"/>
+					</xs:choice>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<!-- RESELLER CHANGE SIM -->
+	<xs:complexType name="resellerChangeSIMType">
+		<xs:annotation>
+			<xs:documentation xml:lang="en">
+				reseller Change SIM transaction is applicable to 4G-LTE
+			</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="resellerSubOrderBaseType">
+				<xs:sequence>
+					<xs:element name="mdn" type="mdnType"/>
+					<xs:element name="deviceId" type="imeiType"/>
+					<xs:element name="iccid" type="SIMCardWithOldSIMCardType"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<!-- RESELLER SUBSCRIBE FEATURE -->
+	<xs:complexType name="resellerSubscribeFeatureType">
+		<xs:annotation>
+			<xs:documentation xml:lang="en">
+				MPNPoolName added in release 2040:
+				If the MPNPoolName tag is given in the xml, the feature element
+				for MPN static IP or MPN dynamic IP (MPNSIP or MPNDIP) should
+				be included in the features section.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="resellerSubOrderBaseType">
+				<xs:sequence>
+					<xs:element name="min" type="minType" minOccurs="0"/>
+					<xs:element name="mdn" type="mdnType"/>
+					<xs:element name="esn" type="esnType" minOccurs="0"/>
+					<xs:element name="meid" type="meidType" minOccurs="0"/>
+					<xs:choice minOccurs="0" maxOccurs="1">
+						<xs:element name="autoMPN" type="xs:string" minOccurs="0"/>
+						<xs:sequence>
+							<xs:element name="mobileIPAddress" type="oasStringType" minOccurs="0"/>
+							<xs:element name="MPNPoolName" type="oasStringType" minOccurs="0"/>
+							<xs:element name="SubOrgID" type="oasStringType" minOccurs="0"/>
+						</xs:sequence>
+					</xs:choice>
+					<xs:element name="FUSFExemptFlag" type="yesNoType" minOccurs="0"/>
+					<xs:element name="globalSIMCard" type="globalSIMCardType" minOccurs="0"/>
+					<xs:element name="oldGlobalSIMCard" type="globalSIMCardType" minOccurs="0"/>
+					<xs:element name="feature" type="featureType" maxOccurs="unbounded"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<!-- RESELLER ADD HOTLINE SUBSCRIBER -->
+	<xs:complexType name="resellerAddHotlineSubscriberType">
+		<xs:annotation>
+			<xs:documentation xml:lang="en">
+				MPNPoolName added in release 2045:
+				If the MPNPoolName tag is given in the xml, the feature element
+				for MPN static IP or MPN dynamic IP (MPNSIP or MPNDIP)
+				should
+				be included in the features section.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="resellerSubOrderBaseType">
+				<xs:sequence>
+					<xs:element name="min" type="minType" minOccurs="0"/>
+					<xs:choice>
+						<xs:element name="mdn" type="mdnType"/>
+						<xs:element name="nextAvailableMDN" type="nextAvailableMDNType"/>
+					</xs:choice>
+					<xs:choice minOccurs="1" maxOccurs="1">
+						<xs:element name="esn" type="esnType"/>
+						<xs:element name="meid" type="meidType"/>
+						<xs:sequence>
+							<xs:element name="deviceId" type="imeiType"/>
+							<xs:element name="iccid" type="SIMCardType"/>
+						</xs:sequence>
+					</xs:choice>
+					<xs:choice minOccurs="0" maxOccurs="1">
+						<xs:element name="autoMPN" type="xs:string" minOccurs="0"/>
+						<xs:sequence>
+							<xs:element name="mobileIPAddress" type="oasStringType" minOccurs="0"/>
+							<xs:element name="MPNPoolName" type="oasStringType" minOccurs="0"/>
+							<xs:element name="SubOrgID" type="oasStringType" minOccurs="0"/>
+						</xs:sequence>
+					</xs:choice>
+					<xs:element name="FUSFExemptFlag" type="yesNoType" minOccurs="0"/>
+					<xs:element name="globalSIMCard" type="globalSIMCardType" minOccurs="0"/>
+					<xs:element name="feature" type="featureType" minOccurs="0" maxOccurs="unbounded"/>
+					<xs:element name="plan" type="planType"/>
+					<xs:element name="reasonCode" type="reasonCodeType" minOccurs="0"/>
+					<xs:element name="competitorCode" type="competitorCodeType" minOccurs="0"/>
+					<xs:element name="hotlineType" type="oasStringType"/>
+					<xs:choice>
+						<xs:element name="hotline" type="phoneType"/>
+						<xs:element name="hotlineNumber" type="phoneType"/>
+					</xs:choice>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<!-- RESELLER ADD HOTLINE SUBSCRIBER BY ESN -->
+	<xs:complexType name="resellerAddHotlineSubscriberByESNType">
+		<xs:annotation>
+			<xs:documentation xml:lang="en">
+				MPNPoolName added in release 2045:
+				If the MPNPoolName tag is given in the xml, the feature element
+				for MPN static IP or MPN dynamic IP (MPNSIP or MPNDIP) should
+				be included in the features section.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="resellerSubOrderBaseType">
+				<xs:sequence>
+					<xs:choice>
+						<xs:element name="esn" type="esnType"/>
+						<xs:element name="meid" type="meidType"/>
+					</xs:choice>
+					<xs:element name="mobileIPAddress" type="oasStringType" minOccurs="0"/>
+					<xs:element name="MPNPoolName" type="oasStringType" minOccurs="0"/>
+					<xs:element name="SubOrgID" type="oasStringType" minOccurs="0"/>
+					<xs:element name="FUSFExemptFlag" type="yesNoType" minOccurs="0"/>
+					<xs:element name="feature" type="featureType" minOccurs="0" maxOccurs="unbounded"/>
+					<xs:element name="plan" type="planType"/>
+					<xs:element name="reasonCode" type="reasonCodeType" minOccurs="0"/>
+					<xs:element name="competitorCode" type="competitorCodeType" minOccurs="0"/>
+					<xs:element name="hotlineType" type="oasStringType"/>
+					<xs:choice>
+						<xs:element name="hotline" type="phoneType"/>
+						<xs:element name="hotlineNumber" type="phoneType"/>
+					</xs:choice>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<!-- RESELLER RECONNECT -->
+	<xs:complexType name="resellerReconnectType">
+		<xs:sequence>
+			<xs:element name="subReferenceNumber" type="subReferenceNumberType" minOccurs="0"/>
+			<xs:element name="mdn" type="mdnType"/>
+			<xs:element name="min" type="minType" minOccurs="0"/>
+			<xs:choice>
+				<xs:element name="esn" type="esnType"/>
+				<xs:element name="meid" type="meidType"/>
+				<xs:element name="iccid" type="SIMCardType"/>
+			</xs:choice>
+		</xs:sequence>
+	</xs:complexType>
+	<!-- RESELLER LINE INQUIRY -->
+	<xs:complexType name="resellerLineInquiryType">
+		<xs:complexContent>
+			<xs:extension base="resellerSubOrderBaseType">
+				<xs:sequence>
+					<xs:choice>
+						<xs:element name="mdn" type="mdnType"/>
+						<xs:element name="min" type="minType"/>
+					</xs:choice>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<!-- RESELLER PRL INQUIRY -->
+	<xs:complexType name="resellerPRLInquiryType">
+		<xs:complexContent>
+			<xs:extension base="resellerSubOrderBaseType">
+				<xs:sequence>
+					<xs:element name="mdn" type="mdnType"/>
+					<xs:element name="min" type="minType" minOccurs="0"/>
+					<xs:element name="esn" type="esnType" minOccurs="0"/>
+					<xs:element name="meid" type="meidType" minOccurs="0"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<!-- RESELLER DEVICE INQUIRY -->
+	<xs:complexType name="resellerDeviceInquiryType">
+		<xs:complexContent>
+			<xs:extension base="resellerSubOrderBaseType">
+				<xs:sequence>
+					<xs:choice>
+						<xs:element name="esn" type="esnType"/>
+						<xs:element name="meid" type="meidType"/>
+						<xs:element name="deviceId" type="deviceIdType"/>
+						<xs:element name="iccid" type="SIMCardType"/>
+					</xs:choice>
+					<xs:element name="min" type="minType" minOccurs="0"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+    <!-- UPDATE SUBSCRIBER PORT IN -->
+	<xs:complexType name="updatePortInType">
+		<xs:complexContent>
+			<xs:extension base="resellerSubOrderBaseType">
+				<xs:sequence>
+					<xs:element name="originalRefNumber" type="referenceNumberType" minOccurs="0"/>
+					<xs:element name="mdn" type="mdnType" minOccurs="0"/>
+					<xs:element name="updateType">
+						<xs:simpleType>
+							<xs:restriction base="xs:string">
+								<xs:enumeration value="MODIFY"/>
+								<xs:enumeration value="CANCEL"/>
+								<xs:enumeration value="ACTIVATE"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:choice>
+						<xs:element name="deviceId" type="deviceIdType" minOccurs="0"/>
+						<xs:element name="desiredDueDate" type="desiredDueDateType" minOccurs="0"/>
+						<xs:element name="lnpUpdate" type="lnpUpdateType" minOccurs="0"/>	
+					</xs:choice>
+					<xs:element name="remark" type="oasString160Type" minOccurs="0"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+    <!-- RESELLER RESERVE MDN -->
+	<xs:complexType name="resellerReserveMDNType">
+		<xs:complexContent>
+			<xs:extension base="resellerSubOrderBaseType">
+				<xs:sequence>
+					<xs:element name="nextAvailableMDN" type="nextAvailableReserveMDNType"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+  <!-- RESELLER VALIDATE DEVICE -->
+	<xs:complexType name="validateDeviceType">
+		<xs:complexContent>
+			<xs:extension base="resellerSubOrderBaseType">
+				<xs:sequence>
+					<xs:element name="deviceId" type="deviceIdType"/>
+					<xs:element name="planCode" type="oasStringType" minOccurs="0"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+  <!-- RESELLER VALIDATE SIM -->
+	<xs:complexType name="validateSIMType">
+		<xs:complexContent>
+			<xs:extension base="resellerSubOrderBaseType">
+				<xs:sequence>
+					<xs:element name="iccid" type="SIMCardType"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+    <!-- RESELLER FSUF Exempt Flag Update -->
+	<xs:complexType name="resellerFUSFExemptUpdateType">
+		<xs:complexContent>
+			<xs:extension base="resellerSubOrderBaseType">
+				<xs:sequence>
+					<xs:element name="mdn" type="mdnType"/>
+					<xs:element name="FUSFExemptFlag" type="yesNoType" minOccurs="0"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+<!-- RESELLER LNP Enhancement - resellerPortInInquiryType - release 15.4.0 -->
+	<xs:complexType name="resellerPortInInquiryType">
+		<xs:complexContent>
+			<xs:extension base="resellerSubOrderBaseType">
+			    <xs:sequence>			
+				<xs:element name="mdn" type="mdnType"/>	
+			    </xs:sequence>			
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="resellerSubOrderType">
+		<xs:choice>
+			<xs:element name="resellerAddSubscriber" type="resellerAddSubscriberType"/>
+			<xs:element name="resellerAddSubscriberPortIn" type="resellerAddSubscriberPortInType" maxOccurs="100"/>
+			<xs:element name="resellerValidateMDNPortability" type="resellerValidateMDNPortabilityType"/>
+			<xs:element name="resellerDeleteSubscriber" type="resellerDeleteSubscriberType"/>
+			<xs:element name="resellerSuspendSubscriber" type="resellerSuspendSubscriberType"/>
+			<xs:element name="resellerRestoreSubscriber" type="resellerRestoreSubscriberType"/>
+			<xs:element name="resellerHotlineSubscriber" type="resellerHotlineSubscriberType"/>
+			<xs:element name="resellerRemoveHotline" type="resellerRemoveHotlineType"/>
+			<xs:element name="resellerChangeRatePlan" type="resellerChangeRatePlanType"/>
+			<xs:element name="resellerChangeNumber" type="resellerChangeNumberType"/>
+			<xs:element name="resellerChangeESN" type="resellerChangeESNType"/>
+			<xs:element name="resellerChangeSIM" type="resellerChangeSIMType"/>
+			<xs:element name="resellerSubscribeFeature" type="resellerSubscribeFeatureType"/>
+			<xs:element name="resellerLineInquiry" type="resellerLineInquiryType"/>
+			<xs:element name="resellerDeviceInquiry" type="resellerDeviceInquiryType"/>
+			<xs:element name="resellerPRLInquiry" type="resellerPRLInquiryType"/>
+			<xs:element name="resellerAddHotlineSubscriber" type="resellerAddHotlineSubscriberType"/>
+			<xs:element name="resellerAddHotlineSubscriberByESN" type="resellerAddHotlineSubscriberByESNType"/>
+			<xs:element name="resellerAddSubscriberByESN" type="resellerAddSubscriberByESNType"/>
+			<xs:element name="resellerResetFeature" type="resellerResetFeatureType"/>
+			<xs:element name="resellerReconnect" type="resellerReconnectType"/>
+			<xs:element name="updatePortIn" type="updatePortInType"/>
+			<xs:element name="resellerReserveMDN" type="resellerReserveMDNType"/>
+			<xs:element name="validateDevice" type="validateDeviceType"/>
+			<xs:element name="resellerHBQualificationInfo" type="resellerHBQualificationInfoType"/>
+			<xs:element name="resellerFUSFExemptUpdate" type="resellerFUSFExemptUpdateType"/>
+			<xs:element name="validateSIM" type="validateSIMType"/>
+			<xs:element name="resellerPortInInquiry" type="resellerPortInInquiryType"/>
+		</xs:choice>
+	</xs:complexType>
+	<!-- ORDER RESPONSE -->
+	<xs:complexType name="resellerOrderResponseType">
+		<xs:sequence>
+			<xs:element name="returnCode" type="xs:string"/>
+			<xs:element name="returnMessage" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="resellerReserveResponseType">
+		<xs:choice>
+			<xs:sequence>
+				<xs:element name="mdn" type="mdnType"/>
+				<xs:element name="min" type="minType"/>
+			</xs:sequence>
+			<xs:sequence>
+				<xs:element name="returnCode" type="xs:string"/>
+				<xs:element name="returnMessage" type="xs:string"/>
+			</xs:sequence>
+		</xs:choice>
+	</xs:complexType>
+	<xs:element name="resellerOrderResponse">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="messageHeader" type="messageHeaderType"/>
+				<xs:element name="orderResponse" type="resellerOrderResponseType"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+    <!-- Reseller Reserve Response Thunder Project -->
+	<xs:element name="resellerReserveResponse">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="messageHeader" type="messageHeaderType"/>
+				<xs:element name="orderResponse" type="resellerReserveResponseType"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+    <!-- Reseller Validate Device BYOD Project -->
+	<xs:element name="validateDeviceResponse">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="messageHeader" type="messageHeaderType"/>
+				<xs:element name="deviceResponse" type="deviceResponseType"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:complexType name="deviceResponseType">
+		<xs:sequence>
+			<xs:element name="deviceId" type="deviceIdType"/>
+			<xs:element name="isValid" type="yesNoType"/>
+			<xs:element name="isInDMD" type="yesNoType"/>
+			<xs:element name="isPIBLock" type="yesNoType" minOccurs="0"/>
+			<xs:element name="isLostOrStolen" type="yesNoType" minOccurs="0"/>
+			<xs:element name="isEligible4GDevicefor3G" type="yesNoType" minOccurs="0"/>
+			<xs:element name="isBYOPEligible" type="yesNoType" minOccurs="0"/>
+			<xs:element name="equipment" type="equipmentType" minOccurs="0"/>
+			<xs:element name="returnCode" type="xs:string" minOccurs="0"/>
+			<xs:element name="returnMessage" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+    <!-- Reseller ValidateSIM SIM Swap Project -->
+	<xs:element name="validateSIMResponse">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="messageHeader" type="messageHeaderType"/>
+				<xs:element name="SIMResponse" type="SIMResponseType"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:complexType name="SIMResponseType">
+		<xs:sequence>
+			<xs:element name="iccid" type="SIMCardType"/>
+			<xs:element name="isValid" type="yesNoType"/>
+			<xs:element name="isInDMD" type="yesNoType"/>
+			<xs:element name="isLostOrStolen" type="yesNoType" minOccurs="0"/>
+			<xs:element name="SIMType" type="xs:string" minOccurs="0"/>
+			<xs:element name="SIMStatus" type="xs:string" minOccurs="0"/>
+		        <xs:element name="isSoftcardCapable" type="yesNoType" minOccurs="0"/>
+			<xs:element name="profile" type="xs:string" minOccurs="0"/>
+			<xs:element name="equipment" type="equipmentType" minOccurs="0"/>
+			<xs:element name="returnCode" type="xs:string" minOccurs="0"/>
+			<xs:element name="returnMessage" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<!-- LINE RESPONSE -->
+	<xs:complexType name="resellerLineResponseType">
+		<xs:sequence>
+			<xs:element name="errorCode" type="xs:string"/>
+			<xs:element name="errorMessage" type="xs:string"/>
+			<xs:element name="min" type="minType"/>
+			<xs:element name="mdn" type="mdnType"/>
+			<xs:choice>
+				<xs:element name="esn" type="esnType"/>
+				<xs:element name="meid" type="meidType"/>
+				<xs:element name="deviceId" type="deviceIdType"/>
+			</xs:choice>
+			<xs:element name="iccid" type="xs:string" minOccurs="0"/>
+			<xs:element name="euimid" type="xs:string" minOccurs="0"/>
+			<xs:element name="mobileIPAddress" type="oasStringType" minOccurs="0"/>
+			<xs:element name="ldc" type="oasString10Type" minOccurs="0"/>
+			<xs:element name="statusCode" type="oasStringType"/>
+			<xs:element name="lteStatusCode" type="oasStringType" minOccurs="0"/>
+			<xs:element name="FUSFExemptFlag" type="yesNoType" minOccurs="0"/>
+			<xs:element name="feature" type="featureType" minOccurs="0" maxOccurs="unbounded"/>
+
+			<xs:element name="plan" type="planType"/>
+			<xs:element name="equipment" type="equipmentType" minOccurs="0"/>
+			<xs:element name="initialServiceDate" type="oasStringType"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="resellerLineResponse">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="messageHeader" type="messageHeaderType"/>
+				<xs:element name="lineResponse" type="resellerLineResponseType"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<!-- PRL RESPONSE -->
+	<xs:complexType name="resellerPRLResponseType">
+		<xs:sequence>
+			<xs:element name="errorCode" type="xs:string"/>
+			<xs:element name="errorMessage" type="xs:string"/>
+			<xs:element name="min" type="minType"/>
+			<xs:element name="mdn" type="mdnType"/>
+			<xs:choice>
+											<!-- PRL 1 -->
+				<xs:sequence>
+					<xs:element name="iccid" type="SIMCardType" minOccurs="0"/>
+					<xs:element name="PLMNNumber" type="xs:string" minOccurs="0"/>
+					<xs:element name="PLMNDownloadDate" type="xs:string" minOccurs="0"/>
+					<xs:element name="PLMNTemplate" type="xs:string" minOccurs="0"/>
+					<xs:element name="PLMNProgrammingDate" type="xs:string" minOccurs="0"/>
+				</xs:sequence>
+											<!-- PRL 2 -->
+				<xs:sequence>
+					<xs:choice>
+						<xs:element name="esn" type="esnType"/>
+						<xs:element name="meid" type="meidType"/>
+					</xs:choice>
+					<xs:element name="PRLNumber" type="xs:string" minOccurs="0"/>
+					<xs:element name="PRLDownloadDate" type="xs:string" minOccurs="0"/>
+				</xs:sequence>
+			</xs:choice>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="resellerPRLResponse">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="messageHeader" type="messageHeaderType"/>
+				<xs:element name="PRLResponse" type="resellerPRLResponseType"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+<!-- RESELLER LNP Enhancement - resellerPortInInquiryResponse - release 15.4.0 -->
+	<xs:complexType name="resellerPortInInquiryResponseType">
+		<xs:sequence>
+			<xs:element name="returnCode" type="xs:string"/>
+			<xs:element name="returnMessage" type="xs:string"/>
+			<xs:element name="mdn" type="mdnType"/>
+			<xs:element name="lnpStatusCode" type="xs:string"/>
+			<xs:element name="lnpResponseType" type="xs:string"/>	
+			<xs:element name="onsp" type="xs:string"/>
+			<xs:element name="reasonCode" type="xs:string"/>
+			<xs:element name="reasonDetail" type="xs:string"/>
+			<xs:element name="lnp" type="lnpType"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="resellerPortInInquiryResponse">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="messageHeader" type="messageHeaderType"/>
+				<xs:element name="portInInquiryResponse" type="resellerPortInInquiryResponseType"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+<!-- RESELLER LNP Enhancement - resellerPortInActivationResponse - release 15.4.0 -->
+	<xs:complexType name="resellerPortInActivationResponseType">
+		<xs:sequence>
+			<xs:element name="requestNo" type="xs:string"/>
+			<xs:element name="responseType" type="xs:string"/>
+			<xs:element name="lnpStatusCode" type="xs:string"/>	
+			<xs:element name="onsp" type="xs:string"/>
+			<xs:element name="versionID" type="xs:string"/>
+			<xs:element name="mdnDetail" type="mdnDetailType" minOccurs="1" maxOccurs="100"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="resellerPortInActivationResponse">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="messageHeader" type="messageHeaderType"/>
+				<xs:element name="gatewayResponse" type="resellerPortInActivationResponseType"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<!-- ORDER TRANSACTION -->
+	<xs:complexType name="resellerOrderType">
+		<xs:sequence>
+			<xs:element name="orderTimeStamp" type="oasStringType"/>
+			<xs:element name="accountNumber" type="oasStringType" minOccurs="0"/>
+			<xs:element name="subOrder" type="resellerSubOrderType"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="resellerOrder">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="messageHeader" type="messageHeaderType"/>
+				<xs:element name="order" type="resellerOrderType"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<!-- ORDER INQUIRY -->
+	<xs:element name="orderInquiry">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="messageHeader" type="messageHeaderType"/>
+				<xs:element name="security" type="securityType" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<!-- ORDER INQUIRY RESPONSE -->
+	<xs:complexType name="orderInquiryResponseType">
+		<xs:sequence>
+			<xs:element name="errorCode" type="xs:string"/>
+			<xs:element name="errorMessage" type="xs:string"/>
+			<xs:element name="orderTimeStamp" type="xs:string" minOccurs="0"/>
+			<xs:element name="orderStatus" type="xs:string" minOccurs="0"/>
+			<xs:element name="message" type="xs:string" minOccurs="0"/>
+			<xs:element name="mdn" type="mdnType" minOccurs="0"/>
+			<xs:element name="noOfLines" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="oasOrderResponse">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="messageHeader" type="messageHeaderType"/>
+				<xs:element name="orderResponse" type="orderInquiryResponseType"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<!-- RESELLER ASYNC RESPONSE -->
+	<xs:complexType name="resellerAsyncResponseType">
+		<xs:sequence>
+			<xs:element name="mdn" type="xs:string" minOccurs="0"/>
+			<xs:element name="min" type="xs:string" minOccurs="0"/>
+			<xs:element name="mobileIPAddress" type="oasStringType" minOccurs="0"/>
+			<xs:element name="iccid" type="SIMCardType" minOccurs="0"/>
+			<xs:element name="statusCode" type="xs:string" minOccurs="0"/>
+			<xs:element name="errorCode" type="xs:string"/>
+			<xs:choice>
+				<xs:element name="errorDescription" type="xs:string"/>
+				<xs:element name="errorMessage" type="xs:string"/>
+			</xs:choice>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="resellerAsyncResponse">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="messageHeader" type="messageHeaderType"/>
+				<xs:choice>
+					<xs:element name="orderResponse" type="resellerAsyncResponseType"/>
+					<xs:element name="deviceResponse" type="resellerDeviceResponseType"/>
+					<xs:element name="orderProgrammingResponse" type="resellerAsyncResponseType"/>
+				</xs:choice>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<!-- RESELLER RESET FEATURE -->
+	<xs:complexType name="resellerResetFeatureType">
+		<xs:complexContent>
+			<xs:extension base="resellerSubOrderBaseType">
+				<xs:sequence>
+					<xs:element name="mdn" type="mdnType" minOccurs="1" maxOccurs="1"/>
+					<xs:element name="resetId" type="xs:int" minOccurs="1" maxOccurs="1"/>
+					<xs:element name="password" type="oasStringType" minOccurs="0" maxOccurs="1"/>
+					<xs:element name="featureCode" type="oasStringType" minOccurs="1" maxOccurs="1"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<!-- RESELLER DEVICE RESPONSE TYPE -->
+	<xs:complexType name="resellerDeviceResponseType">
+		<xs:sequence>
+			<xs:element name="returnCode" type="xs:string"/>
+			<xs:element name="returnMessage" type="xs:string"/>
+			<xs:choice>
+				<xs:element name="esn" type="esnType"/>
+				<xs:element name="meid" type="meidType"/>
+				<xs:element name="deviceId" type="deviceIdType"/>
+			</xs:choice>
+			<xs:element name="min" type="minType" minOccurs="0"/>
+			<xs:element name="mdn" type="mdnType" minOccurs="0"/>
+			<xs:element name="mobileIPAddress" type="oasStringType" minOccurs="0"/>
+			<xs:element name="iccid" type="SIMCardType" minOccurs="0"/>
+			<xs:element name="iec" type="oasString10Type" minOccurs="0"/>
+			<xs:element name="statusCode" type="oasStringType" minOccurs="0"/>
+			<xs:element name="feature" type="featureType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="plan" type="planType" minOccurs="0"/>
+			<xs:element name="equipment" type="equipmentType" minOccurs="0"/>
+			<xs:element name="initialServiceDate" type="oasStringType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+  <!-- RESELLER HBQ Qualification Info Request - release 13.2.0 -->
+	<xs:complexType name="qualificationResponseType">
+		<xs:sequence>
+			<xs:element name="returnCode" type="xs:string"/>
+			<xs:element name="returnMessage" type="xs:string"/>
+			<xs:element name="inputAddress" type="inputAddressType"/>
+			<xs:element name="addressInfoList" type="addressInfoListType"/>
+		</xs:sequence>
+	</xs:complexType>
+	<!-- Reseller HBQ Qualification Info Response - release 13.2.0 -->
+	<xs:element name="resellerHBQualInfoResponse">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="messageHeader" type="messageHeaderType"/>
+				<xs:element name="qualificationResponse" type="qualificationResponseType"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+  <!-- RESELLER HBQ Qualification Info Request - release 13.2.0 -->
+	<xs:complexType name="resellerHBQualificationInfoType">
+		<xs:complexContent>
+			<xs:extension base="resellerSubOrderBaseType">
+				<xs:sequence>
+					<xs:element name="addressLine" type="oasString120Type"/>
+					<xs:element name="city" type="oasString100Type"/>
+					<xs:element name="state" type="stateType"/>
+					<xs:element name="zip" type="zipCodeType"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<!-- RESELLER DEVICE NOTIFICATION -->
+	<xs:element name="resellerDeviceNotification">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="simOtaDeviceChangeNotification" type="simOtaDeviceChangeNotificationType"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:complexType name="simOtaDeviceChangeNotificationType">
+		<xs:sequence>
+			<xs:element name="accountNumber" type="oasStringType"/>
+			<xs:element name="mdn" type="mdnType"/>
+			<xs:element name="iccid" type="SIMCardType"/>
+			<xs:element name="deviceId" type="deviceIdType"/>
+			<xs:element name="dateChanged" type="oasDateType"/>
+			<xs:element name="terminalProfile" type="xs:string"/>
+			<xs:element name="returnCode" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

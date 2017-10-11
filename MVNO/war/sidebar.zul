@@ -1,0 +1,49 @@
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" name="sidebar"?>
+<vbox id="sidebar" spacing="0" width="100%" pack="stretch,end">
+	<toolbarbutton 
+		image="${sly:getImageURL('dashboard', 'medium')}" 
+		href="/index.zul" 
+		label="${sly:getLabel('Labels.UI.dashboard')}" width="100%"
+		sclass="@{self, converter='com.budgetprepay.viewcontroller.converter.SidebarStyleClassConverter'}"/>
+	<toolbarbutton 
+		image="${sly:getImageURL('file', 'medium')}" 
+		href="/Request/" 
+		label="${sly:getLabel('Labels.UI.requests')}" width="100%"
+		sclass="@{self, converter='com.budgetprepay.viewcontroller.converter.SidebarStyleClassConverter'}"/>	
+	<toolbarbutton 
+		image="${sly:getImageURL('form_blue', 'medium')}" 
+		href="/Verizon/" 
+		label="${sly:getLabel('Labels.UI.verizon')}" width="100%"
+		sclass="@{self, converter='com.budgetprepay.viewcontroller.converter.SidebarStyleClassConverter'}"
+		visible="${sly:hasVerizon()}"/>		
+	<toolbarbutton 
+		image="${sly:getImageURL('form_blue', 'medium')}" 
+		href="/Plintron/" 
+		label="${sly:getLabel('Labels.UI.plintron')}" width="100%"
+		sclass="@{self, converter='com.budgetprepay.viewcontroller.converter.SidebarStyleClassConverter'}"
+		visible="${sly:hasPlintron()}"/>					
+	<toolbarbutton 
+		image="${sly:getImageURL('contract', 'medium')}" 
+		href="/ClassOfService/" 
+		label="${sly:getLabel('Labels.UI.classofservice')}" width="100%"
+		sclass="@{self, converter='com.budgetprepay.viewcontroller.converter.SidebarStyleClassConverter'}"
+		visible="${sly:isAdministrator()}"/>	
+	<toolbarbutton 
+		image="${sly:getImageURL('group', 'medium')}" 
+		href="/Group/" 
+		label="${sly:getLabel('Labels.UI.groups')}" width="100%"
+		sclass="@{self, converter='com.budgetprepay.viewcontroller.converter.SidebarStyleClassConverter'}"
+		visible="${sly:isAdministrator()}"/>	
+	<toolbarbutton 
+		image="${sly:getImageURL('users', 'medium')}" 
+		href="/User/" 
+		label="${sly:getLabel('Labels.UI.users')}" width="100%"
+		sclass="@{self, converter='com.budgetprepay.viewcontroller.converter.SidebarStyleClassConverter'}"
+		visible="${sly:isAdministrator()}"/>
+	<toolbarbutton 
+		image="${sly:getImageURL('configuration', 'medium')}" 
+		href="/Configuration/" 
+		label="${sly:getLabel('Labels.UI.configuration')}" width="100%"
+		sclass="@{self, converter='com.budgetprepay.viewcontroller.converter.SidebarStyleClassConverter'}"
+		visible="${sly:isAdministrator()}"/>
+</vbox>

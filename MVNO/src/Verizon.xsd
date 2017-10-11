@@ -1,0 +1,2279 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns="http://www.budgetprepay.com/MVNO/Verizon"
+	       xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+	       xmlns:tns="http://www.budgetprepay.com/MVNO/Verizon"
+	       targetNamespace="http://www.budgetprepay.com/MVNO/Verizon"
+	       elementFormDefault="qualified" 
+	       attributeFormDefault="unqualified">
+ <!-- Requests -->	       
+ <xs:element name="DeviceInquiryRequest" 
+             type="tns:DeviceInquiryRequest">
+  <xs:annotation>
+   <xs:documentation>
+    To obtain the current status and details about the device. 
+    Result is reuturned via Postback DeviceAsyncResponse type.
+    The MIN element is optional.
+   </xs:documentation>
+  </xs:annotation>
+ </xs:element>
+ <xs:element name="OrderInquiryRequest" 
+             type="tns:OrderInquiryRequest">
+  <xs:annotation>
+   <xs:documentation>
+    To inquire on the status of a request transaction sent via the XMLs that matches the Reference Number 
+    provided during request. Note: Response will be sent via the OrderInquiryResponse which will be 
+    transmitted synchronously.
+   </xs:documentation>
+  </xs:annotation>
+ </xs:element>
+ <xs:element name="LineInquiryRequest" 
+             type="tns:LineInquiryRequest">
+  <xs:annotation>
+   <xs:documentation>
+    To get the current status and details about subscriber.
+   </xs:documentation>
+  </xs:annotation>
+ </xs:element>
+ <xs:element name="PortInInquiryRequest" 
+             type="tns:PortInInquiryRequest">
+  <xs:annotation>
+   <xs:documentation>
+    To get the current details about a Porting request for the given subscriber.
+   </xs:documentation>
+  </xs:annotation>
+ </xs:element> 
+ <xs:element name="PrlInquiryRequest" 
+             type="tns:PrlInquiryRequest">
+  <xs:annotation>
+   <xs:documentation>
+    To get the current details about PRL Download for the given subscriber.
+   </xs:documentation>
+  </xs:annotation>
+ </xs:element>
+ <xs:element name="DeviceActivationRequest" 
+             type="tns:DeviceActivationRequest">
+  <xs:annotation>
+   <xs:documentation>
+    To Activate an MDN(Mobile Directory Number) for an existing Reseller account. 
+    The MDN or the nextAvailableMDN element is required. If the MDN is supplied, then the nextAvailableMDN 
+    element may not be supplied. If the nextAvailableMDN element is supplied, then either the npaNxx or 
+    the zipCode or both the city and state must be supplied.   
+   </xs:documentation>
+  </xs:annotation>
+ </xs:element>
+ <xs:element name="DeviceActivationPortInRequest" 
+             type="tns:DeviceActivationPortInRequest">
+  <xs:annotation>
+   <xs:documentation>To activate a number via a Port In</xs:documentation>
+  </xs:annotation>
+ </xs:element>
+ <xs:element name="DeleteSubscriberRequest" 
+             type="tns:DeleteSubscriberRequest">
+  <xs:annotation>
+   <xs:documentation>Publish Delete Subscribe Request</xs:documentation>
+  </xs:annotation>
+ </xs:element>
+ <xs:element name="ValidateMDNPortabilityRequest" 
+             type="tns:ValidateMDNPortabilityRequest">
+  <xs:annotation>
+   <xs:documentation>To deactivate an active MDN on an existing Reseller account.</xs:documentation>
+  </xs:annotation>
+ </xs:element>
+ <xs:element name="ChangeESNRequest" 
+             type="tns:ChangeESNRequest">
+  <xs:annotation>
+   <xs:documentation>
+    To change the device(ESN/MEID) of an active 3G MDN of an existing Reseller account.
+    </xs:documentation>
+  </xs:annotation>
+ </xs:element>
+ <xs:element name="AddHotlineRequest" 
+             type="tns:AddHotlineRequest">
+  <xs:annotation>
+   <xs:documentation>
+    To hotline an active MDN of an existing reseller account to 
+    the phone number provided within the transaction.
+   </xs:documentation>
+  </xs:annotation>
+ </xs:element> 
+ <xs:element name="RemoveHotlineRequest" 
+             type="tns:RemoveHotlineRequest">
+  <xs:annotation>
+   <xs:documentation>
+    To remove the hotline from an active MDN on an existing reseller account.
+   </xs:documentation>
+  </xs:annotation>
+ </xs:element> 
+ <xs:element name="AddHotlineSubscriberRequest" 
+             type="tns:AddHotlineSubscriberRequest">
+  <xs:annotation>
+   <xs:documentation>
+    To Activate an MDN in Hotline status on an existing Reseller account. 
+    The SubOrgID tag is a conditional element and is used with MPNPoolName, 
+    when more than one MPN (Mobile Private Network) is in use by a Reseller.
+   </xs:documentation>
+  </xs:annotation>
+ </xs:element>
+ <xs:element name="ReconnectMDNRequest" 
+             type="tns:ReconnectMDNRequest">
+  <xs:annotation>
+   <xs:documentation>
+    To reconnect the deactivated MDN of an existing Reseller account within 
+    the threshold period. Port-out MDN’s are not supported for reconnect.
+   </xs:documentation>
+  </xs:annotation>
+ </xs:element>
+ <xs:element name="RestoreSuspendedSubscriberRequest" 
+             type="tns:RestoreSuspendedSubscriberRequest">
+  <xs:annotation>
+   <xs:documentation>
+    To restore the service of a previously suspended MDN on an existing reseller account.
+   </xs:documentation>
+  </xs:annotation>
+ </xs:element>
+ <xs:element name="SuspendSubscriberRequest" 
+             type="tns:SuspendSubscriberRequest">
+  <xs:annotation>
+   <xs:documentation>To suspend the active MDN on an existing reseller account.</xs:documentation>
+  </xs:annotation>
+ </xs:element>
+ <xs:element name="SearchBucketRequest" 
+             type="tns:SearchBucketRequest">
+  <xs:annotation>
+   <xs:documentation>Publish Search Bucket Request</xs:documentation>
+  </xs:annotation>
+ </xs:element> 
+  <xs:element name="AddBucketRequest" 
+             type="tns:AddBucketRequest">
+  <xs:annotation>
+   <xs:documentation>Publish Add Bucket Request</xs:documentation>
+  </xs:annotation>
+ </xs:element>
+ <xs:element name="DeleteBucketRequest" 
+             type="tns:DeleteBucketRequest">
+  <xs:annotation>
+   <xs:documentation>Publish Delete Bucket Request</xs:documentation>
+  </xs:annotation>
+ </xs:element>
+ <xs:element name="UpdateBucketRequest" 
+             type="tns:UpdateBucketRequest">
+  <xs:annotation>
+   <xs:documentation>Publish Update Bucket Request</xs:documentation>
+  </xs:annotation>
+ </xs:element>
+ <xs:element name="ValidateDeviceRequest" 
+             type="tns:ValidateDeviceRequest">
+  <xs:annotation>
+   <xs:documentation>Publish Validate Device Request</xs:documentation>
+  </xs:annotation>
+ </xs:element>
+ <xs:element name="ChangeMobileNumberRequest" 
+             type="tns:ChangeMobileNumberRequest">
+  <xs:annotation>
+   <xs:documentation>
+    To change the MDN of an active MDN on an existing Reseller account. 
+    The oldMDN is always required. If the MDN and oldMDN combination are supplied then the nextAvailableMDN element may not be supplied. 
+    If the nextAvailableMDN element is supplied then the oldMDN must be supplied and either the npaNxx or the zipCode or both the city 
+    and state must be supplied. Note: A MIN will be returned as part of the “orderAsyncResponse” transaction.     
+   </xs:documentation>
+  </xs:annotation>
+ </xs:element>
+ <xs:element name="ResetFeatureRequest" 
+             type="tns:ResetFeatureRequest">
+  <xs:annotation>
+   <xs:documentation>
+    To reset Voice Mail feature’s settings. For example, for Voice Mail features such as Basic Voice Mail (BVM) 
+    or Enhanced Voice Mail (EVM). The API supports (1)resetting Voice Mail box settings or (2)Voice Mail Password 
+    alone. Please note that resetting Voice Mail Box will automatically reset the Voice Mail box password too. 
+    An asynchronous response will be returned for the transaction processed.   
+   </xs:documentation>
+  </xs:annotation>
+ </xs:element>
+ <xs:element name="ChangeFeaturesRequest" 
+             type="tns:ChangeFeaturesRequest">
+  <xs:annotation>
+   <xs:documentation>
+    To change the individual features of an active MDN of an existing reseller account.
+    MPNPoolName: MPNPoolName is optional unless the MPNSIP or MPNDIP feature is added. 
+    Also, if the MPNPollName is added one of these features must be present in the XML document.
+    The mobileIPAddress element supports the Static IP or Restricted IPAddress functionalities.
+    The SubOrgID tag is a conditional element and is used with MPNPoolName, when more than one 
+    MPN (Mobile Private Network) is in use by a Reseller.  
+   </xs:documentation>
+  </xs:annotation>
+ </xs:element>
+  <xs:element name="ChangeRatePlanRequest" 
+              type="tns:ChangeRatePlanRequest">
+  <xs:annotation>
+   <xs:documentation>
+    To change the rate plan of an active MDN on an existing reseller account. 
+    Only the default features will remain with the MDN as a result of this transaction. 
+    If you would like any of the optional features to remain on the MDN, those features should be explicitly included.
+    MPNPoolName: MPNPoolName is optional unless the MPNSIP or MPNDIP feature is added. 
+    Also, if the MPNPoolName is added one of these features must be present in the XML document. 
+    The mobileIPAddress element supports the Static IP or Restricted IPAddress functionalities.
+    The SubOrgID tag is a conditional element and is used with MPNPoolName, when more than one MPN (Mobile Private Network) 
+    is in use by a Reseller.
+   </xs:documentation>
+  </xs:annotation>
+ </xs:element>
+ <xs:element name="ChangeSIMRequest" 
+             type="tns:ChangeSIMRequest">
+  <xs:annotation>
+   <xs:documentation>
+    To change SIM(ICCID) of Reseller’s active 4G subscriber (MDN)
+   </xs:documentation>
+  </xs:annotation>
+ </xs:element>
+ <xs:element name="AddAutoReplenishRequest" 
+             type="tns:AddAutoReplenishRequest">
+  <xs:annotation>
+   <xs:documentation>
+    The addAutoReplenish operation is used to add a directive for a given MDN to be automatically sent an
+    account credit once for every time interval specified, until the end date. If the end date is unspecified, the
+    credit is done indefinitely or until cancelled or modified.
+   </xs:documentation>
+  </xs:annotation>
+ </xs:element>
+ <xs:element name="UpdateAutoReplenishRequest" 
+             type="tns:UpdateAutoReplenishRequest">
+  <xs:annotation>
+   <xs:documentation>
+    The updateAutoReplenish operation is used to update an existing directive for a given MDN to be
+    automatically sent an account credit once for every time interval specified, until the end date (or indefinitely
+    for null end date). Any of the settings that are optional and are left unspecified will retain the pre-existing
+    value within the existing replenishment directive.
+   </xs:documentation>
+  </xs:annotation>
+ </xs:element>
+ <xs:element name="GetAutoReplenishRequest" 
+             type="tns:GetAutoReplenishRequest">
+  <xs:annotation>
+   <xs:documentation>
+    The getAutoReplenish operation is used to get the current auto-replenishment directive of a given MDN.
+    The auto-replenishment directive is used to specify an automatic account credit to be sent once for every
+    time interval specified, until the end date (or indefinitely for null end date).
+   </xs:documentation>
+  </xs:annotation>
+ </xs:element>
+ <xs:element name="SearchSubcriberInfoRequest" 
+             type="tns:SearchSubscriberInfoRequest">
+  <xs:annotation>
+   <xs:documentation>
+    The searchSubscriberInfo operation is used to retrieve subscriber information from various backend
+    systems. If a transaction ID is not provided, one will be generated for the message. The message will be
+    authorized and passed onto the SearchSubscriberInfoImport.
+    If the supplied MDN is post paid account type, postPaidSummaryArray will be populated along with rss
+    object. Account, AccountBalance will not be populated for post paid account types.
+    Please note that CDR usage is no longer returned by this call. Please use searchCDR call to get usage
+    data. Additionally, the field: recordCount has been removed from the request. Please adjust your requests
+    accordingly.
+   </xs:documentation>
+  </xs:annotation>
+ </xs:element>
+ <xs:element name="UpdateSubcriberFieldRequest" 
+             type="tns:UpdateSubscriberFieldRequest">
+  <xs:annotation>
+   <xs:documentation>
+    This API is used to update subscriber account settings such as language preference, passcode, precall
+    announcement, and SMS notification. It accepts the input for the field you would like to update, and returns
+    responses appropriately.
+   </xs:documentation>
+  </xs:annotation>
+ </xs:element>
+ <xs:element name="DeleteAllBucketsRequest" 
+             type="tns:DeleteAllBucketsRequest">
+  <xs:annotation>
+   <xs:documentation>
+    The deleteAllBuckets operation is used to delete all existing buckets for an MDN. If the MDN is not found
+    or not valid, it will throw an exception.   
+   </xs:documentation>
+  </xs:annotation>
+ </xs:element>
+ <xs:element name="UpdateAccountBalanceRequest" 
+             type="tns:UpdateAccountBalanceRequest">
+  <xs:annotation>
+   <xs:documentation>
+    The updateAccountBalance operation is used to update account balance information in the accounting
+    system. If a transaction ID is not provided, one will be generated for the message. 
+   </xs:documentation>
+  </xs:annotation>
+ </xs:element>
+ <xs:element name="UpdateCreditRequest" 
+             type="tns:UpdateCreditRequest">
+  <xs:annotation>
+   <xs:documentation>
+    The updateCredit operation is used to void the last credit in Accounting System if the last credit has
+    happened within five minutes. If a transaction ID is not provided, one will be generated for the message.
+   </xs:documentation>
+  </xs:annotation>
+ </xs:element>
+ <xs:element name="SearchCDRRequest" 
+             type="tns:SearchCDRRequest">
+  <xs:annotation>
+   <xs:documentation>
+    The searchCDR operation is used to retrieve call records. This service returns general information about 
+    multiple records that match the input search criteria. If a transaction ID is not provided, one will be
+    generated for the message. The message will be authorized and passed to down stream systems.
+    searchCDR will limit the maximum number of call usage records returned to 1000. For API request with
+    record count exceeding 1000, first 1000 call usage records will be returned. Dates can be adjusted for
+    retrieving records with >1000 rows. If the given MDN is type of post paid; customer usage records will be
+    pulled from post paid account information systems. Based on the usage filter and customer type (pre pay
+    or post paid), different usage sets will be populated in response object.
+   </xs:documentation>
+  </xs:annotation>
+ </xs:element>
+ <xs:element name="SearchCDRDetailRequest" 
+             type="tns:SearchCDRDetailRequest">
+  <xs:annotation>
+   <xs:documentation>
+    The searchCDRDetail operation is used to retrieve detailed call record information. This service returns
+    detailed information about a single record that matches the input Row ID. If a transaction ID is not provided,
+    one will be generated for the message. The message will be authorized and passed on to the interface to
+    the backend system which houses usage information.
+   </xs:documentation>
+  </xs:annotation>
+ </xs:element>
+ <xs:element name="SearchPINGroupRequest" 
+             type="tns:SearchPINGroupRequest">
+  <xs:annotation>
+   <xs:documentation>
+    The searchPINGroup operation is used to retrieve information about a PIN Group. If a transaction ID is not
+    provided, one will be generated for the message. The message will be authorized and passed onto the PIN
+    Search Mediation.
+   </xs:documentation>
+  </xs:annotation>
+ </xs:element>
+ <xs:element name="SearchPINBatchRequest" 
+             type="tns:SearchPINBatchRequest">
+  <xs:annotation>
+   <xs:documentation>
+    The searchPINBatch operation is used to retrieve information about a PIN Batch. If a transaction ID is not
+    provided, one will be generated for the message. The message will be authorized and passed onto the PIN
+    Search Mediation.
+   </xs:documentation>
+  </xs:annotation>
+ </xs:element>
+ <xs:element name="SearchPINRequest" 
+             type="tns:SearchPINRequest">
+  <xs:annotation>
+   <xs:documentation>
+    The searchPIN operation is used to retrieve information about a PIN or PINs associated with an MDN from
+    the PIN system. If a transaction ID is not provided, one will be generated for the message. The message
+    will be authorized and passed onto the PIN Search Mediation.
+   </xs:documentation>
+  </xs:annotation>
+ </xs:element>
+ <xs:element name="UpdatePINGroupInfoRequest" 
+             type="tns:UpdatePINGroupInfoRequest">
+  <xs:annotation>
+   <xs:documentation>
+    The updatePINGroupInfo operation is used to change the level, expiration date and denomination of a
+    group. If a transaction ID is not provided, one will be generated for the message. The message will be
+    authorized and passed onto the PIN Update Mediation. Note: Level, Expiration Date and Denomination
+    must be specified.
+   </xs:documentation>
+  </xs:annotation>
+ </xs:element>
+ <xs:element name="UpdatePINBatchStatusRequest" 
+             type="tns:UpdatePINBatchStatusRequest">
+  <xs:annotation>
+   <xs:documentation>
+    The updatePINBatchStatus operation is used to change the status of a PIN Batch. If a transaction ID is not
+    provided, one will be generated for the message. The message will be authorized and passed onto the PIN
+    Update Mediation.
+   </xs:documentation>
+  </xs:annotation>
+ </xs:element>
+ <xs:element name="ActivatePINRequest" 
+             type="tns:ActivatePINRequest">
+  <xs:annotation>
+   <xs:documentation>
+    The activatePIN operation is used to activate an available PIN and apply it to an MDN. If a transaction ID is
+    not provided, one will be generated for the message. The message will be authorized and passed onto the
+    PIN Update Mediation.
+   </xs:documentation>
+  </xs:annotation>
+ </xs:element>
+ <xs:element name="VoidGroupRequest" 
+             type="tns:VoidGroupRequest">
+  <xs:annotation>
+   <xs:documentation>
+    The voidGroup operation is used to void an entire group of PINs. If a transaction ID is not provided, one will
+    be generated for the message. The message will be authorized and passed onto the PIN Void Mediation.
+   </xs:documentation>
+  </xs:annotation>
+ </xs:element>
+ <xs:element name="VoidBatchRequest" 
+             type="tns:VoidBatchRequest">
+  <xs:annotation>
+   <xs:documentation>
+    The voidBatch operation is used to void an entire batch of PINs. If a transaction ID is not provided, one will
+    be generated for the message. The message will be authorized and passed onto the PIN Void Mediation.
+   </xs:documentation>
+  </xs:annotation>
+ </xs:element>
+ <xs:element name="VoidPINRequest" 
+             type="tns:VoidPINRequest">
+  <xs:annotation>
+   <xs:documentation>
+    The voidPIN operation is used to void a PIN. If a transaction ID is not provided, one will be generated for
+    the message. The message will be authorized and passed onto the PIN Void Mediation.
+   </xs:documentation>
+  </xs:annotation>
+ </xs:element>
+ <xs:element name="VoidPINRangeRequest" 
+             type="tns:VoidPINRangeRequest">
+  <xs:annotation>
+   <xs:documentation>
+    The voidPINRange operation is used to void a series of sequential PINs. If a transaction ID is not provided,
+    one will be generated for the message. The message will be authorized and passed onto the PIN Void
+    Mediation.
+   </xs:documentation>
+  </xs:annotation>
+ </xs:element>
+ <xs:element name="RevertCallsRequest" 
+             type="tns:RevertCallsRequest">
+  <xs:annotation>
+   <xs:documentation>
+   </xs:documentation>
+  </xs:annotation>
+ </xs:element> 
+ <!-- Responses -->
+ <xs:element name="DeviceInquiryResponse" 
+             type="tns:DeviceInquiryResponse">
+  <xs:annotation>
+   <xs:documentation>
+   </xs:documentation>
+  </xs:annotation>
+ </xs:element>
+ <xs:element name="OrderInquiryResponse" 
+             type="tns:OrderInquiryResponse">
+  <xs:annotation>
+   <xs:documentation>
+   </xs:documentation>
+  </xs:annotation>
+ </xs:element>
+ <xs:element name="LineInquiryResponse" 
+             type="tns:LineInquiryResponse">
+  <xs:annotation>
+   <xs:documentation>
+   </xs:documentation>
+  </xs:annotation>
+ </xs:element>
+ <xs:element name="PortInInquiryResponse" 
+             type="tns:PortInInquiryResponse">
+  <xs:annotation>
+   <xs:documentation>
+   </xs:documentation>
+  </xs:annotation>
+ </xs:element> 
+ <xs:element name="PrlInquiryResponse" 
+             type="tns:PrlInquiryResponse">
+  <xs:annotation>
+   <xs:documentation>
+   </xs:documentation>
+  </xs:annotation>
+ </xs:element>
+ <xs:element name="DeviceActivationResponse" 
+             type="tns:DeviceActivationResponse">
+  <xs:annotation>
+   <xs:documentation>
+   </xs:documentation>
+  </xs:annotation>
+ </xs:element>
+ <xs:element name="DeviceActivationPortInResponse" 
+             type="tns:DeviceActivationPortInResponse">
+  <xs:annotation>
+   <xs:documentation>
+   </xs:documentation>
+  </xs:annotation>
+ </xs:element>
+ <xs:element name="DeleteSubscriberResponse" 
+             type="tns:DeleteSubscriberResponse">
+  <xs:annotation>
+   <xs:documentation>
+   </xs:documentation>
+  </xs:annotation>
+ </xs:element>
+ <xs:element name="ValidateMDNPortabilityResponse" 
+             type="tns:ValidateMDNPortabilityResponse">
+  <xs:annotation>
+   <xs:documentation>
+   </xs:documentation>
+  </xs:annotation>
+ </xs:element>
+ <xs:element name="ChangeESNResponse" 
+             type="tns:ChangeESNResponse">
+  <xs:annotation>
+   <xs:documentation>
+   </xs:documentation>
+  </xs:annotation>
+ </xs:element>
+ <xs:element name="AddHotlineResponse" 
+             type="tns:AddHotlineResponse">
+  <xs:annotation>
+   <xs:documentation>
+   </xs:documentation>
+  </xs:annotation>
+ </xs:element> 
+ <xs:element name="RemoveHotlineResponse" 
+             type="tns:RemoveHotlineResponse">
+  <xs:annotation>
+   <xs:documentation>
+   </xs:documentation>
+  </xs:annotation>
+ </xs:element> 
+ <xs:element name="AddHotlineSubscriberResponse" 
+             type="tns:AddHotlineSubscriberResponse">
+  <xs:annotation>
+   <xs:documentation>
+   </xs:documentation>
+  </xs:annotation>
+ </xs:element>
+ <xs:element name="ReconnectMDNResponse" 
+             type="tns:ReconnectMDNResponse">
+  <xs:annotation>
+   <xs:documentation>
+   </xs:documentation>
+  </xs:annotation>
+ </xs:element>
+ <xs:element name="RestoreSuspendedSubscriberResponse" 
+             type="tns:RestoreSuspendedSubscriberResponse">
+  <xs:annotation>
+   <xs:documentation>
+   </xs:documentation>
+  </xs:annotation>
+ </xs:element>
+ <xs:element name="SuspendSubscriberResponse" 
+             type="tns:SuspendSubscriberResponse">
+  <xs:annotation>
+   <xs:documentation>
+   </xs:documentation>
+  </xs:annotation>
+ </xs:element>
+ <xs:element name="SearchBucketResponse" 
+             type="tns:SearchBucketResponse">
+  <xs:annotation>
+   <xs:documentation>
+   </xs:documentation>
+  </xs:annotation>
+ </xs:element> 
+  <xs:element name="AddBucketResponse" 
+             type="tns:AddBucketResponse">
+  <xs:annotation>
+   <xs:documentation>
+   </xs:documentation>
+  </xs:annotation>
+ </xs:element>
+ <xs:element name="DeleteBucketResponse" 
+             type="tns:DeleteBucketResponse">
+  <xs:annotation>
+   <xs:documentation>
+   </xs:documentation>
+  </xs:annotation>
+ </xs:element>
+ <xs:element name="UpdateBucketResponse" 
+             type="tns:UpdateBucketResponse">
+  <xs:annotation>
+   <xs:documentation>
+   </xs:documentation>
+  </xs:annotation>
+ </xs:element>
+ <xs:element name="ValidateDeviceResponse" 
+             type="tns:ValidateDeviceResponse">
+  <xs:annotation>
+   <xs:documentation>
+   </xs:documentation>
+  </xs:annotation>
+ </xs:element>
+ <xs:element name="ChangeMobileNumberResponse" 
+             type="tns:ChangeMobileNumberResponse">
+  <xs:annotation>
+   <xs:documentation>    
+   </xs:documentation>
+  </xs:annotation>
+ </xs:element>
+ <xs:element name="ResetFeatureResponse" 
+             type="tns:ResetFeatureResponse">
+  <xs:annotation>
+   <xs:documentation>  
+   </xs:documentation>
+  </xs:annotation>
+ </xs:element>
+  <xs:element name="ChangeRatePlanResponse" 
+              type="tns:ChangeRatePlanResponse">
+  <xs:annotation>
+   <xs:documentation>
+   </xs:documentation>
+  </xs:annotation>
+ </xs:element>
+ <xs:element name="ChangeSIMResponse" 
+             type="tns:ChangeSIMResponse">
+  <xs:annotation>
+   <xs:documentation>
+   </xs:documentation>
+  </xs:annotation>
+ </xs:element> 
+ <xs:element name="AddAutoReplenishResponse" 
+             type="tns:AddAutoReplenishResponse">
+  <xs:annotation>
+   <xs:documentation>
+   </xs:documentation>
+  </xs:annotation>
+ </xs:element>
+ <xs:element name="UpdateAutoReplenishResponse" 
+             type="tns:UpdateAutoReplenishResponse">
+  <xs:annotation>
+   <xs:documentation>
+   </xs:documentation>
+  </xs:annotation>
+ </xs:element>
+ <xs:element name="GetAutoReplenishResponse" 
+             type="tns:GetAutoReplenishResponse">
+  <xs:annotation>
+   <xs:documentation>
+   </xs:documentation>
+  </xs:annotation>
+ </xs:element>
+ <xs:element name="SearchSubcriberInfoResponse" 
+             type="tns:SearchSubscriberInfoResponse">
+  <xs:annotation>
+   <xs:documentation>
+   </xs:documentation>
+  </xs:annotation>
+ </xs:element>
+ <xs:element name="UpdateSubcriberFieldResponse" 
+             type="tns:UpdateSubscriberFieldResponse">
+  <xs:annotation>
+   <xs:documentation>
+   </xs:documentation>
+  </xs:annotation>
+ </xs:element>
+ <xs:element name="DeleteAllBucketsResponse" 
+             type="tns:DeleteAllBucketsResponse">
+  <xs:annotation>
+   <xs:documentation>  
+   </xs:documentation>
+  </xs:annotation>
+ </xs:element>
+ <xs:element name="UpdateAccountBalanceResponse" 
+             type="tns:UpdateAccountBalanceResponse">
+  <xs:annotation>
+   <xs:documentation>
+   </xs:documentation>
+  </xs:annotation>
+ </xs:element>
+ <xs:element name="UpdateCreditResponse" 
+             type="tns:UpdateCreditResponse">
+  <xs:annotation>
+   <xs:documentation>
+   </xs:documentation>
+  </xs:annotation>
+ </xs:element>
+ <xs:element name="SearchCDRResponse" 
+             type="tns:SearchCDRResponse">
+  <xs:annotation>
+   <xs:documentation>
+   </xs:documentation>
+  </xs:annotation>
+ </xs:element>
+ <xs:element name="SearchCDRDetailResponse" 
+             type="tns:SearchCDRDetailResponse">
+  <xs:annotation>
+   <xs:documentation>
+   </xs:documentation>
+  </xs:annotation>
+ </xs:element>
+ <xs:element name="SearchPINGroupResponse" 
+             type="tns:SearchPINGroupResponse">
+  <xs:annotation>
+   <xs:documentation>
+   </xs:documentation>
+  </xs:annotation>
+ </xs:element>
+ <xs:element name="SearchPINBatchResponse" 
+             type="tns:SearchPINBatchResponse">
+  <xs:annotation>
+   <xs:documentation>
+   </xs:documentation>
+  </xs:annotation>
+ </xs:element>
+ <xs:element name="SearchPINResponse" 
+             type="tns:SearchPINResponse">
+  <xs:annotation>
+   <xs:documentation>
+   </xs:documentation>
+  </xs:annotation>
+ </xs:element>
+ <xs:element name="UpdatePINGroupInfoResponse" 
+             type="tns:UpdatePINGroupInfoResponse">
+  <xs:annotation>
+   <xs:documentation>
+   </xs:documentation>
+  </xs:annotation>
+ </xs:element>
+ <xs:element name="UpdatePINBatchStatusResponse" 
+             type="tns:UpdatePINBatchStatusResponse">
+  <xs:annotation>
+   <xs:documentation>
+   </xs:documentation>
+  </xs:annotation>
+ </xs:element>
+ <xs:element name="ActivatePINResponse" 
+             type="tns:ActivatePINResponse">
+  <xs:annotation>
+   <xs:documentation>
+   </xs:documentation>
+  </xs:annotation>
+ </xs:element>
+ <xs:element name="VoidGroupResponse" 
+             type="tns:VoidGroupResponse">
+  <xs:annotation>
+   <xs:documentation>
+   </xs:documentation>
+  </xs:annotation>
+ </xs:element>
+ <xs:element name="VoidBatchResponse" 
+             type="tns:VoidBatchResponse">
+  <xs:annotation>
+   <xs:documentation>
+   </xs:documentation>
+  </xs:annotation>
+ </xs:element>
+ <xs:element name="VoidPINResponse" 
+             type="tns:VoidPINResponse">
+  <xs:annotation>
+   <xs:documentation>
+   </xs:documentation>
+  </xs:annotation>
+ </xs:element>
+ <xs:element name="VoidPINRangeResponse" 
+             type="tns:VoidPINRangeResponse">
+  <xs:annotation>
+   <xs:documentation>
+   </xs:documentation>
+  </xs:annotation>
+ </xs:element>
+ <xs:element name="RevertCallsResponse" 
+             type="tns:RevertCallsResponse">
+  <xs:annotation>
+   <xs:documentation>
+   </xs:documentation>
+  </xs:annotation>
+ </xs:element> 
+  <!-- Types    -->
+  
+ <xs:complexType name="RevertCallsRequest">
+  <xs:sequence>
+   <xs:element name="messageHeader" type="messageHeaderType" minOccurs="1" />
+   <xs:element name="mdn" type="phoneType" minOccurs="1" />
+   <xs:element name="rowId" type="xs:string" minOccurs="0" maxOccurs="unbounded" />
+  </xs:sequence>
+ </xs:complexType>
+ 
+ <xs:complexType name="RevertCallsResponse">
+  <xs:sequence>
+   <xs:element name="returnMessage" type="returnMessageType" minOccurs="1"/>
+   <xs:element name="transactionContext" type="transactionContextType" minOccurs="0"/>
+   <xs:element name="balance" type="xs:string" minOccurs="0"/>
+   <xs:element name="outputCallList" type="outputCallListType" minOccurs="0" maxOccurs="unbounded" />
+  </xs:sequence>
+ </xs:complexType>
+ 
+ <xs:complexType name="outputCallListType">
+  <xs:sequence>
+   <xs:element name="rowId" type="xs:string" minOccurs="0"/>
+   <xs:element name="previousRevertedUserId" type="xs:string" minOccurs="0"/>
+   <xs:element name="previouseRevertedDate" type="xs:string" minOccurs="0"/>
+   <xs:element name="revertResultCode" type="xs:string" minOccurs="0"/>
+  </xs:sequence>
+ </xs:complexType>
+ 
+  <xs:complexType name="VoidPINRangeResponse">
+  <xs:sequence>
+   <xs:element name="returnMessage" type="returnMessageType" minOccurs="1"/>
+   <xs:element name="transactionContext" type="transactionContextType" minOccurs="0"/>
+   <xs:element name="updateRows" type="xs:string" minOccurs="0" />
+   <xs:element name="availablePINCount" type="xs:string" minOccurs="0" />
+   <xs:element name="activatedPINCount" type="xs:string" minOccurs="0" />
+   <xs:element name="retiredPINCount" type="xs:string" minOccurs="0" /> 
+  </xs:sequence>
+ </xs:complexType>
+ 
+ <xs:complexType name="VoidPINResponse">
+  <xs:sequence>
+   <xs:element name="returnMessage" type="returnMessageType" minOccurs="1"/>
+   <xs:element name="transactionContext" type="transactionContextType" minOccurs="0"/>
+   <xs:element name="pin" type="xs:string" minOccurs="0" />
+   <xs:element name="status" type="xs:string" minOccurs="0" />
+  </xs:sequence>
+ </xs:complexType>
+ 
+ <xs:complexType name="VoidPINRangeRequest">
+  <xs:sequence>
+   <xs:element name="messageHeader" type="messageHeaderType" minOccurs="1" />
+   <xs:element name="group" type="xs:string" minOccurs="1" />
+   <xs:element name="beginningSerial" type="xs:string" minOccurs="1" />
+   <xs:element name="endingSerial" type="xs:string" minOccurs="1" />
+  </xs:sequence>
+ </xs:complexType>
+ 
+ <xs:complexType name="VoidPINRequest">
+  <xs:sequence>
+   <xs:element name="messageHeader" type="messageHeaderType" minOccurs="1" />
+   <xs:element name="group" type="xs:string" minOccurs="1" />
+   <xs:element name="pin" type="xs:string" minOccurs="1" />
+  </xs:sequence>
+ </xs:complexType>
+ 
+ <xs:complexType name="VoidBatchRequest">
+  <xs:sequence>
+   <xs:element name="messageHeader" type="messageHeaderType" minOccurs="1" />
+   <xs:element name="group" type="xs:string" minOccurs="1" />
+   <xs:element name="batch" type="xs:string" minOccurs="1" />
+  </xs:sequence>
+ </xs:complexType>
+ 
+ <xs:complexType name="VoidBatchResponse">
+  <xs:sequence>
+   <xs:element name="returnMessage" type="returnMessageType" minOccurs="1"/>
+   <xs:element name="transactionContext" type="transactionContextType" minOccurs="0"/>
+   <xs:element name="group" type="xs:string" minOccurs="0" />
+   <xs:element name="batch" type="xs:string" minOccurs="0" />
+   <xs:element name="status" type="xs:string" minOccurs="0" />
+   <xs:element name="updateRows" type="xs:string" minOccurs="0" />
+   <xs:element name="availablePINCount" type="xs:string" minOccurs="0" />
+   <xs:element name="activatedPINCount" type="xs:string" minOccurs="0" />
+   <xs:element name="retiredPINCount" type="xs:string" minOccurs="0" />    
+  </xs:sequence>
+ </xs:complexType>
+ 
+ <xs:complexType name="VoidGroupRequest">
+  <xs:sequence>
+   <xs:element name="messageHeader" type="messageHeaderType" minOccurs="1" />
+   <xs:element name="group" type="xs:string" minOccurs="1" />
+  </xs:sequence>
+ </xs:complexType>
+ 
+ <xs:complexType name="VoidGroupResponse">
+  <xs:sequence>
+   <xs:element name="returnMessage" type="returnMessageType" minOccurs="1"/>
+   <xs:element name="transactionContext" type="transactionContextType" minOccurs="0"/>
+   <xs:element name="group" type="xs:string" minOccurs="0" />   
+   <xs:element name="updateRows" type="xs:string" minOccurs="0" />
+   <xs:element name="availablePINCount" type="xs:string" minOccurs="0" />
+   <xs:element name="activatedPINCount" type="xs:string" minOccurs="0" />
+   <xs:element name="retiredPINCount" type="xs:string" minOccurs="0" />    
+  </xs:sequence>
+ </xs:complexType>
+ 
+ <xs:complexType name="ActivatePINRequest">
+  <xs:sequence>
+   <xs:element name="messageHeader" type="messageHeaderType" minOccurs="1" />
+   <xs:element name="group" type="xs:string" minOccurs="1" />
+   <xs:element name="mdn" type="phoneType" minOccurs="1" />
+   <xs:element name="pin" type="xs:string" minOccurs="1" />
+  </xs:sequence>
+ </xs:complexType>
+ 
+ <xs:complexType name="ActivatePINResponse">
+  <xs:sequence>
+   <xs:element name="returnMessage" type="returnMessageType" minOccurs="1"/>
+   <xs:element name="transactionContext" type="transactionContextType" minOccurs="0"/>
+   <xs:element name="mdn" type="phoneType" minOccurs="0" />
+   <xs:element name="pin" type="xs:string" minOccurs="0" /> 
+   <xs:element name="balance" type="xs:string" minOccurs="0" />
+   <xs:element name="value" type="xs:string" minOccurs="0" />        
+  </xs:sequence>
+ </xs:complexType>
+ 
+ <xs:complexType name="UpdatePINBatchStatusRequest">
+  <xs:sequence>
+   <xs:element name="messageHeader" type="messageHeaderType" minOccurs="1" />
+   <xs:element name="group" type="xs:string" minOccurs="1" />
+   <xs:element name="batch" type="xs:string" minOccurs="1" />
+   <xs:element name="flag" type="xs:string" minOccurs="0" />
+  </xs:sequence>
+ </xs:complexType>
+ 
+ <xs:complexType name="UpdatePINBatchStatusResponse">
+  <xs:sequence>
+   <xs:element name="returnMessage" type="returnMessageType" minOccurs="1"/>
+   <xs:element name="transactionContext" type="transactionContextType" minOccurs="0"/>
+   <xs:element name="group" type="xs:string" minOccurs="0" />
+   <xs:element name="batch" type="xs:string" minOccurs="0" />
+   <xs:element name="status" type="xs:string" minOccurs="0" />
+   <xs:element name="count" type="xs:string" minOccurs="0" />
+  </xs:sequence>
+ </xs:complexType>
+ 
+ <xs:complexType name="UpdatePINGroupInfoRequest">
+  <xs:sequence>
+   <xs:element name="messageHeader" type="messageHeaderType" minOccurs="1" />
+   <xs:element name="group" type="xs:string" minOccurs="1" />
+   <xs:element name="level" type="xs:string" minOccurs="1" />
+   <xs:element name="denomination" type="xs:string" minOccurs="1" />
+   <xs:element name="expirationDate" type="xs:string" minOccurs="1" />
+  </xs:sequence>
+ </xs:complexType>
+ 
+ <xs:complexType name="UpdatePINGroupInfoResponse">
+  <xs:sequence>
+   <xs:element name="returnMessage" type="returnMessageType" minOccurs="1"/>
+   <xs:element name="transactionContext" type="transactionContextType" minOccurs="0"/>
+   <xs:element name="group" type="xs:string" minOccurs="0" />
+   <xs:element name="level" type="xs:string" minOccurs="0" />
+   <xs:element name="denomination" type="xs:string" minOccurs="0" />
+   <xs:element name="expirationDate" type="xs:string" minOccurs="0" />
+   <xs:element name="updateRows" type="xs:string" minOccurs="0" />
+   <xs:element name="availablePINCount" type="xs:string" minOccurs="0" />
+   <xs:element name="activatedPINCount" type="xs:string" minOccurs="0" />
+   <xs:element name="retiredPINCount" type="xs:string" minOccurs="0" />
+  </xs:sequence>
+ </xs:complexType>
+ 
+ <xs:complexType name="SearchPINRequest">
+  <xs:sequence>
+   <xs:element name="messageHeader" type="messageHeaderType" minOccurs="1" />
+   <xs:element name="group" type="xs:string" minOccurs="1" />
+   <xs:element name="batch" type="xs:string" minOccurs="1" />
+   <xs:element name="serial" type="xs:string" minOccurs="1" />
+   <xs:element name="pin" type="xs:string" minOccurs="1" />
+   <xs:element name="mdn" type="phoneType" minOccurs="1" />
+  </xs:sequence>
+ </xs:complexType>
+ 
+ <xs:complexType name="SearchPINResponse">
+  <xs:sequence>
+   <xs:element name="returnMessage" type="returnMessageType" minOccurs="1"/>
+   <xs:element name="transactionContext" type="transactionContextType" minOccurs="0"/>
+   <xs:element name="detail" type="pinDetailType" minOccurs="0"/>
+  </xs:sequence>
+ </xs:complexType>
+ 
+ <xs:complexType name="pinDetailType">
+  <xs:sequence>
+   <xs:element name="group" type="xs:string" minOccurs="0"/>
+   <xs:element name="batch" type="xs:string" minOccurs="0"/>
+   <xs:element name="PIN" type="xs:string" minOccurs="0"/>
+   <xs:element name="MDN" type="xs:string" minOccurs="0"/>
+   <xs:element name="PINStatus" type="xs:string" minOccurs="0"/>
+   <xs:element name="PINValue" type="xs:string" minOccurs="0"/>
+   <xs:element name="prepaidPlatform" type="xs:string" minOccurs="0"/>
+   <xs:element name="PINActivatedDate" type="xs:string" minOccurs="0"/>
+   <xs:element name="PINExpirationDate" type="xs:string" minOccurs="0"/>
+   <xs:element name="PINLevel" type="xs:string" minOccurs="0"/>
+  </xs:sequence>
+ </xs:complexType>
+ 
+ <xs:complexType name="SearchPINBatchRequest">
+  <xs:sequence>
+   <xs:element name="messageHeader" type="messageHeaderType" minOccurs="1" />
+   <xs:element name="group" type="xs:string" minOccurs="1" />
+   <xs:element name="batch" type="xs:string" minOccurs="1" />
+  </xs:sequence>
+ </xs:complexType>
+ 
+ <xs:complexType name="SearchPINBatchResponse">
+  <xs:sequence>
+   <xs:element name="returnMessage" type="returnMessageType" minOccurs="1"/>
+   <xs:element name="transactionContext" type="transactionContextType" minOccurs="0"/>
+   <xs:element name="batchAttributes" type="batchAttributesType" minOccurs="0"/>
+   <xs:element name="pinAttributes" type="pinAttributesType" minOccurs="0" maxOccurs="unbounded" />
+  </xs:sequence>
+ </xs:complexType>
+ 
+ <xs:complexType name="batchAttributesType">
+  <xs:sequence>
+   <xs:element name="batch" type="xs:string" minOccurs="0"/>
+   <xs:element name="batchStatus" type="xs:string" minOccurs="0"/>
+   <xs:element name="batchValue" type="xs:string" minOccurs="0"/>
+   <xs:element name="availablePINCount" type="xs:string" minOccurs="0"/>
+   <xs:element name="activatedPINCount" type="xs:string" minOccurs="0"/>
+   <xs:element name="retiredPINCount" type="xs:string" minOccurs="0"/>
+   <xs:element name="providerCode" type="xs:string" minOccurs="0"/>
+  </xs:sequence>
+ </xs:complexType>
+ 
+ <xs:complexType name="pinAttributesType">
+  <xs:sequence>
+   <xs:element name="PIN" type="xs:string" minOccurs="0"/>
+   <xs:element name="PINStatus" type="xs:string" minOccurs="0"/>
+  </xs:sequence>
+ </xs:complexType>
+ 
+ <xs:complexType name="SearchPINGroupRequest">
+  <xs:sequence>
+   <xs:element name="messageHeader" type="messageHeaderType" minOccurs="1" />
+   <xs:element name="group" type="xs:string" minOccurs="1" />
+  </xs:sequence>
+ </xs:complexType>
+
+ <xs:complexType name="SearchPINGroupResponse">
+  <xs:sequence>
+   <xs:element name="returnMessage" type="returnMessageType" minOccurs="1"/>
+   <xs:element name="transactionContext" type="transactionContextType" minOccurs="0"/>
+   <xs:element name="batchSummary" type="batchSummaryType" minOccurs="0" maxOccurs="unbounded" />
+   <xs:element name="attributes" type="groupAttributesType" minOccurs="0" maxOccurs="unbounded" />
+  </xs:sequence>
+ </xs:complexType>
+ 
+ <xs:complexType name="batchSummaryType">
+  <xs:sequence>
+   <xs:element name="batch" type="xs:string" minOccurs="0"/>
+   <xs:element name="batchStatus" type="xs:string" minOccurs="0"/>
+   <xs:element name="batchValue" type="xs:string" minOccurs="0"/>
+   <xs:element name="availablePINCount" type="xs:string" minOccurs="0"/>
+   <xs:element name="activatedPINCount" type="xs:string" minOccurs="0"/>
+   <xs:element name="retiredPINCount" type="xs:string" minOccurs="0"/>
+   <xs:element name="batchExpirationDate" type="xs:string" minOccurs="0"/>
+   <xs:element name="batchLevel" type="xs:string" minOccurs="0"/>
+   <xs:element name="providerCode" type="xs:string" minOccurs="0"/>
+  </xs:sequence>
+ </xs:complexType>
+ 
+ <xs:complexType name="groupAttributesType">
+  <xs:sequence>
+   <xs:element name="providerCode" type="xs:string" minOccurs="0"/>
+   <xs:element name="group" type="xs:string" minOccurs="0"/>
+   <xs:element name="groupValue" type="xs:string" minOccurs="0"/>
+   <xs:element name="groupLevel" type="xs:string" minOccurs="0"/>
+  </xs:sequence>
+ </xs:complexType>
+ 
+ <xs:complexType name="SearchCDRDetailRequest">
+  <xs:sequence>
+   <xs:element name="messageHeader" type="messageHeaderType" minOccurs="1" />
+   <xs:element name="rowID" type="xs:string" minOccurs="1" />
+  </xs:sequence>
+ </xs:complexType>
+ 
+ <xs:complexType name="SearchCDRDetailResponse">
+  <xs:sequence>
+   <xs:element name="returnMessage" type="returnMessageType" minOccurs="1"/>
+   <xs:element name="transactionContext" type="transactionContextType" minOccurs="0"/>
+   <xs:element name="summaryArray" type="summaryArrayType" minOccurs="0"/>
+   <xs:element name="genTime" type="xs:string" minOccurs="0"/>
+   <xs:element name="cos" type="xs:string" minOccurs="0"/>
+   <xs:element name="preEventSIM" type="xs:string" minOccurs="0"/>
+   <xs:element name="postEventSIM" type="xs:string" minOccurs="0"/>
+   <xs:element name="rechargeAmount" type="xs:string" minOccurs="0"/>
+   <xs:element name="extendedDialedDig" type="xs:string" minOccurs="0"/>
+   <xs:element name="mscAddress" type="xs:string" minOccurs="0"/>
+   <xs:element name="addCharges" type="xs:string" minOccurs="0"/>
+   <xs:element name="tariffPlanCOSP" type="xs:string" minOccurs="0"/>
+   <xs:element name="newTariffPlanCOSP" type="xs:string" minOccurs="0"/>
+   <xs:element name="callStartTimezone" type="xs:string" minOccurs="0"/>
+   <xs:element name="genTimezone" type="xs:string" minOccurs="0"/>
+   <xs:element name="smscUsageCost" type="xs:string" minOccurs="0"/>
+   <xs:element name="initTariffRate" type="xs:string" minOccurs="0"/>
+   <xs:element name="origZoneCode" type="xs:string" minOccurs="0"/>
+   <xs:element name="destZoneCode" type="xs:string" minOccurs="0"/>
+   <xs:element name="dialedDigits" type="xs:string" minOccurs="0"/>
+   <xs:element name="bonusOnRecharge" type="xs:string" minOccurs="0"/>
+   <xs:element name="regularChargeForBal" type="xs:string" minOccurs="0"/>
+   <xs:element name="enhancedRef" type="xs:string" minOccurs="0"/>
+   <xs:element name="merchantID" type="xs:string" minOccurs="0"/>
+   <xs:element name="eventLabelDesc" type="xs:string" minOccurs="0"/>
+   <xs:element name="eventResultDesc" type="xs:string" minOccurs="0"/>
+   <xs:element name="eventDesc" type="xs:string" minOccurs="0"/>
+   <xs:element name="transactionID" type="xs:string" minOccurs="0"/>
+   <xs:element name="callVolume" type="xs:string" minOccurs="0"/>
+   <xs:element name="roundedCallDuration" type="xs:string" minOccurs="0"/>
+   <xs:element name="additionalEvtDesc" type="xs:string" minOccurs="0"/>
+   <xs:element name="reqSysId" type="xs:string" minOccurs="0"/>
+   <xs:element name="roamingInfo" type="roamingInfoType" minOccurs="0"/>   
+  </xs:sequence>
+ </xs:complexType>
+ 
+ <xs:complexType name="roamingInfoType">
+  <xs:sequence>
+   <xs:element name="callType" type="xs:string" minOccurs="0"/>
+   <xs:element name="callDescription" type="xs:string" minOccurs="0"/>
+  </xs:sequence>
+ </xs:complexType>
+  
+ <xs:complexType name="SearchCDRRequest">
+  <xs:sequence>
+   <xs:element name="messageHeader" type="messageHeaderType" minOccurs="1" />
+   <xs:element name="mdn" type="phoneType" minOccurs="1"/>
+   <xs:element name="startDate" type="xs:string" minOccurs="1"/>
+   <xs:element name="endData" type="xs:string" minOccurs="1"/>
+   <xs:element name="recordCount" type="recordCountType" minOccurs="1"/>
+   <xs:element name="filter" type="filterType" minOccurs="1"/>
+  </xs:sequence>
+ </xs:complexType>
+ 
+ <xs:simpleType name="filterType">
+  <xs:restriction base="xs:string">
+   <xs:enumeration value="DATA_ONLY"/>
+   <xs:enumeration value="ALL_EVENTS"/>
+   <xs:enumeration value="VOICE_ONLY"/>
+  </xs:restriction>
+ </xs:simpleType>
+ 
+ <xs:simpleType name="recordCountType">
+  <xs:restriction base="xs:integer">
+   <xs:minInclusive value="0"/>
+   <xs:maxInclusive value="1000"/>
+  </xs:restriction>
+ </xs:simpleType>
+   
+ <xs:complexType name="SearchCDRResponse">
+  <xs:sequence>
+   <xs:element name="returnMessage" type="returnMessageType" minOccurs="1"/>
+   <xs:element name="transactionContext" type="transactionContextType" minOccurs="0"/>
+   <xs:element name="summaryArray" type="summaryArrayType" minOccurs="0" maxOccurs="unbounded" />
+  </xs:sequence>
+ </xs:complexType>
+ 
+ <xs:complexType name="summaryArrayType">
+  <xs:sequence>
+   <xs:element name="recordArray" type="recordArrayType" minOccurs="0" />
+   <xs:element name="eventLabelDesc" type="xs:string" minOccurs="0" />
+   <xs:element name="eventResultDesc" type="xs:string" minOccurs="0" />
+   <xs:element name="eventDesc" type="xs:string" minOccurs="0" />
+   <xs:element name="additionalEvtDesc" type="xs:string" minOccurs="0" />
+  </xs:sequence>
+ </xs:complexType>
+ 
+ <xs:complexType name="recordArrayType">
+  <xs:sequence>
+   <xs:element name="rowID" type="xs:string" minOccurs="0" />
+   <xs:element name="mdn" type="xs:string" minOccurs="0" />
+   <xs:element name="callStartTime" type="xs:string" minOccurs="0" />
+   <xs:element name="providerID" type="xs:string" minOccurs="0" />
+   <xs:element name="eventLabel" type="xs:string" minOccurs="0" />
+   <xs:element name="eventResult" type="xs:string" minOccurs="0" />
+   <xs:element name="preEventBal" type="xs:string" minOccurs="0" />
+   <xs:element name="postEventBal" type="xs:string" minOccurs="0" />
+   <xs:element name="callDuration" type="xs:string" minOccurs="0" />
+   <xs:element name="callCost" type="xs:string" minOccurs="0" />
+   <xs:element name="origDialedDigits" type="xs:string" minOccurs="0" />
+   <xs:element name="cos" type="xs:string" minOccurs="0" />
+   <xs:element name="tarriffPlanCOSP" type="xs:string" minOccurs="0" />
+   <xs:element name="isRevertable" type="xs:string" minOccurs="0" />
+   <xs:element name="internationalRoamin" type="xs:string" minOccurs="0" />
+   <xs:element name="cdrType" type="xs:string" minOccurs="0" />
+  </xs:sequence>
+ </xs:complexType>
+ 
+ <xs:complexType name="UpdateCreditRequest">
+  <xs:sequence>
+   <xs:element name="messageHeader" type="messageHeaderType" minOccurs="1" />
+   <xs:element name="mdn" type="phoneType" minOccurs="1"/>
+   <xs:element name="balanceType" type="balanceType" minOccurs="1"/>
+   <xs:element name="amount" type="xs:string" minOccurs="1"/>
+   <xs:element name="transType" type="transType" minOccurs="1"/>
+  </xs:sequence>
+ </xs:complexType>
+ 
+ <xs:complexType name="UpdateCreditResponse">
+  <xs:sequence>
+   <xs:element name="returnMessage" type="returnMessageType" minOccurs="1"/>
+   <xs:element name="transactionContext" type="transactionContextType" minOccurs="0"/>
+   <xs:element name="balance" type="accountBalanceType" minOccurs="0"/>
+  </xs:sequence>
+ </xs:complexType>
+ 
+ <xs:complexType name="UpdateAccountBalanceRequest">
+  <xs:sequence>
+   <xs:element name="messageHeader" type="messageHeaderType" minOccurs="1" />
+   <xs:element name="mdn" type="phoneType" minOccurs="1"/>
+   <xs:element name="balanceType" type="balanceType" minOccurs="1"/>
+   <xs:element name="amount" type="xs:string" minOccurs="1"/>
+   <xs:element name="transType" type="transType" minOccurs="1"/>
+  </xs:sequence>
+ </xs:complexType>
+ 
+ <xs:simpleType name="transType">
+  <xs:restriction base="xs:string">
+   <xs:enumeration value="CREDIT"/>
+   <xs:enumeration value="DEBIT"/>
+  </xs:restriction>
+ </xs:simpleType>
+  
+ <xs:complexType name="UpdateAccountBalanceResponse">
+  <xs:sequence>
+   <xs:element name="returnMessage" type="returnMessageType" minOccurs="1"/>
+   <xs:element name="transactionContext" type="transactionContextType" minOccurs="0"/>
+   <xs:element name="balance" type="accountBalanceType" minOccurs="0"/>
+  </xs:sequence>
+ </xs:complexType>
+ 
+ <xs:complexType name="DeleteAllBucketsRequest">
+  <xs:sequence>
+   <xs:element name="messageHeader" type="messageHeaderType" minOccurs="1" />
+   <xs:element name="mdn" type="phoneType" minOccurs="1"/>
+  </xs:sequence>
+ </xs:complexType>
+     
+ <xs:complexType name="DeleteAllBucketsResponse">
+  <xs:sequence>
+   <xs:element name="returnMessage" type="returnMessageType" minOccurs="1"/>
+   <xs:element name="transactionContext" type="transactionContextType" minOccurs="0"/>
+  </xs:sequence>
+ </xs:complexType>
+ 
+ <xs:complexType name="UpdateSubscriberFieldRequest">
+  <xs:sequence>
+   <xs:element name="messageHeader" type="messageHeaderType" minOccurs="1" />
+   <xs:element name="mdn" type="phoneType" minOccurs="1"/>
+   <xs:element name="field" type="fieldType" minOccurs="1"/>
+  </xs:sequence>
+ </xs:complexType>
+ 
+ <xs:complexType name="fieldType">
+  <xs:sequence>
+   <xs:element name="name" type="xs:string" minOccurs="1">
+    <xs:annotation>
+     <xs:documentation>
+      Field names and their possible values:
+      LANGUAGE: ENGLISH, SPANISH
+      PASSCODE: must be 4 digits
+      PRECALL: ON, OFF
+      SMSNOTIFY: YES, NO
+     </xs:documentation>
+    </xs:annotation>   
+   </xs:element>
+   <xs:element name="value" type="xs:string" minOccurs="1"/>
+  </xs:sequence>
+ </xs:complexType> 
+ 
+ <xs:complexType name="UpdateSubscriberFieldResponse">
+  <xs:sequence>
+   <xs:element name="returnMessage" type="returnMessageType" minOccurs="1"/>
+   <xs:element name="transactionContext" type="transactionContextType" minOccurs="0"/>
+  </xs:sequence>
+ </xs:complexType>
+
+ <xs:complexType name="SearchSubscriberInfoRequest">
+  <xs:sequence>
+   <xs:element name="messageHeader" type="messageHeaderType" minOccurs="1" />
+   <xs:element name="mdn" type="phoneType" minOccurs="1"/>
+   <xs:element name="balanceType" type="balanceType" minOccurs="1"/>
+  </xs:sequence>
+ </xs:complexType>
+ 
+ <xs:complexType name="SearchSubscriberInfoResponse">
+  <xs:sequence>
+   <xs:element name="returnMessage" type="returnMessageType" minOccurs="1"/>
+   <xs:element name="transactionId" type="xs:string" minOccurs="1"/>
+   <xs:element name="account" type="accountType" minOccurs="0"/>
+   <xs:element name="balance" type="accountBalanceType" minOccurs="0"/>
+   <xs:element name="rss" type="rssType" minOccurs="0"/>
+  </xs:sequence>
+ </xs:complexType>
+
+ <xs:complexType name="accountType">
+  <xs:sequence>
+   <xs:element name="mdn" type="xs:string" minOccurs="0"/>
+   <xs:element name="accountStatus" type="xs:string" minOccurs="0"/>
+   <xs:element name="cos" type="xs:string" minOccurs="0"/>
+   <xs:element name="expiration" type="xs:string" minOccurs="0"/>
+   <xs:element name="pinCode" type="xs:string" minOccurs="0"/>
+   <xs:element name="langPref" type="xs:string" minOccurs="0"/>
+   <xs:element name="hasBuckets" type="xs:string" minOccurs="0"/>
+   <xs:element name="sweepOn" type="xs:string" minOccurs="0"/>
+   <xs:element name="smsNotifications" type="xs:string" minOccurs="0"/>
+   <xs:element name="preCallAnnouncement" type="xs:string" minOccurs="0"/>
+  </xs:sequence>
+ </xs:complexType>
+ 
+ <xs:complexType name="accountBalanceType">
+  <xs:sequence>
+   <xs:element name="mdn" type="xs:string" minOccurs="0"/>
+   <xs:element name="providerId" type="xs:string" minOccurs="0"/>
+   <xs:element name="balanceType" type="xs:string" minOccurs="0"/>
+   <xs:element name="currency" type="xs:string" minOccurs="0"/>
+   <xs:element name="amount" type="xs:string" minOccurs="0"/>
+  </xs:sequence>
+ </xs:complexType>
+ 
+ <xs:complexType name="rssType">
+  <xs:sequence>
+   <xs:element name="accountId" type="xs:string" minOccurs="0"/>
+   <xs:element name="lineId" type="xs:string" minOccurs="0"/>
+   <xs:element name="businessName" type="xs:string" minOccurs="0"/>
+   <xs:element name="status" type="xs:string" minOccurs="0"/>
+   <xs:element name="company" type="xs:string" minOccurs="0"/>
+   <xs:element name="svcPlan" type="xs:string" minOccurs="0"/>
+   <xs:element name="mdn" type="xs:string" minOccurs="0"/>
+   <xs:element name="esn" type="xs:string" minOccurs="0"/>
+   <xs:element name="activationDate" type="xs:string" minOccurs="0"/>
+   <xs:element name="lineESNId" type="xs:string" minOccurs="0"/>
+   <xs:element name="min" type="xs:string" minOccurs="0"/>
+   <xs:element name="name" type="xs:string" minOccurs="0"/>
+   <xs:element name="passCode" type="xs:string" minOccurs="0"/>
+   <xs:element name="customerType" type="xs:string" minOccurs="0"/>   
+  </xs:sequence>
+ </xs:complexType>
+ 
+ <xs:complexType name="GetAutoReplenishRequest">
+  <xs:sequence>
+   <xs:element name="messageHeader" type="messageHeaderType" minOccurs="1" />
+   <xs:element name="mdn" type="phoneType" minOccurs="1"/>
+  </xs:sequence>
+ </xs:complexType>
+ 
+ <xs:complexType name="GetAutoReplenishResponse">
+  <xs:sequence>
+   <xs:element name="returnMessage" type="returnMessageType" minOccurs="1"/>
+   <xs:element name="transactionContext" type="transactionContextType" minOccurs="0"/>
+   <xs:element name="autoReplenish" type="autoReplenishType" minOccurs="0" maxOccurs="unbounded" /> 
+  </xs:sequence>
+ </xs:complexType>
+ 
+ <xs:complexType name="autoReplenishType">
+  <xs:sequence>
+   <xs:element name="active" type="trueFalseType" minOccurs="0"/>
+   <xs:element name="startDate" type="xs:string" minOccurs="0"/>
+   <xs:element name="endDate" type="xs:string" minOccurs="0"/>
+   <xs:element name="amount" type="xs:string" minOccurs="0"/>
+   <xs:element name="frequencyType" type="xs:string" minOccurs="0"/>
+   <xs:element name="frequencyValue" type="xs:string" minOccurs="0"/>
+  </xs:sequence>
+ </xs:complexType>
+ 
+ <xs:complexType name="UpdateAutoReplenishRequest">
+  <xs:sequence>
+   <xs:element name="messageHeader" type="messageHeaderType" minOccurs="1" />
+   <xs:element name="mdn" type="phoneType" minOccurs="0"/>
+   <xs:element name="active" type="trueFalseType" minOccurs="0"/>
+   <xs:element name="startDate" type="xs:string" minOccurs="0"/>
+   <xs:element name="endDate" type="xs:string" minOccurs="0"/>
+   <xs:element name="amount" type="xs:string" minOccurs="0"/>
+   <xs:element name="frequencyType" type="xs:string" minOccurs="0"/>
+   <xs:element name="frequencyValue" type="xs:string" minOccurs="0"/>
+  </xs:sequence>
+ </xs:complexType>
+ 
+ <xs:complexType name="UpdateAutoReplenishResponse">
+  <xs:sequence>
+   <xs:element name="returnMessage" type="returnMessageType" minOccurs="1"/>
+   <xs:element name="transactionContext" type="transactionContextType" minOccurs="0"/>
+  </xs:sequence>
+ </xs:complexType>
+ 
+ <xs:complexType name="AddAutoReplenishRequest">
+  <xs:sequence>
+   <xs:element name="messageHeader" type="messageHeaderType" minOccurs="1" />
+   <xs:element name="mdn" type="phoneType" minOccurs="0"/>
+   <xs:element name="active" type="trueFalseType" minOccurs="0"/>
+   <xs:element name="startDate" type="xs:string" minOccurs="0"/>
+   <xs:element name="endDate" type="xs:string" minOccurs="0"/>
+   <xs:element name="amount" type="xs:string" minOccurs="0"/>
+   <xs:element name="frequencyType" type="xs:string" minOccurs="0"/>
+   <xs:element name="frequencyValue" type="xs:string" minOccurs="0"/>
+  </xs:sequence>
+ </xs:complexType>
+ 
+ <xs:complexType name="AddAutoReplenishResponse">
+  <xs:sequence>
+   <xs:element name="returnMessage" type="returnMessageType" minOccurs="1"/>
+   <xs:element name="transactionContext" type="transactionContextType" minOccurs="0"/>
+  </xs:sequence>
+ </xs:complexType>
+ 
+ <xs:complexType name="ChangeSIMRequest">
+  <xs:sequence>
+   <xs:element name="messageHeader" type="messageHeaderType" minOccurs="1" />
+   <xs:element name="mdn" type="phoneType" minOccurs="0" />
+   <xs:element name="iccid" minOccurs="1" maxOccurs="1">
+    <xs:complexType>
+     <xs:simpleContent>
+      <xs:extension base="SIMCardType">
+       <xs:attribute name="old" type="SIMCardType"></xs:attribute>
+      </xs:extension>
+     </xs:simpleContent>
+    </xs:complexType>    
+   </xs:element>       
+  </xs:sequence>
+ </xs:complexType>
+ 
+<xs:simpleType name="SIMCardType">
+ <xs:restriction base="xs:string">
+  <xs:pattern value="[0-9]{20}"/>
+ </xs:restriction>
+</xs:simpleType>
+
+ <xs:complexType name="ChangeRatePlanRequest">
+  <xs:sequence>
+   <xs:element name="messageHeader" type="messageHeaderType" minOccurs="1" />
+   <xs:element name="mdn" type="phoneType" minOccurs="1" />
+   <xs:element name="mobileIPAddress" type="xs:string" minOccurs="0" />
+   <xs:element name="mpnPoolName" type="xs:string" minOccurs="0" />
+   <xs:element name="subOrgId" type="xs:string" minOccurs="0" />
+   <xs:element name="planCode" minOccurs="1" maxOccurs="1">
+    <xs:complexType>
+     <xs:simpleContent>
+      <xs:extension base="xs:string">
+       <xs:attribute name="old" type="xs:string"></xs:attribute>
+      </xs:extension>
+     </xs:simpleContent>
+    </xs:complexType>    
+   </xs:element>       
+  </xs:sequence>
+ </xs:complexType>
+ 
+ <xs:complexType name="ChangeFeaturesRequest">
+  <xs:sequence>
+   <xs:element name="messageHeader" type="messageHeaderType" minOccurs="1" />
+   <xs:element name="mdn" type="phoneType" minOccurs="1" />
+   <xs:element name="mobileIPAddress" type="xs:string" minOccurs="0" />
+   <xs:element name="mpnPoolName" type="xs:string" minOccurs="0" />
+   <xs:element name="subOrgId" type="xs:string" minOccurs="0" />
+   <xs:element name="feature" type="featureType" minOccurs="1" maxOccurs="unbounded" /> 
+  </xs:sequence>
+ </xs:complexType>
+ 
+ <xs:complexType name="ResetFeatureRequest">
+  <xs:annotation>
+   <xs:documentation> </xs:documentation>
+  </xs:annotation>
+  <xs:sequence>
+   <xs:element name="messageHeader" type="messageHeaderType" minOccurs="1"/>
+   <xs:element name="mdn" type="phoneType" minOccurs="1" maxOccurs="1"/>
+   <xs:element name="resetId" type="xs:int" minOccurs="1" maxOccurs="1"/>
+   <xs:element name="password" type="passwordType" minOccurs="1"/>
+   <xs:element name="featureCode" type="xs:string" minOccurs="1" maxOccurs="1"/>
+  </xs:sequence>
+ </xs:complexType>
+ 
+ <xs:simpleType name="passwordType">
+  <xs:restriction base="xs:integer">
+   <xs:minInclusive value="4"/>
+   <xs:maxInclusive value="11"/>
+  </xs:restriction>
+ </xs:simpleType>
+ 
+ <xs:complexType name="ChangeMobileNumberRequest">
+  <xs:annotation>
+   <xs:documentation> </xs:documentation>
+  </xs:annotation>
+  <xs:sequence>
+   <xs:element name="messageHeader" type="messageHeaderType" minOccurs="1" />
+   <xs:element name="oldMdn" type="phoneType" minOccurs="1"/>
+   <xs:choice>    
+    <xs:element name="mdn" type="phoneType"/>   
+    <xs:element name="nextAvailableMDN" type="nextAvailableMDNType"/>
+   </xs:choice>
+   <xs:choice>
+    <xs:element name="meid" type="meidType"/>
+    <xs:element name="esn" type="esnType"/>
+   </xs:choice>
+  </xs:sequence>
+ </xs:complexType>
+ 
+ <xs:complexType name="SuspendSubscriberRequest">
+  <xs:sequence>
+   <xs:element name="messageHeader" type="messageHeaderType" minOccurs="1" />
+   <xs:element name="mdn" type="phoneType" minOccurs="1" />
+  </xs:sequence>
+ </xs:complexType>
+ 
+ <xs:complexType name="RestoreSuspendedSubscriberRequest">
+  <xs:sequence>
+   <xs:element name="messageHeader" type="messageHeaderType" minOccurs="1" />
+   <xs:element name="mdn" type="phoneType" minOccurs="1" />
+  </xs:sequence>
+ </xs:complexType>
+ 
+ <xs:complexType name="ReconnectMDNRequest">
+  <xs:sequence>
+   <xs:element name="messageHeader" type="messageHeaderType" minOccurs="1" />
+   <xs:element name="mdn" type="phoneType" minOccurs="1" />
+   <xs:choice>
+    <xs:element name="meid" type="meidType"/>
+    <xs:element name="esn" type="esnType"/>
+   </xs:choice>
+  </xs:sequence>
+ </xs:complexType>
+ 
+  <xs:complexType name="AddHotlineSubscriberRequest">
+  <xs:sequence>
+   <xs:element name="messageHeader" type="messageHeaderType" minOccurs="1" />
+   <xs:choice>
+     <xs:element name="mdn" type="phoneType" minOccurs="1" />
+    <xs:element name="nextAvailableMDN" type="nextAvailableMDNType" minOccurs="1" />
+   </xs:choice>
+   <xs:choice>
+    <xs:element name="meid" type="meidType" minOccurs="1" />
+    <xs:element name="esn" type="esnType" minOccurs="1" />
+   </xs:choice>
+   <xs:element name="mobileIPAddress" type="xs:string" minOccurs="0" />
+   <xs:element name="mpnPoolName" type="xs:string" minOccurs="0" />
+   <xs:element name="subOrgId" type="xs:string" minOccurs="0" />
+   <xs:element name="feature" type="featureType" minOccurs="0" maxOccurs="unbounded" /> 
+   <xs:element name="hotlineType" type="hotlineType" minOccurs="1" />
+   <xs:element name="hotlineNumber" type="xs:string" minOccurs="1" />
+  </xs:sequence>
+ </xs:complexType>
+ 
+ <xs:complexType name="AddHotlineRequest">
+  <xs:sequence>
+   <xs:element name="messageHeader" type="messageHeaderType" minOccurs="1" />
+   <xs:element name="mdn" type="phoneType" minOccurs="1" />
+   <xs:element name="hotlineType" type="hotlineType" minOccurs="1" />
+   <xs:element name="hotlineNumber" type="xs:string" minOccurs="1" />
+  </xs:sequence>
+ </xs:complexType>
+ 
+ <xs:complexType name="RemoveHotlineRequest">
+  <xs:sequence>
+   <xs:element name="messageHeader" type="messageHeaderType" minOccurs="1" />
+   <xs:element name="mdn" type="phoneType" minOccurs="1" />
+  </xs:sequence>
+ </xs:complexType>
+ 
+ <xs:simpleType name="hotlineType">
+  <xs:restriction base="xs:string">
+   <xs:enumeration value="FRAUD"/>
+   <xs:enumeration value="REGULAR"/>
+   <xs:enumeration value="ROAMING"/>
+  </xs:restriction>
+ </xs:simpleType>
+ 
+ <xs:complexType name="ChangeESNRequest">
+  <xs:sequence>
+   <xs:element name="messageHeader" type="messageHeaderType" minOccurs="1" />
+   <xs:element name="mdn" type="phoneType" minOccurs="1"/>
+   <xs:choice>
+    <xs:element name="esnWithOldEsn">
+     <xs:complexType>
+      <xs:simpleContent>
+       <xs:extension base="esnType">
+        <xs:attribute name="old" type="esnType"></xs:attribute>
+       </xs:extension>
+      </xs:simpleContent>
+     </xs:complexType>    
+    </xs:element>
+    <xs:element name="esnWithOldMeid">
+     <xs:complexType>
+      <xs:simpleContent>
+       <xs:extension base="esnType">
+        <xs:attribute name="old" type="meidType"></xs:attribute>
+       </xs:extension>
+      </xs:simpleContent>
+     </xs:complexType>
+    </xs:element>
+    <xs:element name="meidWithOldEsn">
+     <xs:complexType>
+      <xs:simpleContent>
+       <xs:extension base="meidType">
+        <xs:attribute name="old" type="esnType"></xs:attribute>
+       </xs:extension>
+      </xs:simpleContent>
+     </xs:complexType>    
+    </xs:element>
+    <xs:element name="meidWithOldMeid">
+     <xs:complexType>
+      <xs:simpleContent>
+       <xs:extension base="meidType">
+        <xs:attribute name="old" type="meidType"></xs:attribute>
+       </xs:extension>
+      </xs:simpleContent>
+     </xs:complexType>    
+    </xs:element>
+   </xs:choice>
+  </xs:sequence>
+ </xs:complexType>
+ 
+ <xs:complexType name="UpdateBucketRequest">
+  <xs:sequence>
+   <xs:element name="messageHeader" type="messageHeaderType" minOccurs="1" />
+   <xs:element name="mdn" type="phoneType" minOccurs="1"/>
+   <xs:element name="bucketId" type="xs:string" minOccurs="1"/>
+   <xs:element name="adjustmentType" type="adjustmentType" minOccurs="1"/>
+   <xs:element name="adjustmentValue" type="xs:string" minOccurs="1"/>
+  </xs:sequence>
+ </xs:complexType>
+ 
+ <xs:simpleType name="esnType">
+  <xs:restriction base="xs:string">
+  </xs:restriction>
+ </xs:simpleType>
+
+ <xs:simpleType name="meidType">
+  <xs:restriction base="xs:string">
+  </xs:restriction>
+ </xs:simpleType>
+ 
+ <xs:simpleType name="adjustmentType">
+  <xs:restriction base="xs:string">
+   <xs:enumeration value="INCR"/>
+   <xs:enumeration value="DECR"/>
+   <xs:enumeration value="SETEXPIRATION"/>
+  </xs:restriction>
+ </xs:simpleType>
+ 
+ <xs:complexType name="DeleteBucketRequest">
+  <xs:sequence>
+   <xs:element name="messageHeader" type="messageHeaderType" minOccurs="1" />
+   <xs:element name="mdn" type="phoneType" minOccurs="1"/>
+   <xs:element name="bucketId" type="xs:string" minOccurs="1"/>
+  </xs:sequence>
+ </xs:complexType>
+ 
+ <xs:complexType name="AddBucketRequest">
+  <xs:sequence>
+   <xs:element name="messageHeader" type="messageHeaderType" minOccurs="1" />
+   <xs:element name="mdn" type="phoneType" minOccurs="1"/>
+   <xs:element name="bucketId" type="xs:string" minOccurs="1"/>
+   <xs:element name="endDate" type="xs:string" minOccurs="1"/>
+   <xs:element name="bucketValue" type="xs:string" minOccurs="1"/>
+  </xs:sequence>
+ </xs:complexType>
+ 
+ <xs:complexType name="SearchBucketRequest">
+  <xs:sequence>
+   <xs:element name="messageHeader" type="messageHeaderType" minOccurs="1" />
+   <xs:element name="mdn" type="phoneType" minOccurs="1"/>
+   <xs:element name="balanceType" type="balanceType" minOccurs="1"/>
+   <xs:element name="sweepOn" type="trueFalseType" minOccurs="1"/>
+  </xs:sequence>
+ </xs:complexType>
+ 
+ <xs:simpleType name="trueFalseType">
+  <xs:restriction base="xs:string">
+   <xs:enumeration value="true"/>
+   <xs:enumeration value="false"/>
+  </xs:restriction>
+ </xs:simpleType>
+ 
+ <xs:simpleType name="balanceType">
+  <xs:restriction base="xs:string">
+   <xs:enumeration value="primary"/>
+   <xs:enumeration value="secondary"/>
+  </xs:restriction>
+ </xs:simpleType>
+ 
+ <xs:complexType name="DeviceInquiryRequest">
+  <xs:sequence>
+   <xs:element name="messageHeader" type="messageHeaderType" minOccurs="1" />
+   <xs:choice>
+    <xs:element name="meid" type="meidType"/>
+    <xs:element name="esn" type="esnType"/>
+   </xs:choice>
+  </xs:sequence>
+ </xs:complexType>
+ 
+ <xs:complexType name="ValidateDeviceRequest">
+  <xs:annotation>
+   <xs:documentation>
+    A new reseller API would be provided to query DMD and check for eligibility of the Device ID provided in the API Request. 
+    Check deviceId to be valid ESN(11chars) or MEID(14chars) that exists in DMD.
+    Optional tag plancode is added to the API to check device for inclusion in special programs.
+   </xs:documentation>
+  </xs:annotation>
+  <xs:sequence>
+   <xs:element name="messageHeader" type="messageHeaderType" minOccurs="1" />
+   <xs:element name="deviceId" type="deviceIdType"/>
+  </xs:sequence>
+ </xs:complexType>
+ 
+ <xs:complexType name="OrderInquiryRequest">
+  <xs:sequence>
+   <xs:element name="messageHeader" type="messageHeaderType" minOccurs="1" />
+  </xs:sequence>
+ </xs:complexType>
+ 
+ <xs:complexType name="LineInquiryRequest">
+  <xs:annotation>
+   <xs:documentation>To get the current status and details about subscriber.</xs:documentation>
+  </xs:annotation>
+  <xs:sequence>
+   <xs:element name="messageHeader" type="messageHeaderType" minOccurs="1" />
+   <xs:choice>
+    <xs:element name="mdn" type="phoneType" minOccurs="1"/>
+    <xs:element name="min" type="phoneType" minOccurs="1"/>
+   </xs:choice>
+  </xs:sequence>
+ </xs:complexType>
+ 
+ <xs:complexType name="PortInInquiryRequest">
+  <xs:annotation>
+   <xs:documentation>To get the current details about a Porting request for the given subscriber.</xs:documentation>
+  </xs:annotation>
+  <xs:sequence>
+   <xs:element name="messageHeader" type="messageHeaderType" minOccurs="1" />
+   <xs:element name="mdn" type="phoneType"/>
+  </xs:sequence>
+ </xs:complexType>
+  
+ <xs:complexType name="PrlInquiryRequest">
+  <xs:annotation>
+   <xs:documentation>To get the current details about PRL Download for the given subscriber.</xs:documentation>
+  </xs:annotation>
+  <xs:sequence>
+   <xs:element name="messageHeader" type="messageHeaderType" minOccurs="1" />
+   <xs:element name="mdn" type="phoneType"/>
+  </xs:sequence>
+ </xs:complexType>
+ 
+ <xs:complexType name="DeviceActivationRequest">
+  <xs:annotation>
+   <xs:documentation>
+    Note: If an MDN is not supplied then nextAvailableMDN must be supplied.
+    In this case we will obtain the MDN from the Enterprise Number
+    Inventory pool using the supplied fields in the nextAvailableMDNType.
+    If the MPNPoolName tag is given in the xml, the feature element for MPN static IP 
+    or MPN dynamic IP (MPNSIP or MPNDIP) should be included in the features section. 
+   </xs:documentation>
+  </xs:annotation>
+  <xs:sequence>
+   <xs:element name="messageHeader" type="messageHeaderType" minOccurs="1" />
+   <xs:element name="feature" type="featureType" minOccurs="0" maxOccurs="unbounded" /> 
+   <xs:choice>
+     <xs:element name="mdn" type="phoneType" minOccurs="1" />
+    <xs:element name="nextAvailableMDN" type="nextAvailableMDNType" minOccurs="1" />
+   </xs:choice>
+   <xs:choice>
+    <xs:element name="meid" type="meidType" minOccurs="1" />
+    <xs:element name="esn" type="esnType" minOccurs="1" />
+   </xs:choice>
+   <xs:element name="mobileIPAddress" type="xs:string" minOccurs="0" />
+   <xs:element name="mpnPoolName" type="xs:string" minOccurs="0" />
+   <xs:element name="subOrgId" type="xs:string" minOccurs="0" />
+  </xs:sequence>
+ </xs:complexType>
+ 
+ <xs:complexType name="DeviceActivationPortInRequest">
+  <xs:annotation>
+   <xs:documentation>
+   </xs:documentation>
+  </xs:annotation>
+  <xs:sequence>
+   <xs:element name="messageHeader" type="messageHeaderType" minOccurs="1" />
+   <xs:element name="feature" type="featureType" minOccurs="0" maxOccurs="unbounded" /> 
+   <xs:choice>
+     <xs:element name="mdn" type="phoneType" minOccurs="1" />
+    <xs:element name="nextAvailableMDN" type="nextAvailableMDNType" minOccurs="1" />
+   </xs:choice>
+   <xs:choice>
+    <xs:element name="meid" type="meidType" minOccurs="1" />
+    <xs:element name="esn" type="esnType" minOccurs="1" />
+   </xs:choice>
+   <xs:element name="mobileIPAddress" type="xs:string" minOccurs="0" />
+   <xs:element name="mpnPoolName" type="xs:string" minOccurs="0" />
+   <xs:element name="subOrgId" type="xs:string" minOccurs="0" />
+   <xs:choice>
+    <xs:element name="name" type="nameType" minOccurs="1" />
+    <xs:element name="busiess" type="xs:string" minOccurs="1" />
+   </xs:choice>   
+   <xs:element name="address" type="addressType" minOccurs="1" />
+   <xs:element name="authorizedSigner" type="xs:string" minOccurs="1" />
+   <xs:element name="authorizationStatus" type="xs:string" minOccurs="1" />
+   <xs:element name="directionalIndicator" type="xs:string" minOccurs="1" />
+   <xs:element name="phoneUserName" type="xs:string" minOccurs="1" />
+   <xs:choice>
+    <xs:element name="ssn" type="xs:string" minOccurs="1" />
+    <xs:element name="taxId" type="xs:string" minOccurs="1" />
+   </xs:choice>  
+   <xs:element name="ospAccountNo" type="ospAccountNoType" minOccurs="0" />
+   <xs:element name="hotCut" type="xs:string" minOccurs="0" />
+   <xs:element name="pin" type="pinType" minOccurs="0" />
+   <xs:element name="remark" type="xs:string" minOccurs="0" />
+  </xs:sequence>
+ </xs:complexType>
+ 
+ <xs:complexType name="DeleteSubscriberRequest">
+  <xs:sequence>
+   <xs:element name="messageHeader" type="messageHeaderType" minOccurs="1" />
+   <xs:element name="mdn" type="phoneType" minOccurs="1"/>
+  </xs:sequence>
+ </xs:complexType>
+ 
+ <xs:complexType name="ValidateMDNPortabilityRequest">
+  <xs:sequence>
+   <xs:element name="messageHeader" type="messageHeaderType" minOccurs="1" />
+   <xs:element name="mdn" type="phoneType" minOccurs="1"/>
+  </xs:sequence>
+ </xs:complexType>
+ 
+ <xs:complexType name="messageHeaderType">
+  <xs:sequence>
+   <xs:element name="userId" minOccurs="1">
+    <xs:annotation><xs:documentation>A valid user within the Budget MVNO API System.</xs:documentation></xs:annotation>
+    <xs:simpleType>
+     <xs:restriction base="xs:string">
+      <xs:maxLength value = "25"/>
+     </xs:restriction>
+    </xs:simpleType>
+   </xs:element>
+   <xs:element name="referenceNumber" minOccurs="1">
+    <xs:annotation><xs:documentation>A unique indentifier.</xs:documentation></xs:annotation>
+    <xs:simpleType>
+     <xs:restriction base="xs:string">
+      <xs:maxLength value = "30"/>
+     </xs:restriction>
+    </xs:simpleType>
+   </xs:element>
+   <xs:element name="planCode" minOccurs="1">
+    <xs:annotation><xs:documentation>The appropriate VZW price plan code.</xs:documentation></xs:annotation>
+    <xs:simpleType>
+     <xs:restriction base="xs:string">
+      <xs:maxLength value = "60"/>
+     </xs:restriction>
+    </xs:simpleType>
+   </xs:element>
+   <xs:element name="ansynchronousReturnUrl" minOccurs="0">
+    <xs:annotation><xs:documentation>The URL for returning asynchronous POST responses, not required for synchronous operations</xs:documentation></xs:annotation>
+    <xs:simpleType> 
+     <xs:restriction base="xs:string">
+      <xs:maxLength value = "255"/>
+     </xs:restriction>
+    </xs:simpleType>
+   </xs:element>
+  </xs:sequence>
+ </xs:complexType>
+ 
+ <xs:simpleType name="pinType">
+  <xs:restriction base="xs:string">
+   <xs:maxLength value="15" />
+  </xs:restriction>
+ </xs:simpleType>
+
+ <xs:simpleType name="ospAccountNoType">
+  <xs:restriction base="xs:string">
+   <xs:pattern value="[A-Z0-9]{0,20}" />
+  </xs:restriction>
+ </xs:simpleType>
+
+ <xs:complexType name="nameType">
+  <xs:sequence>
+   <xs:element name="first" type="xs:string" minOccurs="1" />
+   <xs:element name="middleInitial" type="xs:string" minOccurs="0" />
+   <xs:element name="last" type="xs:string" minOccurs="1" />
+   <xs:element name="suffix" type="xs:string" minOccurs="0" />
+   <xs:element name="prefix" type="xs:string" minOccurs="0" />
+  </xs:sequence>
+ </xs:complexType>
+ 
+ <xs:complexType name="addressType">
+  <xs:sequence>
+   <xs:element name="street1" type="xs:string" minOccurs="1" />
+   <xs:element name="street2" type="xs:string" minOccurs="0" />
+   <xs:element name="city" type="xs:string" minOccurs="1" />
+   <xs:element name="state" type="stateType" minOccurs="1" />
+   <xs:element name="zipCode" type="zipCodeType" minOccurs="1" />
+   <xs:element name="country" type="countryType" minOccurs="0" />
+  </xs:sequence>
+ </xs:complexType>
+ 
+ <xs:simpleType name="stateType">
+  <xs:restriction base="xs:string">
+   <xs:pattern value="[A-Z]{2}" />
+  </xs:restriction>
+ </xs:simpleType>
+
+ <xs:simpleType name="countryType">
+  <xs:restriction base="xs:string">
+   <xs:maxLength value="3" />
+  </xs:restriction>
+ </xs:simpleType>
+
+ <xs:simpleType name="zipCodeType">
+  <xs:restriction base="xs:string">
+   <xs:pattern value="[1-9][0-9][0-9][0-9][0-9]|[0-9][1-9][0-9][0-9][0-9]|[0-9][0-9][1-9][0-9][0-9]|[0-9][0-9][0-9][1-9][0-9]|[0-9][0-9][0-9][0-9][1-9]" />
+  </xs:restriction>
+ </xs:simpleType>
+
+ <xs:simpleType name="phoneType">
+  <xs:restriction base="xs:string">
+   <xs:pattern value="\d{10}" />
+  </xs:restriction>
+ </xs:simpleType>
+ 
+ <xs:complexType name="featureType">
+  <xs:sequence>
+   <xs:element name="featureCode" type="xs:string" minOccurs="1" />
+   <xs:element name="subscribe" type="addDeleteType" minOccurs="1" />
+  </xs:sequence>
+ </xs:complexType>
+ 
+ <xs:simpleType name="addDeleteType">
+  <xs:restriction base="xs:string">
+   <xs:enumeration value="A"/>
+   <xs:enumeration value="D"/>
+  </xs:restriction>
+ </xs:simpleType>
+ 
+ <xs:complexType name="equipmentType">
+  <xs:sequence>
+   <xs:element name="make" type="xs:string" minOccurs="1" />
+   <xs:element name="model" type="xs:string" minOccurs="1" />
+   <xs:element name="mode" type="xs:string" minOccurs="1" />
+  </xs:sequence>
+ </xs:complexType>
+ 
+ <xs:complexType name="nextAvailableMDNType">
+  <xs:annotation>
+   <xs:documentation xml:lang="en">
+    Used by resellerAddSubscriberType. If an MDN is not supplied then the nextAvailableMDN must be supplied.
+    If the npaNxx is not in the XML then the new MDN will be obtained using the oldMdn and the supplied zipCode.
+    If the npaNxx and zipCode are not supplied then the new MDN will be obtained using the supplied state city and state.
+    If the MDN is not supplied and none of these fields are supplied, then an exception will be returned to the reseller.
+   </xs:documentation>
+  </xs:annotation>
+  <xs:sequence>
+   <xs:choice id="choice">
+    <xs:element name="npaNXX" type="npaNxxType" minOccurs="1" />
+    <xs:element name="zipCode" type="xs:string" minOccurs="1" />
+    <xs:element name="cityState" type="cityStateType" minOccurs="1" />
+   </xs:choice>
+  </xs:sequence>
+ </xs:complexType>
+
+ <xs:simpleType name="npaNxxType">
+  <xs:restriction base="xs:string">
+   <xs:pattern value="\d{6}" />
+  </xs:restriction>
+ </xs:simpleType>
+  
+  <xs:complexType name="cityStateType">
+  <xs:sequence>
+   <xs:element name="city" type="xs:string" minOccurs="1" />
+   <xs:element name="state" type="stateType" minOccurs="1" />
+  </xs:sequence>
+ </xs:complexType>
+ 
+ <xs:complexType name="UpdateBucketResponse">
+  <xs:sequence>
+   <xs:element name="returnMessage" type="returnMessageType" minOccurs="1"/>
+   <xs:element name="transactionContext" type="transactionContextType" minOccurs="0"/>
+  </xs:sequence>
+ </xs:complexType>
+ 
+ <xs:complexType name="DeleteBucketResponse">
+  <xs:sequence>
+   <xs:element name="returnMessage" type="returnMessageType" minOccurs="1"/>
+   <xs:element name="transactionContext" type="transactionContextType" minOccurs="0"/>
+  </xs:sequence>
+ </xs:complexType>
+ 
+ <xs:complexType name="AddBucketResponse">
+  <xs:sequence>
+   <xs:element name="returnMessage" type="returnMessageType" minOccurs="1"/>
+   <xs:element name="transactionContext" type="transactionContextType" minOccurs="0"/>
+  </xs:sequence>
+ </xs:complexType>
+ 
+ <xs:complexType name="SearchBucketResponse">
+  <xs:sequence>
+   <xs:element name="returnMessage" type="returnMessageType" minOccurs="1"/>
+   <xs:element name="transactionContext" type="transactionContextType" minOccurs="0"/>
+   <xs:element name="numberRecords" type="xs:string" minOccurs="0"/>
+   <xs:element name="additionalRecords" type="xs:string" minOccurs="0"/>
+   <xs:element name="mdn" type="phoneType" minOccurs="0"/>
+   <xs:element name="bucketInfo" type="bucketInfoType" minOccurs="0"/>
+   <xs:element name="numBuckets" type="xs:string" minOccurs="0"/>
+   <xs:element name="primaryBalance" type="xs:string" minOccurs="0"/>
+  </xs:sequence>
+ </xs:complexType>
+ 
+ <xs:complexType name="transactionContextType">
+  <xs:sequence>
+   <xs:element name="userId" type="xs:string" minOccurs="0"/>
+   <xs:element name="transactionId" type="xs:string" minOccurs="0"/>
+   <xs:element name="mdn" type="phoneType" minOccurs="0"/>
+   <xs:element name="status" type="xs:string" minOccurs="0"/>
+  </xs:sequence>
+ </xs:complexType>
+ 
+ <xs:complexType name="bucketInfoType">
+  <xs:sequence>
+   <xs:element name="sweepOn" type="trueFalseType" minOccurs="1"/>
+   <xs:element name="bucket" type="bucketType" minOccurs="0" maxOccurs="unbounded" /> 
+  </xs:sequence>
+ </xs:complexType>
+
+ <xs:complexType name="bucketType">
+  <xs:sequence>
+   <xs:element name="reTime" type="xs:string" minOccurs="0"/>
+   <xs:element name="balanceValue" type="xs:string" minOccurs="0"/>
+   <xs:element name="sourceId" type="xs:string" minOccurs="0"/>
+   <xs:element name="uom" type="xs:string" minOccurs="0"/>
+   <xs:element name="bucketValue" type="xs:string" minOccurs="0"/>
+   <xs:element name="expTime" type="xs:string" minOccurs="0"/>
+   <xs:element name="sourceValue" type="xs:string" minOccurs="0"/>
+   <xs:element name="bucketTypeID" type="xs:string" minOccurs="0"/>
+   <xs:element name="canUpdate" type="xs:string" minOccurs="0"/>
+   <xs:element name="canDelete" type="xs:string" minOccurs="0"/>
+  </xs:sequence>
+ </xs:complexType>
+ 
+ <xs:complexType name="DeviceInquiryResponse">
+  <xs:sequence>
+   <xs:element name="messageHeader" type="messageHeaderType" minOccurs="1"/>
+   <xs:element name="returnMessage" type="returnMessageType" minOccurs="1"/>
+  </xs:sequence>
+ </xs:complexType>
+ 
+ <xs:complexType name="ValidateDeviceResponse">
+  <xs:sequence>
+   <xs:element name="messageHeader" type="messageHeaderType" minOccurs="1"/>
+   <xs:element name="returnMessage" type="returnMessageType" minOccurs="1"/>
+   <xs:element name="deviceId" type="deviceIdType" minOccurs="0"/>
+   <xs:element name="isValid" type="trueFalseType" minOccurs="0"/>
+   <xs:element name="isInDMD" type="trueFalseType" minOccurs="0"/>
+   <xs:element name="isPIBLock" type="trueFalseType" minOccurs="0"/>
+   <xs:element name="isLostOrStolden" type="trueFalseType" minOccurs="0"/>
+   <xs:element name="equipment" type="equipmentType" minOccurs="0"/>
+  </xs:sequence>
+ </xs:complexType>
+ 
+ <xs:complexType name="LineInquiryResponse">
+  <xs:sequence>
+   <xs:element name="messageHeader" type="messageHeaderType" minOccurs="1"/>
+   <xs:element name="returnMessage" type="returnMessageType" minOccurs="1"/>
+   <xs:element name="lineResponse" type="LineInquiryResponseType" minOccurs="1"/>
+  </xs:sequence>
+ </xs:complexType>
+ 
+ <xs:complexType name="LineInquiryResponseType">
+  <xs:sequence>
+   <xs:element name="min" type="phoneType" minOccurs="0"/> 
+   <xs:element name="mdn" type="phoneType" minOccurs="0"/> 
+   <xs:choice> 
+    <xs:element name="esn" type="esnType"/> 
+    <xs:element name="meid" type="meidType"/> 
+   </xs:choice> 
+   <xs:element name="mobileIPAddress" type="xs:string" minOccurs="0"/> 
+   <xs:element name="statusCode" type="xs:string"  minOccurs="0"/> 
+   <xs:element name="FUSFExemptFlag" type="xs:string"  minOccurs="0"/> 
+   <xs:element  name="feature" type="featureType" minOccurs="0" maxOccurs="unbounded"/> 
+   <xs:element name="equipment" type="equipmentType" minOccurs="0"/> 
+   <xs:element name="initialServiceDate" type="xs:string" minOccurs="0"/> 
+  </xs:sequence>
+ </xs:complexType>
+ 
+ <xs:complexType name="PortInInquiryResponse">
+  <xs:sequence>
+   <xs:element name="messageHeader" type="messageHeaderType" minOccurs="1"/>
+   <xs:element name="returnMessage" type="returnMessageType" minOccurs="1"/>
+  </xs:sequence>
+ </xs:complexType>
+  
+ <xs:complexType name="PrlInquiryResponse">
+  <xs:sequence>
+   <xs:element name="messageHeader" type="messageHeaderType" minOccurs="1"/>
+   <xs:element name="returnMessage" type="returnMessageType" minOccurs="1"/>
+  </xs:sequence>
+ </xs:complexType>
+ 
+ <xs:simpleType name="deviceIdType">
+  <xs:restriction base="xs:string">
+ </xs:restriction>
+</xs:simpleType>
+
+ <xs:complexType name="DeviceActivationResponse">
+  <xs:sequence>
+   <xs:element name="messageHeader" type="messageHeaderType" minOccurs="1"/>
+   <xs:element name="returnMessage" type="returnMessageType" minOccurs="1"/>
+  </xs:sequence>
+ </xs:complexType>
+ 
+ <xs:complexType name="DeviceActivationPortInResponse">
+  <xs:sequence>
+   <xs:element name="messageHeader" type="messageHeaderType" minOccurs="1"/>
+   <xs:element name="returnMessage" type="returnMessageType" minOccurs="1"/>
+  </xs:sequence>
+ </xs:complexType>
+  
+ <xs:complexType name="DeviceAsyncResponse">
+  <xs:sequence>
+   <xs:element name="messageHeader" type="messageHeaderType" minOccurs="1"/>
+   <xs:element name="returnMessage" type="returnMessageType" minOccurs="1"/>
+   <xs:choice> 
+    <xs:element name="esn" type="esnType"/> 
+    <xs:element name="meid" type="meidType"/> 
+    <xs:element name="deviceId" type="deviceIdType"/> 
+   </xs:choice> 
+   <xs:element name="min" type="phoneType" minOccurs="0"/> 
+   <xs:element name="mdn" type="phoneType" minOccurs="0"/> 
+   <xs:element name="mobileIPAddress" type="xs:string" minOccurs="0"/> 
+   <xs:element name="iccid" type="xs:string" minOccurs="0"/> 
+   <xs:element name="iec" type="xs:string" minOccurs="0"/> 
+   <xs:element name="statusCode" type="xs:string"  minOccurs="0"/> 
+   <xs:element  name="feature" type="featureType" minOccurs="0" maxOccurs="unbounded"/> 
+   <xs:element name="equipment" type="equipmentType" minOccurs="0"/> 
+   <xs:element name="initialServiceDate" type="xs:string" minOccurs="0"/> 
+  </xs:sequence>
+ </xs:complexType>
+ 
+ <xs:complexType name="OrderResponse">
+  <xs:sequence>
+   <xs:element name="messageHeader" type="messageHeaderType" minOccurs="1"/>
+   <xs:element name="returnMessage" type="returnMessageType" minOccurs="1"/>
+  </xs:sequence>
+ </xs:complexType>
+ 
+ <xs:complexType name="OrderInquiryResponse">
+  <xs:sequence>
+   <xs:element name="messageHeader" type="messageHeaderType" minOccurs="1"/>
+   <xs:element name="returnMessage" type="returnMessageType" minOccurs="1"/>
+   <xs:element name="orderTimeStamp" type="xs:string" minOccurs="0"/>
+   <xs:element name="orderStatus" type="xs:string" minOccurs="0"/>
+   <xs:element name="message" type="xs:string" minOccurs="0"/>
+   <xs:element name="mdn" type="phoneType" minOccurs="0"/>
+   <xs:element name="noOfLines" type="xs:string" minOccurs="0"/>   
+  </xs:sequence>
+ </xs:complexType>
+ 
+ <xs:complexType name="LineAsyncResponse">
+  <xs:sequence>
+   <xs:element name="messageHeader" type="messageHeaderType" minOccurs="1"/>
+   <xs:element name="returnMessage" type="returnMessageType" minOccurs="1"/>
+   <xs:element name="min" type="phoneType" minOccurs="0"/>
+   <xs:element name="mdn" type="phoneType" minOccurs="0"/>
+   <xs:choice> 
+    <xs:element name="esn" type="esnType"/> 
+    <xs:element name="meid" type="meidType"/> 
+   </xs:choice> 
+   <xs:element name="statusCode" type="xs:string" minOccurs="0"/>
+   <xs:element name="mobileIPAddress" type="xs:string" minOccurs="0"/> 
+   <xs:element name="fusfExempt" type="trueFalseType" minOccurs="0"/> 
+   <xs:element  name="feature" type="featureType" minOccurs="0" maxOccurs="unbounded"/> 
+   <xs:element name="equipment" type="equipmentType" minOccurs="0"/> 
+   <xs:element name="initialServiceDate" type="xs:string" minOccurs="0"/> 
+  </xs:sequence>
+ </xs:complexType>
+ 
+ <xs:complexType name="PrlAsyncResponse">
+  <xs:sequence>
+   <xs:element name="messageHeader" type="messageHeaderType" minOccurs="1"/>
+   <xs:element name="returnMessage" type="returnMessageType" minOccurs="1"/>
+   <xs:element name="min" type="phoneType" minOccurs="0"/>
+   <xs:element name="mdn" type="phoneType" minOccurs="0"/>
+   <xs:choice> 
+    <xs:element name="esn" type="esnType"/> 
+    <xs:element name="meid" type="meidType"/> 
+   </xs:choice> 
+   <xs:element  name="prlNumber" type="xs:string" minOccurs="0"/> 
+   <xs:element name="downloadDate" type="xs:string" minOccurs="0"/> 
+  </xs:sequence>
+ </xs:complexType>
+ 
+  <xs:complexType name="OrderAsyncResponse">
+  <xs:sequence>
+   <xs:element name="messageHeader" type="messageHeaderType" minOccurs="1"/>
+   <xs:element name="errorCode" type="xs:string" minOccurs="1"/>
+   <xs:element name="errorMessage" type="xs:string" minOccurs="0"/>
+   <xs:element name="errorDecription" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+   <xs:element name="iccid" type="xs:string" minOccurs="0"/>
+   <xs:element name="mdn" type="phoneType" minOccurs="0"/>
+   <xs:element name="min" type="phoneType" minOccurs="0"/>
+   <xs:element name="mobileIPAddress" type="xs:string" minOccurs="0"/>   
+   <xs:element name="status" type="xs:string" minOccurs="0"/>
+  </xs:sequence>
+ </xs:complexType>
+ 
+ <xs:complexType name="returnMessageType">
+  <xs:sequence>
+   <xs:element name="returnCode" type="xs:string"/>
+   <xs:element name="returnText" type="xs:string"/>
+  </xs:sequence>
+ </xs:complexType>
+ 
+
+ <xs:complexType name="DeleteSubscriberResponse">
+  <xs:sequence>
+   <xs:element name="messageHeader" type="messageHeaderType" minOccurs="1"/>
+   <xs:element name="returnMessage" type="returnMessageType" minOccurs="1"/>
+  </xs:sequence>
+ </xs:complexType>
+
+ <xs:complexType name="ValidateMDNPortabilityResponse">
+  <xs:sequence>
+   <xs:element name="messageHeader" type="messageHeaderType" minOccurs="1"/>
+   <xs:element name="returnMessage" type="returnMessageType" minOccurs="1"/>
+  </xs:sequence>
+ </xs:complexType>
+
+ <xs:complexType name="ChangeESNResponse">
+  <xs:sequence>
+   <xs:element name="messageHeader" type="messageHeaderType" minOccurs="1"/>
+   <xs:element name="returnMessage" type="returnMessageType" minOccurs="1"/>
+  </xs:sequence>
+ </xs:complexType>
+
+ <xs:complexType name="AddHotlineResponse">
+  <xs:sequence>
+   <xs:element name="messageHeader" type="messageHeaderType" minOccurs="1"/>
+   <xs:element name="returnMessage" type="returnMessageType" minOccurs="1"/>
+  </xs:sequence>
+ </xs:complexType>
+
+ <xs:complexType name="RemoveHotlineResponse">
+  <xs:sequence>
+   <xs:element name="messageHeader" type="messageHeaderType" minOccurs="1"/>
+   <xs:element name="returnMessage" type="returnMessageType" minOccurs="1"/>
+  </xs:sequence>
+ </xs:complexType>
+
+ <xs:complexType name="AddHotlineSubscriberResponse">
+  <xs:sequence>
+   <xs:element name="messageHeader" type="messageHeaderType" minOccurs="1"/>
+   <xs:element name="returnMessage" type="returnMessageType" minOccurs="1"/>
+  </xs:sequence>
+ </xs:complexType>
+
+ <xs:complexType name="ReconnectMDNResponse">
+  <xs:sequence>
+   <xs:element name="messageHeader" type="messageHeaderType" minOccurs="1"/>
+   <xs:element name="returnMessage" type="returnMessageType" minOccurs="1"/>
+  </xs:sequence>
+ </xs:complexType>
+
+ <xs:complexType name="RestoreSuspendedSubscriberResponse">
+  <xs:sequence>
+   <xs:element name="messageHeader" type="messageHeaderType" minOccurs="1"/>
+   <xs:element name="returnMessage" type="returnMessageType" minOccurs="1"/>
+  </xs:sequence>
+ </xs:complexType>
+
+ <xs:complexType name="SuspendSubscriberResponse">
+  <xs:sequence>
+   <xs:element name="messageHeader" type="messageHeaderType" minOccurs="1"/>
+   <xs:element name="returnMessage" type="returnMessageType" minOccurs="1"/>
+  </xs:sequence>
+ </xs:complexType>
+
+ <xs:complexType name="ChangeMobileNumberResponse">
+  <xs:sequence>
+   <xs:element name="messageHeader" type="messageHeaderType" minOccurs="1"/>
+   <xs:element name="returnMessage" type="returnMessageType" minOccurs="1"/>
+  </xs:sequence>
+ </xs:complexType>
+
+ <xs:complexType name="ChangeRatePlanResponse">
+  <xs:sequence>
+   <xs:element name="messageHeader" type="messageHeaderType" minOccurs="1"/>
+   <xs:element name="returnMessage" type="returnMessageType" minOccurs="1"/>
+  </xs:sequence>
+ </xs:complexType>
+
+ <xs:complexType name="ChangeSIMResponse">
+  <xs:sequence>
+   <xs:element name="messageHeader" type="messageHeaderType" minOccurs="1"/>
+   <xs:element name="returnMessage" type="returnMessageType" minOccurs="1"/>
+  </xs:sequence>
+ </xs:complexType>
+ 
+ <xs:complexType name="ResetFeatureResponse">
+  <xs:sequence>
+   <xs:element name="messageHeader" type="messageHeaderType" minOccurs="1"/>
+   <xs:element name="returnMessage" type="returnMessageType" minOccurs="1"/>
+  </xs:sequence>
+ </xs:complexType>
+ 
+ <xs:complexType name="ChangeFeaturesResponse">
+  <xs:sequence>
+   <xs:element name="messageHeader" type="messageHeaderType" minOccurs="1"/>
+   <xs:element name="returnMessage" type="returnMessageType" minOccurs="1"/>
+  </xs:sequence>
+ </xs:complexType>
+ 
+</xs:schema>

@@ -1,0 +1,22 @@
+<vbox id="actionsPanel" 
+      class="sly-actions-panel"
+      use="com.budgetprepay.viewcontroller.user.Actions">
+ <a image="${sly:getImageURL('search', 'small')}" 
+	 label="${sly:getLabel('Labels.UI.basic-list-filter')}"
+	 id="basicFilter" 
+	 style="text-decoration: none"
+	 sclass="sly-action"
+	 disabled="true"/>
+ <a image="${sly:getImageURL('reset-search', 'small')}"
+	 label="${sly:getLabel('Labels.UI.show-all')}"
+	 id="clearFilter"
+	 style="text-decoration: none"
+	 sclass="sly-action"
+	 disabled="true"/>		
+ <a image="${sly:getImageURL('contract', 'small')}" 
+	 tooltiptext="${sly:getLabel('Labels.UI.create-new-classofservice')}"
+	 label="${sly:getLabel('Labels.UI.create-new-cos')}"
+	 id="createButton"
+	 style="text-decoration: none"
+	 sclass="sly-action"/>	
+</vbox>

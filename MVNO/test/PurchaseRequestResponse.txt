@@ -1,0 +1,29 @@
+<BeQuick product="OSS">
+  <session>
+    <clec>
+      <id>213</id>
+      <agentUser>
+        <username>budgetprepay</username>
+        <token>F7MY6JVMDRTUB8E</token>
+      </agentUser>
+    </clec>
+  </session>
+  <request type="Purchase">
+    <mdn>(318) 5072086</mdn>
+    <planId>1200</planId>
+    <!-- mdn AND planID required -->
+  </request>
+</BeQuick>
+
+<BeQuick product="OSS">
+  <response timestamp="20140114223949" status="success" type="WirelessPurchaseResponse" />
+  <session>
+    <clec>
+      <overrides></overrides>
+      <id>213</id>
+    </clec>
+    <timestamp>20140114223946</timestamp>
+    <id></id>
+  </session>
+</BeQuick>
+

@@ -1,0 +1,22 @@
+Make sure to add @XmlRootElement to Response elements with name attributes
+
+Release 1.0
+
+Release 1.2
+
+Release 1.4
+
+Release 1.6
+
+Release 1.6.1
+
+Release 1.6.2
+	1. Turn off WS-Secuirty until a Microsoft client solution can be implemented
+	2. Verify minOccurs values against the Verision WSDLs
+	
+Release 2.0
+	1. Budgret Topup interface
+	
+Release 3.0
+	1. BeBuick T-Mobile interface
+	   http://www.pwwsales.com/xyzmobile/xml_create.php

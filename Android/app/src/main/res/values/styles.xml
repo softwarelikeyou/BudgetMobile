@@ -1,0 +1,42 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="android:background">@android:color/white</item>
+        <item name="android:textColor">@android:color/black</item>
+        <item name="colorPrimary">@android:color/white</item>
+        <item name="colorPrimaryDark">@android:color/black</item>
+        <item name="colorAccent">@android:color/white</item>
+        <item name="android:windowBackground">@android:color/white</item>
+        <item name="android:actionOverflowButtonStyle">@style/MyActionButtonOverflow</item>
+        <item name="actionOverflowButtonStyle">@style/MyActionButtonOverflow</item>
+        <item name="alertDialogTheme">@android:style/TextAppearance.Theme.Dialog</item>
+    </style>
+
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="MyActionButtonOverflow" parent="android:style/Widget.Holo.Light.ActionButton.Overflow">
+        <item name="android:src">@drawable/menu</item>
+        <item name="android:background">@android:color/white</item>
+    </style>
+
+    <style name="MyCheckBox" parent="Theme.AppCompat.Light">
+        <item name="colorControlNormal">@color/budget_orange</item>
+        <item name="colorControlActivated">@color/budget_orange</item>
+    </style>
+
+    <style name="CCCheckoutStyle" parent="Theme.AppCompat.Light">
+        <item name="android:textSize">16sp</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">40dp</item>
+    </style>
+
+</resources>
